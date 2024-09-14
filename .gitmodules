@@ -1,0 +1,3 @@
+[submodule "dotfiles/.config"]
+	path = dotfiles/.config
+	url = https://github.com/olivert8/.config.git
