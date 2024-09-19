@@ -16,6 +16,7 @@
       #Bundles
       ../../modules/bundles/editors/terminal-editors/neovim.nix
       #../../modules/nixos/editors/terminal-editors/neovim.nix
+      ../../modules/bundles/internet.nix
     ];
 
   # Bootloader.
@@ -36,16 +37,16 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  #networking.networkmanager.enable = true;
 
   #Network patch for ITU
   #in config
   #allow connection to eurdoman
-    nixpkgs.config.packageOverrides = pkgs: rec {
-      wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
-        patches = attrs.patches ++ [ ../../patches/eduroam.patch ];
-      });
-    };
+  #    nixpkgs.config.packageOverrides = pkgs: rec {
+  #      wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
+  #        patches = attrs.patches ++ [ ../../patches/eduroam.patch ];
+  #      });
+  #    };
 
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
