@@ -2,7 +2,7 @@
 {
   imports = [
 	../nixos/internet/network.nix
-        ../nixos/internet/wpa_supplicant.nix
+    #../nixos/internet/wpa_supplicant.nix
   ];
 
   #Network patch for ITU
