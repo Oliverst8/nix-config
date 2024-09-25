@@ -7,8 +7,9 @@
 	  gnumake42
 	  ripgrep
 	  unzip
-	  xclip
+	  xsel
 	  fd
+	  git
 	  lua
 	  cargo
 	  unzip
