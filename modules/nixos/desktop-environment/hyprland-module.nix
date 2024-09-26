@@ -5,6 +5,9 @@ options = {
 	};
 
 config =  lib.mkIf config.hyprland-module.enable {
+	services.displayManager.sddm.enable = true;
+	services.displayManager.sddm.wayland.enable = true;
+
 	programs.hyprland.enable = true;
 	programs.hyprland.xwayland.enable = true;
 	
@@ -29,8 +32,6 @@ config =  lib.mkIf config.hyprland-module.enable {
 	xdg.portal.enable = true;
 	xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-	services.displayManager.sddm.enable = true;
-	services.displayManager.sddm.wayland.enable = true;
 	security.rtkit.enable = true;
 	services.pipewire = {
 	enable = true;
