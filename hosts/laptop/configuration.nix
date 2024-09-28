@@ -128,7 +128,7 @@
     users.users.ostarup = {
       isNormalUser = true;
       description = "Oliver Starup";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [ "networkmanager" "wheel" "input" ];
       packages = with pkgs; [
         kate
       #  thunderbird
