@@ -1,8 +1,13 @@
-{pkgs, lib, config, ...}:
+{pkgs, lib, config, inputs, ...}:
 {
 options = {
 	hyprland-module.enable = lib.mkEnableOption "Enables hyprland";
 	};
+
+imports =  [
+	../controlhub/libinput.nix
+	];
+
 
 config =  lib.mkIf config.hyprland-module.enable {
 	services.displayManager.sddm.enable = true;
@@ -10,7 +15,10 @@ config =  lib.mkIf config.hyprland-module.enable {
 
 	programs.hyprland.enable = true;
 	programs.hyprland.xwayland.enable = true;
-	
+
+
+
+
 	environment.systemPackages = with pkgs; [
 		pkgs.waybar
 		(pkgs.waybar.overrideAttrs (oldAttrs: {
@@ -27,6 +35,7 @@ config =  lib.mkIf config.hyprland-module.enable {
 		networkmanagerapplet
 		swayosd
 		wl-clipboard
+		wev
 		];	
 
 	xdg.portal.enable = true;
