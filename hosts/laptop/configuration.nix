@@ -157,6 +157,7 @@
     git
     gh
     lazygit
+    vscode-fhs
 
     #Allows the use of mason and lsps with neovim
       steam-run
