@@ -26,15 +26,15 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
 
-      #../../modules/nixos/desktop-environment/kde.nix
-      #../../modules/nixos/desktop-environment/hyprland.nix
-      ../../modules/bundles/desktop-environment/desktop-environment.nix
+      #Nixos modules
+      ../../modules/nixos/editors/vscode.nix
 
       #Bundles
       ../../modules/bundles/editors/terminal-editors/neovim.nix
-      #../../modules/nixos/editors/terminal-editors/neovim.nix
       ../../modules/bundles/internet.nix
       ../../modules/bundles/terminal/terminal.nix
+      ../../modules/nixos/editors/intellij.nix
+      ../../modules/bundles/desktop-environment/desktop-environment.nix
     ];
 
   config = {
@@ -76,19 +76,6 @@
       LC_TELEPHONE = "da_DK.UTF-8";
       LC_TIME = "da_DK.UTF-8";
     };
-
-    #Enable for kde 6
-    #   services.xserver.enable = true;
-    #   services.displayManager.sddm.enable = true;
-    #   services.desktopManager.plasma6.enable = true;  
-
-    #Enable for kde 5
-    ## Enable the X11 windowing system.
-    ##services.xserver.enable = true;
-
-    ## Enable the KDE Plasma Desktop Environment.
-    #services.xserver.displayManager.sddm.enable = true;
-    #services.xserver.desktopManager.plasma5.enable = true;
 
     # Configure keymap in X11
     services.xserver.xkb = {
@@ -157,7 +144,7 @@
     git
     gh
     lazygit
-    vscode-fhs
+    
 
     #Allows the use of mason and lsps with neovim
       steam-run
