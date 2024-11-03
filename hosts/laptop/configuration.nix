@@ -28,6 +28,7 @@
 
       #Nixos modules
       ../../modules/nixos/editors/vscode.nix
+      ../../modules/nixos/battery.nix
 
       #Bundles
       ../../modules/bundles/editors/terminal-editors/neovim.nix
