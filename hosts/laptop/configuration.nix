@@ -36,6 +36,10 @@
       ../../modules/bundles/terminal/terminal.nix
       ../../modules/nixos/editors/intellij.nix
       ../../modules/bundles/desktop-environment/desktop-environment.nix
+
+
+      #ITU
+      ../../modules/nixos/ITU/4semester/default.nix
     ];
 
   config = {
