@@ -21,6 +21,8 @@
 
   config.desktop.environment = "hyprland"; #Pick between kde or hyprland
 
+
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -57,6 +59,10 @@
 
     # Enable nix flakes
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+      #Make touchpad work after sleep
+  powerManagement.powerUpCommands = "sudo rmmod atkbd; sudo modprobe atkbd reset=1";
+
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
