@@ -31,8 +31,8 @@ in
           gaps_in = 5;
           gaps_out = 20;
           border_size = 2;
-          col.active_border = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-          col.inactive_border = "rgba(595959aa)";
+          # col.active_border = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+          # col.inactive_border = "rgba(595959aa)";
           resize_on_border = false;
           allow_tearing = false;
           layout = "dwindle";
@@ -45,7 +45,7 @@ in
           drop_shadow = true;
           shadow_range = 4;
           shadow_render_power = 3;
-          col.shadow = "rgba(1a1a1aee)";
+          #  col.shadow = "rgba(1a1a1aee)";
           blur = {
             enabled = true;
             size = 3;
@@ -140,7 +140,7 @@ in
           "$mainMod, mouse_up, workspace, e-1"
           "$mainMod, SPACE, exec, rofi -show drun -show-icons"
           "$mainMod SHIFT, Q, exec, ${browser}"
-          "$mainMod, A, exec, ~/.config/hypr/rofi_keybinds.sh"
+          "$mainMod, A, exec, ~/.config/hypr-backup/rofi_keybinds.sh"
         ];
 
         bindm = [
@@ -158,7 +158,12 @@ in
         ];
 
         exec-once = [
-          "bash ~/.config/hypr/start.sh"
+          "swww init"
+          "nm-applet --indicator"
+          "waybar"
+          "dunst"
+          "exec swayosd-server"
+          "libinput-gestures"
         ];
       };
     };
