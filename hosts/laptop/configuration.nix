@@ -32,6 +32,7 @@
       ../../modules/nixos/editors/vscode.nix
       ../../modules/nixos/battery.nix
       ../../modules/bundles/defaultPrograms.nix
+      ../../modules/nixos/cli/gottis-module.nix
 
       #Bundles
       ../../modules/bundles/editors/terminal-editors/neovim.nix
@@ -46,6 +47,8 @@
     ];
 
   config = {
+
+    services.gottis.enable = true;
 
     # Bootloader.
     boot.loader.grub.enable = true;
