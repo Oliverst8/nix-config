@@ -10,6 +10,7 @@ environment.systemPackages = [
       pkgs.dotnetCorePackages.sdk_7_0
       pkgs.dotnetCorePackages.sdk_9_0
     ])
+pkgs.python313
   ];
 
 nixpkgs.config.permittedInsecurePackages = [
