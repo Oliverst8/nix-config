@@ -36,6 +36,7 @@ config =  lib.mkIf config.hyprland-module.enable {
 		swayosd
 		wl-clipboard
 		wev
+		wpaperd
 		];	
 
 	xdg.portal.enable = true;
