@@ -33,6 +33,7 @@
       ../../modules/nixos/battery.nix
       ../../modules/bundles/defaultPrograms.nix
       ../../modules/nixos/cli/gottis-module.nix
+      ../../modules/nixos/editors/goland.nix
 
       #Bundles
       ../../modules/bundles/editors/terminal-editors/neovim.nix
