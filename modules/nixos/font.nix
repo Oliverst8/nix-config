@@ -1,7 +1,7 @@
 {pkgs, ...}:
 
 {
-fonts.packages = with pkgs; [
-  nerd-fonts.MesloLG
+  fonts.packages = with pkgs; [
+  nerd-fonts.meslo-lg
 ];
 }
