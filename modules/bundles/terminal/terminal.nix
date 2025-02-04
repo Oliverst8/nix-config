@@ -4,6 +4,7 @@
 
 	imports = [
 		../../nixos/terminal/alacritty.nix
+		../../nixos/terminal/ghostty.nix
 	];
 
 	home-manager.users.ostarup = {
