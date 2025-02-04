@@ -10,9 +10,9 @@ in
   config = lib.mkIf cfg.enable {
     programs.zsh = {
       enable = true;
-      #enableCompletion = true;
-      #autosuggestion.enable = true;
-      #syntaxHighlighting.enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
 
       shellAliases = {
         ll = "ls -l";
@@ -34,9 +34,6 @@ in
           "colorize"
           "colored-man-pages"
           "gh"
-          "zsh-autosuggestions"
-          "fast-syntax-highlighting"
-          "zsh-autocomplete"
         ];
       };
     };
