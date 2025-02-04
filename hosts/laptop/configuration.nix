@@ -128,11 +128,15 @@
     # Enable touchpad support (enabled default in most desktopManager).
     services.libinput.enable = true;
 
+    # Enbale zsh
+    #programs.zsh.enable = true;
+
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.ostarup = {
       isNormalUser = true;
       description = "Oliver Starup";
       extraGroups = [ "networkmanager" "wheel" "input" ];
+      #shell = pkgs.zsh;
       packages = with pkgs; [
         kate
       #  thunderbird
