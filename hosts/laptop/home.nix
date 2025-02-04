@@ -4,6 +4,7 @@
   imports = [
     ../../modules/home-manager/desktop-environment/hypr/hyprland.nix
     ../../modules/home-manager/terminal/zsh.nix
+    ../../modules/home-manager/terminal/starship.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
