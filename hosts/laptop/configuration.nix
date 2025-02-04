@@ -136,7 +136,7 @@
       isNormalUser = true;
       description = "Oliver Starup";
       extraGroups = [ "networkmanager" "wheel" "input" ];
-      #shell = pkgs.zsh;
+      shell = pkgs.zsh;
       packages = with pkgs; [
         kate
       #  thunderbird
