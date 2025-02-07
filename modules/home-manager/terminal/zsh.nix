@@ -17,6 +17,7 @@ in
       shellAliases = {
         ll = "ls -l";
         update="sudo nixos-rebuild switch --flake ~/nixos/#laptop";
+        sus="python -c 'print(chr(sum(range(ord(min(str(not())))))))'";
       };
 
 
