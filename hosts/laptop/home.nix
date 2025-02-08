@@ -7,6 +7,7 @@
     ../../modules/home-manager/terminal/starship.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/terminal/ghostty.nix
+    ../../modules/home-manager/desktop-environment/hypr/waybar.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
