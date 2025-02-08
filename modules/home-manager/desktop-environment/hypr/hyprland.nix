@@ -2,7 +2,7 @@
 
 let
   cfg = config.hyprland;
-  terminal = "kitty";
+  terminal = "ghostty";
   fileManager = "dolphin";
   browser = "firefox";
   menu = "wofi --show drun";
@@ -91,7 +91,7 @@ in
         };
 
         gestures = {
-          workspace_swipe = false;
+          workspace_swipe = true;
         };
 
         device = {
