@@ -5,7 +5,7 @@
 programs.ghostty = {
 	enable = true;
 	settings = {
-		theme = "Abernathy";
+		theme = "Dark Pastel";
 		window-decoration = false;
 		};
 	};
