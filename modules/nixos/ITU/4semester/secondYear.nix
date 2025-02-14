@@ -2,8 +2,8 @@
 
 {
             environment.systemPackages = [
-                pkgs.nodejs_23
-                pkgs.yarn
+                pkgs.nodejs_22
+                pkgs.pnpm
               ];
 
 }
