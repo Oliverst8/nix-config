@@ -7,6 +7,7 @@ programs.ghostty = {
 	settings = {
 		theme = "Dark Pastel";
 		window-decoration = false;
+		background-opacity = 0.5;
 		};
 	};
 
