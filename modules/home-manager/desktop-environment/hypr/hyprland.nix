@@ -48,8 +48,8 @@ in
           #  col.shadow = "rgba(1a1a1aee)";
           blur = {
             enabled = true;
-            size = 3;
-            passes = 1;
+            size = 5;
+            passes = 3;
             vibrancy = 0.1696;
           };
         };
