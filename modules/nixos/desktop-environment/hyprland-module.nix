@@ -10,7 +10,17 @@ imports =  [
 
 
 config =  lib.mkIf config.hyprland-module.enable {
-	services.displayManager.sddm.enable = true;
+	services.displayManager.sddm = {
+			enable = true;
+			sugarCandyNix = {
+				enable = true;
+				settings = {
+					Background = lib.cleanSource ./../../../imgs/.background/City-Rain.png;
+					FullBlur = true;
+					ForceHideCompletePassword = true;
+				};
+			};
+		};
 	services.displayManager.sddm.wayland.enable = true;
 
 	programs.hyprland.enable = true;

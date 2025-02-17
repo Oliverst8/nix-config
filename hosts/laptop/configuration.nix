@@ -26,7 +26,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      #Add home-manager
       inputs.home-manager.nixosModules.default
+
+      #Custom modules
+      inputs.sddm-sugar-candy-nix.nixosModules.default
 
       #Nixos modules
       ../../modules/nixos/editors/vscode.nix
