@@ -3,7 +3,7 @@
 {
     config = {
 	environment.systemPackages = [
-	    pkgs.nnn
+	    pkgs.yazi
 	];
     };
 }
