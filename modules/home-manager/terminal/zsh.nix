@@ -18,6 +18,7 @@ in
         ll = "ls -l";
         update="sudo nixos-rebuild switch --flake ~/nixos/#laptop";
         g="lazygit";
+        y="yazi";
         sus="python -c 'print(chr(sum(range(ord(min(str(not())))))))'";
       };
 
