@@ -111,6 +111,7 @@ in
           "$mainMod, R, exec, ${menu}"
           "$mainMod, P, pseudo,"
           "$mainMod, J, togglesplit,"
+          "$mainMod, F, fullscreen, 0"
           "$mainMod, left, movefocus, l"
           "$mainMod, right, movefocus, r"
           "$mainMod, up, movefocus, u"
