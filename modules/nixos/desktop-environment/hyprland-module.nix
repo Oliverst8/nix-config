@@ -47,6 +47,7 @@ config =  lib.mkIf config.hyprland-module.enable {
 		wl-clipboard
 		wev
 		wpaperd
+		hyprlock
 		];	
 
 	xdg.portal.enable = true;
