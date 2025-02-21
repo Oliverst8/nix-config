@@ -6,5 +6,6 @@ environment.systemPackages = [
     pkgs.pavucontrol
     pkgs.libsForQt5.dolphin
     pkgs.power-profiles-daemon
+    pkgs.mpv
   ];
 }
