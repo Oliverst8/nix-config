@@ -7,5 +7,6 @@ environment.systemPackages = [
     pkgs.libsForQt5.dolphin
     pkgs.power-profiles-daemon
     pkgs.mpv
+    pkgs.direnv
   ];
 }
