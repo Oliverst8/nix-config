@@ -6,12 +6,6 @@
 
 {
 
-  #  options = {
-  #  desktop.environemnt = lib.mkOption {
-  #      type = lib.types.str;
-  #      default = "";
-  #    };
-  #  };
   options = {
     desktop.environment = lib.mkOption {
       type = lib.types.str;
