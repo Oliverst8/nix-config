@@ -141,7 +141,7 @@
     users.users.ostarup = {
       isNormalUser = true;
       description = "Oliver Starup";
-      extraGroups = [ "networkmanager" "wheel" "input" ];
+      extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
       shell = pkgs.zsh;
       packages = with pkgs; [
         kate

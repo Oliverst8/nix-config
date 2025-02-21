@@ -1,6 +1,7 @@
 {pkgs, ...}:
 
 {
+            virtualisation.docker.enable = true;
             
             imports = [
                         ./secondYear.nix
@@ -18,6 +19,7 @@ environment.systemPackages = [
       pkgs.dotnetCorePackages.sdk_9_0
     ])
 pkgs.python313
+   pkgs.docker
   ];
 
 nixpkgs.config.permittedInsecurePackages = [
