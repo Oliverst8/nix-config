@@ -8,5 +8,6 @@ environment.systemPackages = [
     pkgs.power-profiles-daemon
     pkgs.mpv
     pkgs.direnv
+    pkgs.nixpkgs-fmt
   ];
 }
