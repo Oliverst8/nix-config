@@ -6,8 +6,6 @@
 
 {
 
-  config.desktop.environment = "hyprland"; # Pick between kde or hyprland
-
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
@@ -15,6 +13,8 @@
   ];
 
   config = {
+
+    desktop.environment = "hyprland"; # Pick between kde or hyprland
 
     services.gottis.enable = true;
 
