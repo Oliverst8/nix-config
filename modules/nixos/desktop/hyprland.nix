@@ -1,7 +1,7 @@
 { pkgs, lib, config, inputs, ... }: {
   options = { hyprland-module.enable = lib.mkEnableOption "Enables hyprland"; };
 
-  imports = [ ../libinput/default.nix ];
+  imports = [ ../libinput ];
 
   config = lib.mkIf config.hyprland-module.enable {
     services.displayManager.sddm = {
