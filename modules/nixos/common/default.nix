@@ -135,7 +135,7 @@
       pkgs.power-profiles-daemon # Power profiles
       pkgs.mpv # Video player
       pkgs.direnv
-      pkgs.nixfmt # Formatter for nix
+      pkgs.nixfmt-rfc-style # Formatter for nix
       pkgs.tree # Tree command
       pkgs.docker
       pkgs.ghostty # Terminal
