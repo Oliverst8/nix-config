@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -22,6 +23,7 @@ in
       enable = true;
       plugins = [
         pkgs.hyprlandPlugins.hyprexpo
+        #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       ];
       settings = {
         monitor = [ ",preferred,auto,auto" ];
