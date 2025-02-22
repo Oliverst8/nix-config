@@ -1,16 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ../../modules-backup/home-manager/desktop-environment/hypr/hyprland.nix
-
-    ../../modules-backup/home-manager/desktop-environment/hypr/waybar.nix
-    ../../modules-backup/home-manager/desktop-environment/hypr/wpaperd.nix
-    ../../modules-backup/home-manager/desktop-environment/hypr/hyprlock.nix
-
-    ../../modules/home-manager/common
-
-  ];
+  imports = [ ../../modules/home-manager/common ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "ostarup";
