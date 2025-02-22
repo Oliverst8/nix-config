@@ -31,9 +31,6 @@
 
     environment.systemPackages = with pkgs; [
       pkgs.waybar
-      (pkgs.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      }))
       dunst
       libnotify
       swww
