@@ -15,7 +15,7 @@ in {
         update = "sudo nixos-rebuild switch --flake ~/nixos/#laptop";
         g = "lazygit";
         y = "yazi";
-        s = "spotify_player";
+        sp = "spotify_player";
         sus = "python -c 'print(chr(sum(range(ord(min(str(not())))))))'";
       };
 
