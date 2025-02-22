@@ -25,6 +25,8 @@
 
     #-------------------------------------------------------
 
+    ./genPackageFile.nix
+
     ../network
     ../desktop
     ../programs/neovim
