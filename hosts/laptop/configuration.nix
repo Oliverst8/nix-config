@@ -16,7 +16,7 @@
 
   config = {
 
-    #services.gottis.enable = true; to be enabled when introducing gottis
+    services.gottis.enable = true;
 
     networking.eduroamPatch.enable =
       true; # Enable being able to connect to the wifi at ITU
