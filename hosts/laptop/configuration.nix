@@ -11,7 +11,7 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    ../../modules/common/default.nix
+    ../../modules/nixos/common/default.nix 
   ];
 
   config = {
