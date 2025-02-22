@@ -9,6 +9,7 @@
     ../programs/zsh
     ../programs/starship
     ../programs/hypr
+    ../programs/neovim
   ];
 
 }
