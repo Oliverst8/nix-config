@@ -1,9 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
-let gottis = pkgs.callPackage ./gottis.nix { };
-in {
+let
+  gottis = pkgs.callPackage ./gottis.nix { };
+in
+{
   options.services.gottis = {
     enable = mkEnableOption "Gottis system info TUI";
   };
@@ -12,4 +19,3 @@ in {
     environment.systemPackages = [ gottis ];
   };
 }
-

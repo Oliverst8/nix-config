@@ -1,6 +1,15 @@
-{ inputs, pkgs, lib, config, ... }: {
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
 
-  options = { kde.enable = lib.mkEnableOption "kde"; };
+  options = {
+    kde.enable = lib.mkEnableOption "kde";
+  };
   config = lib.mkIf config.kde.enable {
     #Enable for kde 6
     services.xserver.enable = true;

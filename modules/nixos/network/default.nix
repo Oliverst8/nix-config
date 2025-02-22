@@ -1,7 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let cfg = config.networking.eduroamPatch;
-in {
+let
+  cfg = config.networking.eduroamPatch;
+in
+{
   options.networking.eduroamPatch = {
     enable = lib.mkEnableOption "Enable patch for wpa_supplicant (Eduroam)" // {
       default = false;

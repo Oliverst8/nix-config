@@ -25,8 +25,13 @@
             "hyprland/language"
           ];
           "modules-center" = [ "hyprland/workspaces" ];
-          "modules-right" =
-            [ "tray" "network" "backlight" "pulseaudio" "battery" ];
+          "modules-right" = [
+            "tray"
+            "network"
+            "backlight"
+            "pulseaudio"
+            "battery"
+          ];
 
           "hyprland/window" = {
             "max-length" = 200;
@@ -62,7 +67,17 @@
           "backlight" = {
             #// "device": "acpi_video1",
             "format" = "{icon}  {percent}%";
-            "format-icons" = [ "" "" "" "" "" "" "" "" "" ];
+            "format-icons" = [
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
           "battery" = {
             "states" = {
@@ -76,9 +91,17 @@
             "format-alt" = "{icon} {time}";
             #// "format-good": "", // An empty format will hide the module;
             #// "format-full": "",;
-            "format-icons" = [ "" "" "" "" "" ];
+            "format-icons" = [
+              ""
+              ""
+              ""
+              ""
+              ""
+            ];
           };
-          "battery#bat2" = { "bat" = "BAT2"; };
+          "battery#bat2" = {
+            "bat" = "BAT2";
+          };
           "custom/updates" = {
             "exec" = "(checkupdates) | wc -l";
             "interval" = 3600;
@@ -113,7 +136,11 @@
               "phone" = "";
               "portable" = "";
               "car" = "";
-              "default" = [ "" "" "" ];
+              "default" = [
+                ""
+                ""
+                ""
+              ];
             };
             "on-click" = "pavucontrol";
           };

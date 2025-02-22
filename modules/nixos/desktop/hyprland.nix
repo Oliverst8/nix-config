@@ -1,5 +1,14 @@
-{ pkgs, lib, config, inputs, ... }: {
-  options = { hyprland-module.enable = lib.mkEnableOption "Enables hyprland"; };
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
+{
+  options = {
+    hyprland-module.enable = lib.mkEnableOption "Enables hyprland";
+  };
 
   imports = [ ../programs/libinput ];
 
@@ -9,8 +18,7 @@
       sugarCandyNix = {
         enable = true;
         settings = {
-          Background =
-            lib.cleanSource ./../../../imgs/.background/City-Rain.png;
+          Background = lib.cleanSource ./../../../imgs/.background/City-Rain.png;
           FullBlur = true;
           ForceHideCompletePassword = true;
         };

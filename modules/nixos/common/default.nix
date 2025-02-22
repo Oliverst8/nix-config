@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 {
 
@@ -43,11 +49,13 @@
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
     # Enable nix flakes
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
     #Make touchpad work after sleep
-    powerManagement.powerUpCommands =
-      "sudo rmmod atkbd; sudo modprobe atkbd reset=1";
+    powerManagement.powerUpCommands = "sudo rmmod atkbd; sudo modprobe atkbd reset=1";
 
     # Set your time zone.
     time.timeZone = "Europe/Copenhagen";
@@ -103,7 +111,12 @@
     users.users.ostarup = {
       isNormalUser = true;
       description = "Oliver Starup";
-      extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "input"
+        "docker"
+      ];
       shell = pkgs.zsh;
       packages = with pkgs; [ kate ];
     };
@@ -164,4 +177,3 @@
     programs.nix-ld.enable = true;
   };
 }
-

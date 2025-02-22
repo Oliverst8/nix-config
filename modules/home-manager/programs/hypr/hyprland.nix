@@ -1,4 +1,9 @@
-{ lib, config, inputs, ... }:
+{
+  lib,
+  config,
+  inputs,
+  ...
+}:
 
 let
   cfg = config.hyprland;
@@ -6,8 +11,11 @@ let
   fileManager = "dolphin";
   browser = "firefox";
   menu = "wofi --show drun";
-in {
-  options = { hyprland.enable = lib.mkEnableOption "Enable Hyprland"; };
+in
+{
+  options = {
+    hyprland.enable = lib.mkEnableOption "Enable Hyprland";
+  };
 
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
@@ -15,9 +23,14 @@ in {
       settings = {
         monitor = [ ",preferred,auto,auto" ];
 
-        xwayland = { force_zero_scaling = true; };
+        xwayland = {
+          force_zero_scaling = true;
+        };
 
-        env = [ "XCURSOR_SIZE,24" "HYPRCURSOR_SIZE,24" ];
+        env = [
+          "XCURSOR_SIZE,24"
+          "HYPRCURSOR_SIZE,24"
+        ];
 
         general = {
           gaps_in = 5;
@@ -64,7 +77,9 @@ in {
           preserve_split = true;
         };
 
-        master = { new_status = "master"; };
+        master = {
+          new_status = "master";
+        };
 
         misc = {
           force_default_wallpaper = -1;
@@ -75,7 +90,9 @@ in {
           kb_layout = "dk";
           follow_mouse = 1;
           sensitivity = 0;
-          touchpad = { natural_scroll = true; };
+          touchpad = {
+            natural_scroll = true;
+          };
         };
 
         gestures = {

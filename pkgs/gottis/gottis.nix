@@ -1,4 +1,8 @@
-{ lib, buildGoModule, fetchFromGitHub }:
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+}:
 
 buildGoModule rec {
   pname = "gottis";
@@ -8,8 +12,7 @@ buildGoModule rec {
     owner = "oliverst8";
     repo = "gottis";
     rev = "main"; # Use a specific commit or tag for stability
-    sha256 =
-      "sha256-g9na43fioXW1OJAPI6AxwTVjTNeLN/Y4/AZiLAtKw0E="; # Replace with the correct hash
+    sha256 = "sha256-g9na43fioXW1OJAPI6AxwTVjTNeLN/Y4/AZiLAtKw0E="; # Replace with the correct hash
   };
 
   vendorHash = null;
@@ -21,4 +24,3 @@ buildGoModule rec {
     maintainers = with maintainers; [ oliverst8 ];
   };
 }
-

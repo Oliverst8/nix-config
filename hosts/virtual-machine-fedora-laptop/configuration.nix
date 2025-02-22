@@ -2,10 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
 
@@ -26,7 +32,10 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -56,7 +65,7 @@
   #Enable for kde 6
   #   services.xserver.enable = true;
   #   services.displayManager.sddm.enable = true;
-  #   services.desktopManager.plasma6.enable = true;  
+  #   services.desktopManager.plasma6.enable = true;
 
   #Enable for kde 5
   ## Enable the X11 windowing system.
@@ -104,18 +113,22 @@
   users.users.ostarup = {
     isNormalUser = true;
     description = "Oliver Starup";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs;
-      [
-        kate
-        #  thunderbird
-      ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [
+      kate
+      #  thunderbird
+    ];
   };
 
   home-manager = {
     # also pass inputs to home-manager modules
     extraSpecialArgs = { inherit inputs; };
-    users = { "ostarup" = import ./home.nix; };
+    users = {
+      "ostarup" = import ./home.nix;
+    };
   };
 
   # Install firefox.
