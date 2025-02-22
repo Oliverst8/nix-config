@@ -23,6 +23,9 @@
     ../editors/neovim.nix
     ../desktop/default.nix
 
+    #Custom pkgs
+    ../../../pkgs/gottis/gottis-module.nix
+
     #ITU
     ../ITU/4semester/default.nix
   ];
