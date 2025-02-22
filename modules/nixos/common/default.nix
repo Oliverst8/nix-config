@@ -21,7 +21,7 @@
 
     ../network
     ../desktop
-    ../editors/neovim.nix
+    ../programs/neovim
 
     #Custom pkgs
     ../../../pkgs/gottis/gottis-module.nix
