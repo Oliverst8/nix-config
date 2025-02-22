@@ -9,25 +9,23 @@
     };
   };
 
-    imports =
-    [ 
+  imports = [
 
-      #Add home-manager
-      inputs.home-manager.nixosModules.default
+    #Add home-manager
+    inputs.home-manager.nixosModules.default
 
-      #Custom modules
-      inputs.sddm-sugar-candy-nix.nixosModules.default
+    #Custom modules
+    inputs.sddm-sugar-candy-nix.nixosModules.default
 
-      #-------------------------------------------------------
+    #-------------------------------------------------------
 
-      ../network/default.nix
-      ../editors/neovim.nix
-      ../desktop/default.nix
+    ../network/default.nix
+    ../editors/neovim.nix
+    ../desktop/default.nix
 
-      #ITU
-      ../ITU/4semester/default.nix
-    ];
-
+    #ITU
+    ../ITU/4semester/default.nix
+  ];
 
   config = {
 
@@ -45,7 +43,8 @@
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
     #Make touchpad work after sleep
-    powerManagement.powerUpCommands = "sudo rmmod atkbd; sudo modprobe atkbd reset=1";
+    powerManagement.powerUpCommands =
+      "sudo rmmod atkbd; sudo modprobe atkbd reset=1";
 
     # Set your time zone.
     time.timeZone = "Europe/Copenhagen";
@@ -103,18 +102,7 @@
       description = "Oliver Starup";
       extraGroups = [ "networkmanager" "wheel" "input" "docker" ];
       shell = pkgs.zsh;
-      packages = with pkgs; [
-        kate
-      ];
-    };
-
-
-    home-manager = {
-    # also pass inputs to home-manager modules
-      extraSpecialArgs = {inherit inputs;};
-      users = {
-        "ostarup" = import ./home.nix;
-      };
+      packages = with pkgs; [ kate ];
     };
 
     #Set default text editor to neovim
@@ -133,35 +121,33 @@
     # List packages installed in system profile. To search, run:
     # $ nix search wget
     environment.systemPackages = [
-    vim #Text editor
-    git
-    gh
-    lazygit
-    steam-run #Allows the use of mason and lsps with neovim
-    pkgs.libsForQt5.okular
-    pkgs.pavucontrol
-    pkgs.libsForQt5.dolphin #File browser
-    pkgs.power-profiles-daemon #Power profiles
-    pkgs.mpv #Video player
-    pkgs.direnv
-    pkgs.nixfmt #Formatter for nix
-    pkgs.tree #Tree command
-    pkgs.docker
-    pkgs.ghostty #Terminal
-    pkgs.starship #Terminal theme
-    pkgs.tlp #Makes laptop more power efficent
+      pkgs.vim # Text editor
+      pkgs.git
+      pkgs.gh
+      pkgs.lazygit
+      pkgs.steam-run # Allows the use of mason and lsps with neovim
+      pkgs.libsForQt5.okular
+      pkgs.pavucontrol
+      pkgs.libsForQt5.dolphin # File browser
+      pkgs.power-profiles-daemon # Power profiles
+      pkgs.mpv # Video player
+      pkgs.direnv
+      pkgs.nixfmt # Formatter for nix
+      pkgs.tree # Tree command
+      pkgs.docker
+      pkgs.ghostty # Terminal
+      pkgs.starship # Terminal theme
+      pkgs.tlp # Makes laptop more power efficent
 
-    pkgs.yazi #Tui file manager
-	  pkgs.spotify-player #TUI spotfiy https://github.com/aome510/spotify-player
+      pkgs.yazi # Tui file manager
+      pkgs.spotify-player # TUI spotfiy https://github.com/aome510/spotify-player
 
-    vscode-fhs # Vscode using it own plugins
-    pkgs.jetbrains.goland
+      pkgs.vscode-fhs # Vscode using it own plugins
+      pkgs.jetbrains.goland
     ];
 
     #Install fonts
-    fonts.packages = with pkgs; [
-    nerd-fonts.meslo-lg
-    ];
+    fonts.packages = with pkgs; [ nerd-fonts.meslo-lg ];
 
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
@@ -174,4 +160,4 @@
     programs.nix-ld.enable = true;
   };
 }
-}
+

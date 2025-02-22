@@ -11,14 +11,20 @@
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
 
-    ../../modules/nixos/common/default.nix 
+    ../../modules/nixos/common/default.nix
   ];
 
   config = {
 
-    services.gottis.enable = true;
+    #services.gottis.enable = true; to be enabled when introducing gottis
 
     networking.eduroamPatch.enable =
       true; # Enable being able to connect to the wifi at ITU
+
+    home-manager = {
+      # also pass inputs to home-manager modules
+      extraSpecialArgs = { inherit inputs; };
+      users = { "ostarup" = import ./home.nix; };
+    };
   };
 }

@@ -2,15 +2,15 @@
 
 {
   imports = [
-    ../../modules/home-manager/desktop-environment/hypr/hyprland.nix
-    ../../modules/home-manager/terminal/zsh.nix
-    ../../modules/home-manager/terminal/starship.nix
-    ../../modules/home-manager/git.nix
-    ../../modules/home-manager/terminal/ghostty.nix
-    ../../modules/home-manager/desktop-environment/hypr/waybar.nix
-    ../../modules/home-manager/desktop-environment/hypr/wpaperd.nix
-    ../../modules/home-manager/desktop-environment/hypr/hyprlock.nix
-    ../../modules/home-manager/terminal/yazi.nix
+    ../../modules-backup/home-manager/desktop-environment/hypr/hyprland.nix
+    ../../modules-backup/home-manager/terminal/zsh.nix
+    ../../modules-backup/home-manager/terminal/starship.nix
+    ../../modules-backup/home-manager/git.nix
+    ../../modules-backup/home-manager/terminal/ghostty.nix
+    ../../modules-backup/home-manager/desktop-environment/hypr/waybar.nix
+    ../../modules-backup/home-manager/desktop-environment/hypr/wpaperd.nix
+    ../../modules-backup/home-manager/desktop-environment/hypr/hyprlock.nix
+    ../../modules-backup/home-manager/terminal/yazi.nix
   ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -52,7 +52,6 @@
     # '')
   ];
 
-
   #  imports = [
   #
   #    ../../modules/home-manager/editors/terminal-editors/neovim-home.nix
@@ -76,7 +75,6 @@
     #       ".config/nvim" = {
     #             source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/dotfiles/config/nvim";
     #       };
-
 
   };
 
