@@ -5,18 +5,17 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
 
-      ../../modules/nixos/desktop-environment/kde.nix
-      #../../modules/nixos/desktop-environment/hyprland.nix
+    ../../modules/nixos/desktop-environment/kde.nix
+    #../../modules/nixos/desktop-environment/hyprland.nix
 
-      #Bundles
-      ../../modules/bundles/editors/terminal-editors/neovim.nix
-      #../../modules/nixos/editors/terminal-editors/neovim.nix
-    ];
+    #Bundles
+    ../../modules/bundles/editors/terminal-editors/neovim.nix
+    #../../modules/nixos/editors/terminal-editors/neovim.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -106,19 +105,17 @@
     isNormalUser = true;
     description = "Oliver Starup";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kate
-    #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        kate
+        #  thunderbird
+      ];
   };
 
-
   home-manager = {
-  # also pass inputs to home-manager modules
-    extraSpecialArgs = {inherit inputs;};
-    users = {
-      "ostarup" = import ./home.nix;
-    };
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = { inherit inputs; };
+    users = { "ostarup" = import ./home.nix; };
   };
 
   # Install firefox.
@@ -130,16 +127,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  git
-  gh
-  lazygit
-  alacritty
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    git
+    gh
+    lazygit
+    alacritty
 
-  #Allows the use of mason and lsps with neovim
+    #Allows the use of mason and lsps with neovim
     steam-run
 
-  #  wget
+    #  wget
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
