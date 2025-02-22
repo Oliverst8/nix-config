@@ -1,6 +1,9 @@
-{ ... }: {
+{ lib, config, ... }:
+
+let cfg = config.zsh;
+in {
   options = { zsh.enable = lib.mkEnableOption "Enable zsh"; };
-  config = lib.mkIf config.zsh.enable {
+  config = lib.mkIf cfg.enable {
     programs.zsh = {
       enable = true;
       enableCompletion = true;
@@ -15,6 +18,11 @@
         s = "spotify_player";
         sus = "python -c 'print(chr(sum(range(ord(min(str(not())))))))'";
       };
+
+      #history = {
+      #  size = 10000;
+      #  path = "${config.xdg.dataHome}/zsh/history";
+      #};
       oh-my-zsh = {
         enable = true;
         plugins = [
@@ -30,3 +38,4 @@
     };
   };
 }
+
