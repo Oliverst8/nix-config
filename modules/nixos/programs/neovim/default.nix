@@ -5,13 +5,11 @@
     gcc
     gnumake42
     ripgrep
-    unzip
     xsel
     fd
     git
     lua
     cargo
-    unzip
     go
   ];
 }

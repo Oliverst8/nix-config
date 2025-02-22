@@ -141,6 +141,7 @@
       pkgs.ghostty # Terminal
       pkgs.starship # Terminal theme
       pkgs.tlp # Makes laptop more power efficent
+      pkgs.unzip
 
       pkgs.yazi # Tui file manager
       pkgs.spotify-player # TUI spotfiy https://github.com/aome510/spotify-player
