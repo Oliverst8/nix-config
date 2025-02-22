@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [ ./hyprland.nix ./kde.nix ];
