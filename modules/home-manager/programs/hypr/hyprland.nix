@@ -1,7 +1,7 @@
 {
   lib,
   config,
-  inputs,
+  pkgs,
   ...
 }:
 
@@ -20,6 +20,9 @@ in
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      plugins = [
+        pkgs.hyprlandPlugins.hyprexpo
+      ];
       settings = {
         monitor = [ ",preferred,auto,auto" ];
 
@@ -149,6 +152,7 @@ in
           "$mainMod, SPACE, exec, rofi -show drun -show-icons"
           "$mainMod SHIFT, Q, exec, ${browser}"
           "$mainMod, A, exec, ~/.config/hypr-backup/rofi_keybinds.sh"
+          "$mainMod, code:49, hyprexpo:expo, toggle" # can be: toggle, off/disable or on/enable
         ];
 
         bindm = [
@@ -164,6 +168,20 @@ in
           ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
           ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
         ];
+
+        plugin = {
+          hyprexpo = {
+            columns = 3;
+            gap_size = 5;
+            #bg_col = "rgb(111111)";
+            #workspace_method = "center current"; # [center/first] [workspace] e.g. first 1 or center m+1
+
+            enable_gesture = true; # laptop touchpad
+            gesture_fingers = 3; # 3 or 4
+            gesture_distance = 300; # how far is the "max"
+            gesture_positive = true; # positive = swipe down. Negative = swipe up.
+          };
+        };
 
         exec-once = [
           "swww init"
