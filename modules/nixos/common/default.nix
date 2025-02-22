@@ -24,7 +24,7 @@
     ../programs/neovim
 
     #Custom pkgs
-    ../../../pkgs/gottis/gottis-module.nix
+    ../../../pkgs/gottis
 
     #ITU
     ../ITU/4semester
