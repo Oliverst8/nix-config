@@ -15,11 +15,5 @@
       else
         false
     );
-    hyprland-module.enable = (
-      if (config.desktop.environment == "hyprland" || config.desktop.environment == "both") then
-        true
-      else
-        false
-    );
   };
 }
