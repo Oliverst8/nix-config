@@ -93,6 +93,7 @@ NetworkManager-openconnect         1.2.10
 NetworkManager-openvpn             1.12.0
 NetworkManager-sstp-gnome          1.3.2
 NetworkManager-vpnc                1.4.0
+nil                                2024-08-06
 nix                                
 nix                                2.24.12
 nix-bash-completions               0.6.8
