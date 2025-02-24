@@ -26,6 +26,7 @@
     #-------------------------------------------------------
 
     ./genPackageFile.nix
+    ../../../options
 
     ../network
     ../desktop
@@ -151,7 +152,7 @@
       pkgs.mpv # Video player
       pkgs.direnv
       pkgs.nixfmt-rfc-style # Formatter for nix
-      pkgs.nil #Nix language server
+      pkgs.nil # Nix language server
       pkgs.tree # Tree command
       pkgs.docker
       pkgs.ghostty # Terminal
