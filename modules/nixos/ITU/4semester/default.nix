@@ -15,6 +15,7 @@
     pkgs.docker
     pkgs.nodejs_22
     pkgs.pnpm
+    pkgs.azure-cli
   ];
 
   nixpkgs.config.permittedInsecurePackages = [ "dotnet-sdk-7.0.410" ];

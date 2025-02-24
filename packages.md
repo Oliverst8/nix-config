@@ -123,6 +123,7 @@ pnpm                               10.4.1
 polkit                             124
 power-profiles-daemon              0.23
 procps                             4.0.4
+python3.12-azure-cli               2.69.0
 python3.13                         3.13.1
 python3                            3.13.1
 qtbase                             5.15.16
@@ -164,7 +165,7 @@ wireplumber                        0.5.8
 wl-clipboard                       2.2.1
 wmctrl                             1.07
 wpaperd                            1.1.1
-wpa_supplicant                     2.11
+wpa_supplicant                     2.9
 xdg-desktop-portal                 1.18.4
 xdg-desktop-portal-gtk             1.15.1
 xdg-desktop-portal-hyprland        1.3.9
