@@ -1,1 +1,4 @@
-{ ... }: { }
+{ ... }:
+{
+  config.test.enable = true;
+}
