@@ -1,5 +1,5 @@
-{ ... }:
+{ lib, config, ... }:
 
 {
-  programs.starship.enable = true;
+  programs = lib.mkIf config.test.enable { starship.enable = true; };
 }

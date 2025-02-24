@@ -25,6 +25,8 @@
 
     services.gottis.enable = true;
 
+    test.enable = true;
+
     #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
 
     home-manager = {
