@@ -15,8 +15,10 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./options.nix
 
     ../../modules/nixos/common
+
   ];
 
   config = {
@@ -24,8 +26,6 @@
     desktop.environment = "hyprland"; # Pick between kde or hyprland
 
     services.gottis.enable = true;
-
-    test.enable = true;
 
     #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
 
