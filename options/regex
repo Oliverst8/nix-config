@@ -1,0 +1,1 @@
+options\.(?P<option>\S+) = \S+ {\n\s+description = \"(?P<description>[^\"]+)\";\n\s+default = (?P<default>[^;]+)
