@@ -52,6 +52,7 @@ goland                             2024.3.3
 gottis                             0.1.0
 gzip                               1.13
 hicolor-icon-theme                 0.18
+htop                               3.3.0
 hyprland                           0.47.2
 hyprlock                           0.6.2
 iproute2                           6.12.0
