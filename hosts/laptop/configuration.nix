@@ -24,8 +24,6 @@
 
     desktop.environment = "hyprland"; # Pick between kde or hyprland
 
-    services.gottis.enable = true;
-
     #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
 
     home-manager = {
