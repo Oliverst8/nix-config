@@ -1,11 +1,11 @@
 import re
 import string
 
-readmePath = "../../README.md"
+readmePath = "./README.md"
 
 def insertTable(new_options_table):
     # Load the Markdown file
-    with open("file.md", "r", encoding="utf-8") as f:
+    with open(readmePath, "r", encoding="utf-8") as f:
         content = f.read()
     
     # Regular expression to find the table under "# Options"
@@ -23,10 +23,10 @@ def insertTable(new_options_table):
     updated_content = re.sub(options_table_pattern, replace_table, content)
     
     # Save the updated file
-    with open("file.md", "w", encoding="utf-8") as f:
+    with open(readmePath, "w", encoding="utf-8") as f:
         f.write(updated_content)
 
-f = open("default.nix", "r")
+f = open("./options/default.nix", "r")
 content = f.read()
 regex = r"options\.(?P<name>\S+) = \S+ {\n\s+type = [^types]*types.(?P<type>[^;]+);\n\s+description = \"(?P<description>[^\"]+)\";\n\s+default = (?P<default>[^;]+)"
 x = re.finditer(regex , content)
