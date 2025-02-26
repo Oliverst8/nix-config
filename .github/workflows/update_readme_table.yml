@@ -1,0 +1,41 @@
+name: Update README Options Table
+
+on:
+  push:
+    paths:
+      - 'options/default.nix'
+  pull_request:
+    paths:
+      - 'options/default.nix'
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run update script
+        run: python update_README_options_table.py
+
+      - name: Check for changes
+        run: |
+          git diff --quiet || echo "changes_detected=true" >> $GITHUB_ENV
+
+      - name: Commit and push if changes exist
+        if: env.changes_detected == 'true'
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "Update README options table [automated]"
+          git push
