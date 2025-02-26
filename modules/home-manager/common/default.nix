@@ -3,6 +3,7 @@
 {
 
   imports = [
+    ../../../options
     ../programs/git
     ../programs/ghostty
     ../programs/yazi
