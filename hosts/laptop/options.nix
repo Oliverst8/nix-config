@@ -1,0 +1,4 @@
+{ ... }:
+{
+  config.gottis.enable = true;
+}
