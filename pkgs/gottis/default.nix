@@ -11,11 +11,11 @@ let
   gottis = pkgs.callPackage ./gottis.nix { };
 in
 {
-  options.services.gottis = {
-    enable = mkEnableOption "Gottis system info TUI";
-  };
+  #options.services.gottis = {
+  #enable = mkEnableOption "Gottis system info TUI";
+  #};
 
-  config = mkIf config.services.gottis.enable {
+  config = mkIf config.gottis.enable {
     environment.systemPackages = [ gottis ];
   };
 }
