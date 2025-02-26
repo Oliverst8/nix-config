@@ -159,6 +159,7 @@
       pkgs.tlp # Makes laptop more power efficent
       pkgs.unzip
       pkgs.htop
+      pkgs.mdcat # Markdown cat
 
       pkgs.yazi # Tui file manager
       pkgs.spotify-player # TUI spotfiy https://github.com/aome510/spotify-player
