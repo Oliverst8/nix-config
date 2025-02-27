@@ -6,12 +6,10 @@
 }:
 {
   config = {
-    environment.systemPackages =
-      if lib.mkIf config.git.enable then
-        [ pkgs.git ]
-        + (if lib.mkIf config.lazygit.enable then [ pkgs.lazygit ] else [ ])
-        + (if lib.mkIf config.gh.enable then [ pkgs.gh ] else [ ])
-      else
-        [ ];
+    environment.systemPackages = lib.mkIf config.git.enable (
+      [ pkgs.git ]
+      ++ lib.optional config.git.lazygit.enable pkgs.lazygit
+      ++ lib.optional config.git.gh.enable pkgs.gh
+    );
   };
 }
