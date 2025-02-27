@@ -28,7 +28,7 @@ def insertTable(new_options_table):
 
 f = open("./options/default.nix", "r")
 content = f.read()
-regex = r"options\.(?P<option>\S+) = \S+ {\n.*\s+type = [^types]*types.(?P<type>[^;]+);\n\s+description = \"(?P<description>[^\"]+)\";\n\s+default = (?P<default>[^;]+)"
+regex = r"options\.(?P<name>\S+) = \S+ {\n.*\s+type = [^types]*types.(?P<type>[^;]+);\n\s+description = \"(?P<description>[^\"]+)\";\n\s+default = (?P<default>[^;]+)"
 x = re.finditer(regex , content)
 
 lst = []
