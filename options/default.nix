@@ -9,6 +9,7 @@ with lib;
     default = false;
   };
   options.git.enable = mkOption {
+    # Not sure where it is enabled so turning this off dosent really turn off git, but all of the extra things are turned off
     type = types.bool;
     description = "Enable git";
     default = false;
