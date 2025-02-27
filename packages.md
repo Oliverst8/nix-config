@@ -77,6 +77,7 @@ linux-pam                          1.6.1
 lua                                5.2.4
 lvm2                               2.03.29
 man-db                             2.13.0
+mdcat                              2.7.1
 mkpasswd                           5.5.23
 modemmanager                       1.22.0
 mpv-with-scripts                   0.39.0
