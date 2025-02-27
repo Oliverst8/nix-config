@@ -30,7 +30,9 @@
 
     ../network
     ../desktop
+
     ../programs/neovim
+    ../programs/git
 
     #Custom pkgs
     ../../../pkgs/gottis
@@ -141,9 +143,6 @@
     # $ nix search wget
     environment.systemPackages = [
       pkgs.vim # Text editor
-      pkgs.git
-      pkgs.gh
-      pkgs.lazygit
       pkgs.steam-run # Allows the use of mason and lsps with neovim
       pkgs.libsForQt5.okular
       pkgs.pavucontrol
