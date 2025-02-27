@@ -1,4 +1,9 @@
 { ... }:
 {
-  config.gottis.enable = true;
+  config = {
+    gottis.enable = true;
+
+    git.enable = true;
+  };
+
 }
