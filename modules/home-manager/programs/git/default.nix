@@ -1,7 +1,7 @@
-{ ... }:
+{ config, lib, ... }:
 
 {
-  programs.git = {
+  programs.git = lib.mkIf config.git.enable {
     enable = true;
     userName = "Oliver Starup";
     userEmail = "Oliver@starup99.dk";
