@@ -24,4 +24,14 @@ with lib;
     description = "Enable the github cli (Only works if git is enabled)";
     default = true;
   };
+  options.docker.enable = mkOption {
+    type = types.bool;
+    description = "Enable and install docker";
+    default = false;
+  };
+  options.docker.lazydocker.enable = mkOption {
+    type = types.bool;
+    description = "Enable lazydocker (Only works if docker is enabled)";
+    default = true;
+  };
 }

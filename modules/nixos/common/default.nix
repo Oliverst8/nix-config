@@ -33,6 +33,7 @@
 
     ../programs/neovim
     ../programs/git
+    ../programs/docker
 
     #Custom pkgs
     ../../../pkgs/gottis
@@ -133,9 +134,6 @@
     # Install firefox.
     programs.firefox.enable = true;
 
-    #Enable docker
-    virtualisation.docker.enable = true;
-
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -153,7 +151,6 @@
       pkgs.nixfmt-rfc-style # Formatter for nix
       pkgs.nil # Nix language server
       pkgs.tree # Tree command
-      pkgs.docker
       pkgs.ghostty # Terminal
       pkgs.starship # Terminal theme
       pkgs.tlp # Makes laptop more power efficent
