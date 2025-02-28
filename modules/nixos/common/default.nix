@@ -30,6 +30,7 @@
 
     ../network
     ../desktop
+    ../hardware
 
     ../programs/neovim
     ../programs/git

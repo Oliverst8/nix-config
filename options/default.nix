@@ -34,4 +34,10 @@ with lib;
     description = "Enable lazydocker (Only works if docker is enabled)";
     default = true;
   };
+
+  options.nvidia.enable = mkOption {
+    type = types.bool;
+    description = "Enable nvidia specific settings";
+    default = false;
+  };
 }
