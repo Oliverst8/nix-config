@@ -11,5 +11,6 @@ In the following section all of my options can be found
 |git.gh.enable|bool|Enable the github cli (Only works if git is enabled)|true|
 |docker.enable|bool|Enable and install docker|false|
 |docker.lazydocker.enable|bool|Enable lazydocker (Only works if docker is enabled)|true|
+|nvidia.enable|bool|Enable nvidia specific settings|false|
 
 ## Section
