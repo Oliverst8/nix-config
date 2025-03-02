@@ -3,7 +3,7 @@
 with lib;
 
 {
-  options.desktop.hyrpland = mkOption {
+  options.desktop.hyprland = mkOption {
     type = types.bool;
     description = "Enable/Install hyprland";
     default = false;
