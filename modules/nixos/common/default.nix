@@ -34,6 +34,7 @@
     ../programs/neovim
     ../programs/git
     ../programs/docker
+    ../programs/vscode
 
     #Custom pkgs
     ../../../pkgs/gottis
@@ -161,7 +162,6 @@
       pkgs.yazi # Tui file manager
       pkgs.spotify-player # TUI spotfiy https://github.com/aome510/spotify-player
 
-      pkgs.vscode-fhs # Vscode using it own plugins
       pkgs.jetbrains.goland
     ];
 

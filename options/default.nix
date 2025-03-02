@@ -34,4 +34,10 @@ with lib;
     description = "Enable lazydocker (Only works if docker is enabled)";
     default = true;
   };
+  options.vscode.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install vscode";
+    default = true;
+  };
+
 }
