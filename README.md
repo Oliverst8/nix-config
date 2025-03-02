@@ -5,6 +5,7 @@ In the following section all of my options can be found
 
 | Option name | Type | Description | Default value |
 |---------|---------|---------|---------|
+|desktop.hyprland|bool|Enable/Install hyprland|false|
 |systemFolder.name|str|The name of the current system (The name the config folder is in)|""|
 |gottis.enable|bool|Enable gottis|false|
 |git.enable|bool|Enable git|false|
