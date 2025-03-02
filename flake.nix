@@ -3,8 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     hyprland-plugins = {
         url = "github:hyprwm/hyprland-plugins";

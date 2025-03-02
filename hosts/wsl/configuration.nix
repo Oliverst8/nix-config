@@ -26,7 +26,6 @@
   wsl.enable = true;
   wsl.defaultUser = "ostarup";
 
-  config = {
 
     #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
 
@@ -36,6 +35,5 @@
       users = {
         "ostarup" = import ./home.nix;
       };
-    };
   };
 }
