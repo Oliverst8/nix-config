@@ -27,14 +27,13 @@
   wsl.enable = true;
   wsl.defaultUser = "ostarup";
 
+  #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
 
-    #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
-
-    home-manager = {
-      # also pass inputs to home-manager modules
-      extraSpecialArgs = { inherit inputs; };
-      users = {
-        "ostarup" = import ./home.nix;
-      };
+  home-manager = {
+    # also pass inputs to home-manager modules
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "ostarup" = import ./home.nix;
+    };
   };
 }
