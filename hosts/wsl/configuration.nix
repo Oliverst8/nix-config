@@ -16,12 +16,13 @@
 {
 
   imports = [
-    # include NixOS-WSL modules
-    <nixos-wsl/modules>
     ./options.nix
 
     ../../modules/nixos/common
   ];
+
+  # Override conflicting settings with higher priority
+  boot.loader.grub.enable = lib.mkForce false;
 
   wsl.enable = true;
   wsl.defaultUser = "ostarup";
