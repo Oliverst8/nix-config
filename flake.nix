@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     hyprland-plugins = {
@@ -41,6 +42,17 @@
         inputs.home-manager.nixosModules.default
       ];
      };
+     wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+	./hosts/wsl/configuration.nix
+        inputs.home-manager.nixosModules.default
+          nixos-wsl.nixosModules.default
+          {
+            wsl.enable = true;
+          }
+        ];
+      };
     };
   };
 }
