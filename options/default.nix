@@ -3,6 +3,11 @@
 with lib;
 
 {
+  options.systemFolder.name = mkOption {
+    type = types.str;
+    description = "The name of the current system (The name the config folder is in)";
+    default = "";
+  };
   options.gottis.enable = mkOption {
     type = types.bool;
     description = "Enable gottis";

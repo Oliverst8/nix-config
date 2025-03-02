@@ -16,8 +16,8 @@ in
 
       shellAliases = {
         ll = "ls -l";
-        update = "sudo nixos-rebuild switch --flake ~/nixos/#laptop";
-        nxdry = "sudo nixos-rebuild dry-activate --flake ~/nixos/#laptop";
+        update = "sudo nixos-rebuild switch --flake ~/nixos/#" + config.systemFolder.name;
+        nxdry = "sudo nixos-rebuild dry-activate --flake ~/nixos/#" + config.systemFolder.name;
         g = "lazygit";
         y = "yazi";
         sp = "spotify_player";
