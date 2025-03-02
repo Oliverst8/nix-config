@@ -3,6 +3,11 @@
 with lib;
 
 {
+  options.desktop.hyrpland = mkOption {
+    type = types.bool;
+    description = "Enable/Install hyprland";
+    default = false;
+  };
   options.systemFolder.name = mkOption {
     type = types.str;
     description = "The name of the current system (The name the config folder is in)";
