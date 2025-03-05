@@ -16,7 +16,7 @@ in
 
       shellAliases = {
         ll = "ls -l";
-        update = "sudo nixos-rebuild switch --flake ~/nixos/#" + config.systemFolder.name;
+        update = "nh os switch ~/nixos -H" + config.systemFolder.name + " --ask";
         nxdry = "sudo nixos-rebuild dry-activate --flake ~/nixos/#" + config.systemFolder.name;
         g = "lazygit";
         y = "yazi";
