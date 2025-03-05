@@ -25,7 +25,6 @@
 
     #-------------------------------------------------------
 
-    ./genPackageFile.nix
     ../../../options
 
     ../network
@@ -164,6 +163,8 @@
       pkgs.jetbrains.goland
       pkgs.bc
       pkgs.jq
+
+      pkgs.nh
     ];
 
     #Install fonts
