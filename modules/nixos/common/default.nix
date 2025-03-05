@@ -123,7 +123,7 @@
         "docker"
       ];
       shell = pkgs.zsh;
-      packages = with pkgs; [ kate ];
+      packages = with pkgs; [ ];
     };
 
     #Set default text editor to neovim
