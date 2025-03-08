@@ -165,6 +165,9 @@
       pkgs.jq
 
       pkgs.nh
+
+      pkgs.rustup
+      pkgs.jetbrains.rust-rover
     ];
 
     #Install fonts
