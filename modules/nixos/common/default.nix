@@ -160,6 +160,11 @@
       pkgs.yazi # Tui file manager
       pkgs.spotify-player # TUI spotfiy https://github.com/aome510/spotify-player
 
+      #Screenshot:
+      pkgs.grim
+      pkgs.slurp
+      pkgs.wl-clipboard
+
       pkgs.jetbrains.goland
       pkgs.bc
       pkgs.jq
