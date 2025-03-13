@@ -43,6 +43,9 @@
       wev
       wpaperd
       hyprlock
+      #Screenshot:
+      pkgs.grim
+      pkgs.slurp
     ];
 
     xdg.portal.enable = true;
