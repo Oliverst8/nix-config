@@ -888,13 +888,18 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'oxfist/night-owl.nvim',
+    'scottmckendry/cyberdream.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
+      require('cyberdream').setup {
+        -- Enable transparent background
+        transparent = true,
+      }
+
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'night-owl'
+      vim.cmd.colorscheme 'cyberdream'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
