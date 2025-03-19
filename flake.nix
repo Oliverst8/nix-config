@@ -25,6 +25,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
   };
 
   outputs =
@@ -32,6 +34,7 @@
       self,
       nixpkgs,
       nixos-wsl,
+      nixCats,
       ...
     }@inputs:
     {
