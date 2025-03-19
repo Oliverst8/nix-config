@@ -1,7 +1,7 @@
 return {
   'CopilotC-Nvim/CopilotChat.nvim',
   dependencies = {
-    { 'nvim-lua/plenary.nvim' },
+    { 'nvim-lua/plenary.nvim', branch = 'master' }, -- for curl, log and async functions
     { 'zbirenbaum/copilot.lua' },
   },
   opts = {
@@ -30,4 +30,3 @@ return {
     { '<leader>ct', '<cmd>CopilotChatToggle<CR>', desc = 'CopilotChat - Toggle' },
   },
 }
-
