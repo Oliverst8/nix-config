@@ -9,7 +9,7 @@ let
 in
 {
   imports = [
-    inputs.nixCats.nixosModules.default
+    inputs.nixCats.homeModule
   ];
   config = {
     # this value, nixCats is the defaultPackageName you pass to mkNixosModules
@@ -44,6 +44,15 @@ in
           ...
         }@packageDef:
         {
+          # to define and use a new category, simply add a new list to a set here,
+          # and later, you will include categoryname = true; in the set you
+          # provide when you build the package using this builder function.
+          # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
+
+          # lspsAndRuntimeDeps:
+          # this section is for dependencies that should be available
+          # at RUN TIME for plugins. Will be available to PATH within neovim terminal
+          # this includes LSPs
           lspsAndRuntimeDeps = with pkgs; {
             general = [
               universal-ctags
@@ -62,8 +71,9 @@ in
               markdownlint-cli
             ];
           };
+
+          # This is for plugins that will load at startup without using packadd:
           startupPlugins = with pkgs.vimPlugins; {
-            # This is for plugins that will load at startup without using packadd:
             general = [
               vim-sleuth
               lazy-nvim
@@ -120,27 +130,15 @@ in
               nvim-web-devicons
               plenary-nvim
             ];
-
-            # themer = with pkgs; [
-            #   # you can even make subcategories based on categories and settings sets!
-            #   (builtins.getAttr packageDef.categories.colorscheme {
-            #       "onedark" = onedark-vim;
-            #       "catppuccin" = catppuccin-nvim;
-            #       "catppuccin-mocha" = catppuccin-nvim;
-            #       "tokyonight" = tokyonight-nvim;
-            #       "tokyonight-day" = tokyonight-nvim;
-            #     }
-            #   )
-            # ];
           };
+
           # not loaded automatically at startup.
           # use with packadd and an autocommand in config to achieve lazy loading
           # NOTE: this template is using lazy.nvim so, which list you put them in is irrelevant.
           # startupPlugins or optionalPlugins, it doesnt matter, lazy.nvim does the loading.
           # I just put them all in startupPlugins. I could have put them all in here instead.
-          optionalPlugins = {
-            general = [ ];
-          };
+          optionalPlugins = { };
+
           # shared libraries to be added to LD_LIBRARY_PATH
           # variable available to nvim runtime
           sharedLibraries = {
@@ -148,6 +146,7 @@ in
               # libgit2
             ];
           };
+
           # environmentVariables:
           # this section is for environmentVariables that should be available
           # at RUN TIME for plugins. Will be available to path within neovim terminal
@@ -156,6 +155,7 @@ in
               CATTESTVAR = "It worked!";
             };
           };
+
           # If you know what these are, you can provide custom ones by category here.
           # If you dont, check this link out:
           # https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
@@ -164,6 +164,7 @@ in
               ''--set CATTESTVAR2 "It worked again!"''
             ];
           };
+
           # lists of the functions you would have passed to
           # python.withPackages or lua.withPackages
 
@@ -232,7 +233,7 @@ in
             };
           };
       };
-
     };
   };
+
 }
