@@ -398,6 +398,21 @@
         "type": "github"
       }
     },
+    "nixCats": {
+      "locked": {
+        "lastModified": 1742355177,
+        "narHash": "sha256-eXAW+ZDsiDROeBjglbMaj7Di7lL0tbJwOj4PZVI6cAs=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "0b549b9038ca9e7a4f33f41400f5e9099b712c31",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -479,6 +494,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
+        "nixCats": "nixCats",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
         "sddm-sugar-candy-nix": "sddm-sugar-candy-nix"
