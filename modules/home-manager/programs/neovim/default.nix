@@ -63,6 +63,7 @@ in
               lua-language-server
               nixd
               stylua
+              lynx
             ];
             kickstart-debug = [
               delve
