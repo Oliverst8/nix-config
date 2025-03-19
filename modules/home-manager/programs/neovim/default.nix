@@ -95,7 +95,7 @@ in
               cmp_luasnip
               cmp-nvim-lsp
               cmp-path
-              tokyonight-nvim
+              night-owl-nvim
               todo-comments-nvim
               mini-nvim
               CopilotChat-nvim
