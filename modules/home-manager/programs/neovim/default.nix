@@ -98,7 +98,6 @@ in
               cyberdream-nvim
               todo-comments-nvim
               mini-nvim
-              CopilotChat-nvim
               nvim-treesitter.withAllGrammars
               # This is for if you only want some of the grammars
               # (nvim-treesitter.withPlugins (
@@ -107,6 +106,9 @@ in
               #     lua
               #   ]
               # ))
+              # NOTE: custome plugins
+              hardtime-nvim
+              CopilotChat-nvim
             ];
             kickstart-debug = [
               nvim-dap
