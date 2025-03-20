@@ -208,6 +208,7 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Custom keybinds
+vim.keymap.set('n', '<leader>tn', ':vsplit | terminal<CR>', { noremap = true, silent = true, desc = 'Open [T]erminal in a [n]ew vertical split' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
