@@ -901,6 +901,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
         -- Enable transparent background
         transparent = true,
         highlights = { Comment = { fg = '#c4c4c4', bg = 'NONE', italic = true } },
+        colors = { grey = '#c4c4c4' },
       }
 
       -- Load the colorscheme here.
