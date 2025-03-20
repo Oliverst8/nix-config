@@ -900,7 +900,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
       require('cyberdream').setup {
         -- Enable transparent background
         transparent = true,
-        highlights = { Comment = { fg = '#c4c4c4', bg = 'NONE', italic = true } },
+        highlights = { Comment = { fg = '#c4c4c4', bg = 'NONE', italic = true }, Identifier = { fg = '#5ed1ff', bg = 'NONE', italic = false } },
         colors = { grey = '#c4c4c4' },
       }
 
@@ -1017,4 +1017,3 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
 }, lazyOptions)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
