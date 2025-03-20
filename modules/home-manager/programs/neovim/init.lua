@@ -899,6 +899,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
       require('cyberdream').setup {
         -- Enable transparent background
         transparent = true,
+        highlights = { Comment = { fg = '#c4c4c4', bg = 'NONE', italic = true } },
       }
 
       -- Load the colorscheme here.
