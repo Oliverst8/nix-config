@@ -66,6 +66,7 @@ in
               lynx
               pyright
               rust-analyzer
+              roslyn-ls
             ];
             kickstart-debug = [
               delve
@@ -112,6 +113,7 @@ in
               hardtime-nvim
               CopilotChat-nvim
               rustaceanvim
+              roslyn-nvim
             ];
             kickstart-debug = [
               nvim-dap
