@@ -64,6 +64,7 @@ in
               nixd
               stylua
               lynx
+              pyright
             ];
             kickstart-debug = [
               delve
