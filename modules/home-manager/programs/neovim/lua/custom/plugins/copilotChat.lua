@@ -8,7 +8,7 @@ return {
     -- Add any configuration options here
     window = {
       -- How to open the chat window
-      layout = 'float', -- 'float' | 'split' | 'vsplit'
+      layout = 'float',
       -- Other window options
       border = 'single', -- 'none' | 'single' | 'double' | 'rounded' | 'solid' | 'shadow'
       title = ' Copilot Chat ',
