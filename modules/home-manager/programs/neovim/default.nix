@@ -65,6 +65,7 @@ in
               stylua
               lynx
               pyright
+              rust-analyzer
             ];
             kickstart-debug = [
               delve
@@ -110,6 +111,7 @@ in
               # NOTE: custome plugins
               hardtime-nvim
               CopilotChat-nvim
+              rustaceanvim
             ];
             kickstart-debug = [
               nvim-dap
