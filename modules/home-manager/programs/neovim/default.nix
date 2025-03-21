@@ -114,6 +114,7 @@ in
               CopilotChat-nvim
               rustaceanvim
               roslyn-nvim
+              easy-dotnet-nvim
             ];
             kickstart-debug = [
               nvim-dap
