@@ -6,14 +6,11 @@ return {
   },
   opts = {
     -- Add any configuration options here
+    model = 'claude-3.7-sonnet',
     window = {
-      -- How to open the chat window
-      layout = 'float',
-      -- Other window options
-      border = 'single', -- 'none' | 'single' | 'double' | 'rounded' | 'solid' | 'shadow'
-      title = ' Copilot Chat ',
-      width = 0.8, -- fractional width of parent window (number between 0 and 1)
-      height = 0.6, -- fractional height of parent window (number between 0 and 1)
+      layout = 'vertical',
+      width = 0.3, -- fractional width of parent window (number between 0 and 1)
+      height = 1, -- fractional height of parent window (number between 0 and 1)
     },
     -- ... other configuration options
   },
