@@ -67,6 +67,7 @@ in
               pyright
               rust-analyzer
               roslyn-ls
+              fsautocomplete
             ];
             kickstart-debug = [
               delve

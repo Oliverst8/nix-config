@@ -648,7 +648,7 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       -- NOTE: nixCats: there is help in nixCats for lsps at `:h nixCats.LSPs` and also `:h nixCats.luaUtils`
-      local servers = { pyright = {} }
+      local servers = { pyright = {}, fsautocomplete = {} }
       -- servers.clangd = {},
       -- servers.gopls = {},
       -- servers.pyright = {},
