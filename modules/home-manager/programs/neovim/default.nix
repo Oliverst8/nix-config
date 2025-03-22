@@ -115,6 +115,7 @@ in
               rustaceanvim
               roslyn-nvim
               easy-dotnet-nvim
+              lazygit-nvim
             ];
             kickstart-debug = [
               nvim-dap
