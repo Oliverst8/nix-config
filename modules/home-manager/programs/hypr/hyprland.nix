@@ -60,7 +60,7 @@ in
           #  col.shadow = "rgba(1a1a1aee)";
           blur = {
             enabled = true;
-            size = 5;
+            size = 8;
             passes = 3;
             vibrancy = 0.1696;
           };
