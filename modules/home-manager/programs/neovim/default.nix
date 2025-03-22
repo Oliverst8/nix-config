@@ -68,6 +68,7 @@ in
               rust-analyzer
               roslyn-ls
               fsautocomplete
+              fantomas
             ];
             kickstart-debug = [
               delve
