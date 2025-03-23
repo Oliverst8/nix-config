@@ -69,6 +69,7 @@ in
               roslyn-ls
               fsautocomplete
               fantomas
+              jdt-language-server
             ];
             kickstart-debug = [
               delve
