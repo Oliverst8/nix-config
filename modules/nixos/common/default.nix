@@ -59,6 +59,8 @@
       "flakes"
     ];
 
+    nix.settings.auto-optimise-store = true;
+
     #Make touchpad work after sleep
     powerManagement.powerUpCommands = "sudo rmmod atkbd; sudo modprobe atkbd reset=1";
 
