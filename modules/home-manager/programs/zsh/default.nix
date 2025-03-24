@@ -38,6 +38,7 @@ in
           "colorize"
           "colored-man-pages"
           "gh"
+          "direnv"
         ];
       };
     };
