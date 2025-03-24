@@ -11,6 +11,7 @@
       pkgs.dotnetCorePackages.sdk_8_0
       pkgs.dotnetCorePackages.sdk_9_0
     ])
+    pkgs.dotnet-ef
     pkgs.python313
     pkgs.docker
     pkgs.nodejs_22
