@@ -119,6 +119,7 @@ in
               roslyn-nvim
               easy-dotnet-nvim
               lazygit-nvim
+              nvim-config-local
             ];
             kickstart-debug = [
               nvim-dap
