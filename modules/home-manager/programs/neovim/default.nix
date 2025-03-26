@@ -71,6 +71,7 @@ in
               fantomas
               jdt-language-server
               vscode-langservers-extracted
+              typescript-language-server
             ];
             kickstart-debug = [
               delve
