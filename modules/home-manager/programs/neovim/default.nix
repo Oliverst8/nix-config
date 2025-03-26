@@ -70,6 +70,7 @@ in
               fsautocomplete
               fantomas
               jdt-language-server
+              eslint
             ];
             kickstart-debug = [
               delve
