@@ -70,7 +70,7 @@ in
               fsautocomplete
               fantomas
               jdt-language-server
-              eslint
+              vscode-langservers-extracted
             ];
             kickstart-debug = [
               delve
