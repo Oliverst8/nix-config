@@ -629,6 +629,20 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 
             end, '[T]oggle Inlay [H]ints')
             vim.lsp.inlay_hint.enable(true)
           end
+
+          -- This ensures LSP is working properly after opening files with Telescope
+          vim.api.nvim_create_autocmd('BufEnter', {
+            group = vim.api.nvim_create_augroup('kickstart-lsp-attach-bufenter', { clear = true }),
+            callback = function()
+              local buf = vim.api.nvim_get_current_buf()
+              -- Check if buffer has LSP attached
+              local clients = vim.lsp.get_clients { buffer = buf }
+              if #clients == 0 then
+                -- Try to attach LSP if not already attached
+                vim.cmd 'LspStart'
+              end
+            end,
+          })
         end,
       })
 
