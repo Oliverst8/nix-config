@@ -1,0 +1,65 @@
+Version changes:
+[D.]  #01  angular-grammar                   0.0.0+rev=cba2889 -> 0.0.0+rev=be53f25
+[U.]  #02  c-grammar-neovim                  0.10.4 -> 0.11.0
+[U.]  #03  docker-buildx                     0.20.1 -> 0.22.0
+[U*]  #04  firefox                           136.0.2 x2 -> 136.0.3
+[U.]  #05  firefox-unwrapped                 136.0.2 -> 136.0.3
+[U.]  #06  gleam-grammar                     0.0.0+rev=e01c884 -> 0.0.0+rev=99ec410
+[D.]  #07  glimmer_javascript-grammar        0.0.0+rev=4801ac4 -> 0.0.0+rev=babba3f
+[U.]  #08  glimmer_typescript-grammar        0.0.0+rev=c011b05 -> 0.0.0+rev=48c6029
+[U.]  #09  hlsl-grammar                      0.0.0+rev=b309425 -> 0.0.0+rev=bab9111
+[U.]  #10  koto-grammar                      0.0.0+rev=329b0e8 -> 0.0.0+rev=6735114
+[U.]  #11  lalrpop-grammar                   0.0.0+rev=a7f5ea2 -> 0.0.0+rev=8d38e97
+[U.]  #12  libz                              1.2.8.2015.12.26-unstable-2018-03-31 -> 1.2.8.2025.03.07
+[D.]  #13  lua-grammar                       0.0.0+rev=68d29aa -> 0.0.0+rev=db16e76
+[U.]  #14  lua-grammar-neovim                0.10.4 -> 0.11.0
+[U.]  #15  markdown-grammar                  0.0.0+rev=192407a -> 0.0.0+rev=4132852
+[U.]  #16  markdown-grammar-neovim           0.10.4 -> 0.11.0
+[U.]  #17  markdown_inline-grammar           0.0.0+rev=192407a -> 0.0.0+rev=4132852
+[U.]  #18  markdown_inline-grammar-neovim    0.10.4 -> 0.11.0
+[U.]  #19  mlir-grammar                      0.0.0+rev=c7c62f3 -> 0.0.0+rev=922cbb9
+[C*]  #20  neovim                            <none>, 0.10.4 x2, 0.10.4-nvim -> <none>, 0.11.0 x2, 0.11.0-nvim
+[U.]  #21  neovim-unwrapped                  0.10.4 -> 0.11.0
+[U.]  #22  nixos-system-laptop               25.05.20250325.698214a -> 25.05.20250327.5e5402e
+[U*]  #23  pnpm                              10.6.5 -> 10.7.0
+[D.]  #24  problog-grammar                   0.0.0+rev=93c69d2 -> 0.0.0+rev=d8d415f
+[D.]  #25  prolog-grammar                    0.0.0+rev=93c69d2 -> 0.0.0+rev=d8d415f
+[U.]  #26  query-grammar-neovim              0.10.4 -> 0.11.0
+[D.]  #27  roc-grammar                       0.0.0+rev=32e20cb -> 0.0.0+rev=0b1afe8
+[U.]  #28  rootlesskit                       2.3.2 -> 2.3.4
+[U.]  #29  rust-analyzer                     2025-03-17 -> 2025-03-24
+[U.]  #30  rust-analyzer-unwrapped           2025-03-17 -> 2025-03-24
+[U.]  #31  scala-grammar                     0.0.0+rev=041dea1 -> 0.0.0+rev=42a1542
+[C.]  #32  source                            <none> x4 -> <none> x3
+[U*]  #33  strace                            6.13 -> 6.14, 6.14-man
+[D.]  #34  swift-grammar                     0.0.0+rev=6b1ebb8 -> 0.0.0+rev=aca5a52
+[U.]  #35  vim-grammar                       0.0.0+rev=f3cd62d -> 0.0.0+rev=11b688a
+[U.]  #36  vim-grammar-neovim                0.10.4 -> 0.11.0
+[U.]  #37  vimdoc-grammar-neovim             0.10.4 -> 0.11.0
+[U.]  #38  vimplugin-CopilotChat.nvim        2025-03-20 -> 2025-03-26
+[U.]  #39  vimplugin-copilot.lua             2025-02-10 -> 2025-03-27
+[U.]  #40  vimplugin-easy-dotnet.nvim        2025-03-20 -> 2025-03-25
+[U.]  #41  vimplugin-luajit2.1-rustaceanvim  5.25.0-1-unstable-5.25.0-1 -> 5.25.2-1-unstable-5.25.2-1
+[U.]  #42  vimplugin-mini.nvim               2025-03-16 -> 2025-03-25
+[U.]  #43  vimplugin-neo-tree.nvim           2025-03-18 -> 2025-03-23
+[U.]  #44  vimplugin-nvim-lint               2025-03-17 -> 2025-03-26
+[U.]  #45  vimplugin-nvim-lspconfig          2025-03-20 -> 2025-03-26
+[U.]  #46  vimplugin-nvim-treesitter         2025-03-20 -> 2025-03-26
+[U.]  #47  vimplugin-roslyn.nvim             2025-03-12 -> 2025-03-24
+[U.]  #48  yt-dlp                            2025.3.21 -> 2025.3.26
+Added packages:
+[A.]  #1  caddy-grammar    0.0.0+rev=2686186
+[A.]  #2  javadoc-grammar  0.0.0+rev=db9589e
+[A.]  #3  utf8proc         2.10.0
+Removed packages:
+[R.]  #01  hm-firefox-extensions                                         <none>
+[R.]  #02  hm_.mozillafirefoxfirefoxprofilenamehere.keep                 <none>
+[R.]  #03  hm_.mozillafirefoxfirefoxprofilenameherechromeconfig.css      <none>
+[R.]  #04  hm_.mozillafirefoxfirefoxprofilenameherechromeuserChrome.css  <none>
+[R.]  #05  hm_.mozillafirefoxfirefoxprofilenamehereuser.js               <none>
+[R.]  #06  hm_.mozillafirefoxprofiles.ini                                <none>
+[R.]  #07  keep                                                          <none>
+[R.]  #08  libvterm-neovim                                               0.3.3
+[R.]  #09  msgpack-c                                                     6.1.0
+[R.]  #10  sidebery                                                      5.2.0
+Closure size: 2619 -> 2611 (160 paths added, 168 paths removed, delta -8, disk usage -26.0MiB).
