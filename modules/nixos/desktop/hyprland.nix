@@ -46,6 +46,7 @@
       #Screenshot:
       pkgs.grim
       pkgs.slurp
+      pkgs.smile
     ];
 
     xdg.portal.enable = true;
