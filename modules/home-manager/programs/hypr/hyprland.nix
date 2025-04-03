@@ -122,7 +122,7 @@ in
           "$mainMod, V, togglefloating,"
           "$mainMod, R, exec, ${menu}"
           "$mainMod, P, pseudo,"
-          "$mainMod, ., exec,smile"
+          "$mainMod, code:60, exec,smile"
           ", code:107, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           "$mainMod, J, togglesplit,"
           "$mainMod, F, fullscreen, 0"
