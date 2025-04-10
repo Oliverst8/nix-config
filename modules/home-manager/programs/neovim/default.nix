@@ -122,6 +122,7 @@ in
               easy-dotnet-nvim
               lazygit-nvim
               nvim-config-local
+              nvim-notify
             ];
             kickstart-debug = [
               nvim-dap
