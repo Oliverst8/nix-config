@@ -1,65 +1,99 @@
 Version changes:
-[D.]  #01  angular-grammar                   0.0.0+rev=cba2889 -> 0.0.0+rev=be53f25
-[U.]  #02  c-grammar-neovim                  0.10.4 -> 0.11.0
-[U.]  #03  docker-buildx                     0.20.1 -> 0.22.0
-[U*]  #04  firefox                           136.0.2 x2 -> 136.0.3
-[U.]  #05  firefox-unwrapped                 136.0.2 -> 136.0.3
-[U.]  #06  gleam-grammar                     0.0.0+rev=e01c884 -> 0.0.0+rev=99ec410
-[D.]  #07  glimmer_javascript-grammar        0.0.0+rev=4801ac4 -> 0.0.0+rev=babba3f
-[U.]  #08  glimmer_typescript-grammar        0.0.0+rev=c011b05 -> 0.0.0+rev=48c6029
-[U.]  #09  hlsl-grammar                      0.0.0+rev=b309425 -> 0.0.0+rev=bab9111
-[U.]  #10  koto-grammar                      0.0.0+rev=329b0e8 -> 0.0.0+rev=6735114
-[U.]  #11  lalrpop-grammar                   0.0.0+rev=a7f5ea2 -> 0.0.0+rev=8d38e97
-[U.]  #12  libz                              1.2.8.2015.12.26-unstable-2018-03-31 -> 1.2.8.2025.03.07
-[D.]  #13  lua-grammar                       0.0.0+rev=68d29aa -> 0.0.0+rev=db16e76
-[U.]  #14  lua-grammar-neovim                0.10.4 -> 0.11.0
-[U.]  #15  markdown-grammar                  0.0.0+rev=192407a -> 0.0.0+rev=4132852
-[U.]  #16  markdown-grammar-neovim           0.10.4 -> 0.11.0
-[U.]  #17  markdown_inline-grammar           0.0.0+rev=192407a -> 0.0.0+rev=4132852
-[U.]  #18  markdown_inline-grammar-neovim    0.10.4 -> 0.11.0
-[U.]  #19  mlir-grammar                      0.0.0+rev=c7c62f3 -> 0.0.0+rev=922cbb9
-[C*]  #20  neovim                            <none>, 0.10.4 x2, 0.10.4-nvim -> <none>, 0.11.0 x2, 0.11.0-nvim
-[U.]  #21  neovim-unwrapped                  0.10.4 -> 0.11.0
-[U.]  #22  nixos-system-laptop               25.05.20250325.698214a -> 25.05.20250327.5e5402e
-[U*]  #23  pnpm                              10.6.5 -> 10.7.0
-[D.]  #24  problog-grammar                   0.0.0+rev=93c69d2 -> 0.0.0+rev=d8d415f
-[D.]  #25  prolog-grammar                    0.0.0+rev=93c69d2 -> 0.0.0+rev=d8d415f
-[U.]  #26  query-grammar-neovim              0.10.4 -> 0.11.0
-[D.]  #27  roc-grammar                       0.0.0+rev=32e20cb -> 0.0.0+rev=0b1afe8
-[U.]  #28  rootlesskit                       2.3.2 -> 2.3.4
-[U.]  #29  rust-analyzer                     2025-03-17 -> 2025-03-24
-[U.]  #30  rust-analyzer-unwrapped           2025-03-17 -> 2025-03-24
-[U.]  #31  scala-grammar                     0.0.0+rev=041dea1 -> 0.0.0+rev=42a1542
-[C.]  #32  source                            <none> x4 -> <none> x3
-[U*]  #33  strace                            6.13 -> 6.14, 6.14-man
-[D.]  #34  swift-grammar                     0.0.0+rev=6b1ebb8 -> 0.0.0+rev=aca5a52
-[U.]  #35  vim-grammar                       0.0.0+rev=f3cd62d -> 0.0.0+rev=11b688a
-[U.]  #36  vim-grammar-neovim                0.10.4 -> 0.11.0
-[U.]  #37  vimdoc-grammar-neovim             0.10.4 -> 0.11.0
-[U.]  #38  vimplugin-CopilotChat.nvim        2025-03-20 -> 2025-03-26
-[U.]  #39  vimplugin-copilot.lua             2025-02-10 -> 2025-03-27
-[U.]  #40  vimplugin-easy-dotnet.nvim        2025-03-20 -> 2025-03-25
-[U.]  #41  vimplugin-luajit2.1-rustaceanvim  5.25.0-1-unstable-5.25.0-1 -> 5.25.2-1-unstable-5.25.2-1
-[U.]  #42  vimplugin-mini.nvim               2025-03-16 -> 2025-03-25
-[U.]  #43  vimplugin-neo-tree.nvim           2025-03-18 -> 2025-03-23
-[U.]  #44  vimplugin-nvim-lint               2025-03-17 -> 2025-03-26
-[U.]  #45  vimplugin-nvim-lspconfig          2025-03-20 -> 2025-03-26
-[U.]  #46  vimplugin-nvim-treesitter         2025-03-20 -> 2025-03-26
-[U.]  #47  vimplugin-roslyn.nvim             2025-03-12 -> 2025-03-24
-[U.]  #48  yt-dlp                            2025.3.21 -> 2025.3.26
+[U*]  #01  bind                                                   9.20.6-host, 9.20.6-lib, 9.20.6-man -> 9.20.7-host, 9.20.7-lib, 9.20.7-man
+[U.]  #02  btrfs-progs                                            6.13 -> 6.14
+[U*]  #03  code                                                   1.98.2, 1.98.2-bwrap, 1.98.2-fhsenv-profile, 1.98.2-fhsenv-rootfs, 1.98.2-init -> 1.99.1, 1.99.1-bwrap, 1.99.1-fhsenv-profile, 1.99.1-fhsenv-rootfs, 1.99.1-init
+[U.]  #04  delve                                                  1.24.1 -> 1.24.2
+[U*]  #05  direnv                                                 2.35.0 -> 2.36.0
+[U.]  #06  docker-compose                                         2.34.0 -> 2.35.0
+[C.]  #07  dotnet-sdk                                             7.0.410, 8.0.114, 8.0.407, 9.0.202 -> 7.0.410, 8.0.115, 8.0.408, 9.0.203
+[C.]  #08  dotnet-sdk-wrapped                                     7.0.410, 8.0.114, 8.0.407, 9.0.202 -> 7.0.410, 8.0.115, 8.0.408, 9.0.203
+[U.]  #09  editorconfig-grammar                                   0.0.0+rev=02f562e -> 0.0.0+rev=3f2b371
+[D.]  #10  enforce-grammar                                        0.0.0+rev=8201c3c -> 0.0.0+rev=aedd0bb
+[U.]  #11  erlang-grammar                                         0.0.0+rev=364e323 -> 0.0.0+rev=416ca60
+[U*]  #12  firefox                                                136.0.3 -> 137.0.1
+[U.]  #13  firefox-unwrapped                                      136.0.3 -> 137.0.1
+[D.]  #14  fortran-grammar                                        0.0.0+rev=64e1100 -> 0.0.0+rev=d738334
+[U.]  #15  freerdp                                                3.14.0 -> 3.14.1
+[U.]  #16  fsautocomplete                                         0.77.4 -> 0.77.5
+[U.]  #17  fzf                                                    0.60.3 -> 0.61.1
+[C.]  #18  gemfile-and-lockfile                                   <none> x2 -> <none>
+[U.]  #19  glimmer_javascript-grammar                             0.0.0+rev=babba3f -> 0.0.0+rev=5cc865a
+[D.]  #20  glimmer_typescript-grammar                             0.0.0+rev=48c6029 -> 0.0.0+rev=12d9894
+[U.]  #21  gtk-layer-shell                                        0.9.0 -> 0.9.1
+[U.]  #22  gtk4-layer-shell                                       1.1.0 -> 1.1.1
+[D.]  #23  http-grammar                                           0.0.0+rev=77ecf63 -> 0.0.0+rev=db8b439
+[U.]  #24  hyprgraphics                                           0.1.2 -> 0.1.3
+[U*]  #25  hyprlock                                               0.7.0 -> 0.8.0
+[U.]  #26  hyprutils                                              0.5.2 -> 0.6.0
+[U.]  #27  imagemagick                                            7.1.1-46 -> 7.1.1-47
+[U.]  #28  initrd-linux                                           6.12.21 -> 6.12.23
+[U.]  #29  javadoc-grammar                                        0.0.0+rev=db9589e -> 0.0.0+rev=330cc9c
+[U*]  #30  kitty                                                  0.40.1, 0.40.1-terminfo -> 0.41.1, 0.41.1-terminfo
+[U.]  #31  linux                                                  6.12.21, 6.12.21-modules, 6.12.21-modules-shrunk -> 6.12.23, 6.12.23-modules, 6.12.23-modules-shrunk
+[U.]  #32  linux-firmware                                         20250311-zstd -> 20250410-zstd
+[U.]  #33  lua-language-server                                    3.13.9 -> 3.14.0
+[U.]  #34  luajit2.1-jsregexp                                     0.0.7-1 -> 0.0.7-2
+[U.]  #35  mesa                                                   25.0.2 -> 25.0.3
+[U*]  #36  nano                                                   8.3, 8.3-info -> 8.4, 8.4-info
+[C.]  #37  neovim-ruby-env                                        <none> x2 -> <none>
+[U*]  #38  nix                                                    2.24.13, 2.24.13-doc, 2.24.13-man -> 2.24.14, 2.24.14-man, 2.28.1, 2.28.1-doc, 2.28.1-man
+[U.]  #39  nix-output-monitor                                     2.1.5 -> 2.1.6
+[U*]  #40  nixfmt-unstable                                        2025-03-03 -> 2025-04-04
+[U.]  #41  nixos-system-laptop                                    25.05.20250330.52faf48 -> 25.05.20250412.2631b0b
+[C.]  #42  nss                                                    3.101.2, 3.109 -> 3.101.2, 3.110
+[U.]  #43  nu-grammar                                             0.0.0+rev=c10340b -> 0.0.0+rev=d5c71a1
+[U.]  #44  oh-my-zsh                                              2025-03-11 -> 2025-04-03
+[U.]  #45  openvpn                                                2.6.13 -> 2.6.14
+[U.]  #46  php-grammar                                            0.0.0+rev=f7cf734 -> 0.0.0+rev=576a56f
+[U.]  #47  php_only-grammar                                       0.0.0+rev=f7cf734 -> 0.0.0+rev=576a56f
+[U*]  #48  pnpm                                                   10.7.0 -> 10.8.0
+[U*]  #49  python3.12-azure-cli                                   2.70.0 -> 2.71.0
+[U.]  #50  python3.12-azure-cli-core                              2.70.0 -> 2.71.0
+[U.]  #51  python3.12-azure-mgmt-containerservice                 34.1.0 -> 34.2.0
+[U.]  #52  python3.12-azure-mgmt-keyvault                         10.3.1 -> 11.0.0
+[U.]  #53  python3.12-azure-multiapi-storage                      1.3.0 -> 1.4.0
+[U.]  #54  python3.12-microsoft-security-utilities-secret-masker  1.0.0b3 -> 1.0.0b4
+[U.]  #55  qmljs-grammar                                          0.0.0+rev=8fef30e -> 0.0.0+rev=0889da4
+[U.]  #56  roslyn-ls                                              4.14.0-3.25156.1 -> 4.14.0-3.25164.3
+[U.]  #57  rust-analyzer                                          2025-03-24 -> 2025-03-31
+[U.]  #58  rust-analyzer-unwrapped                                2025-03-24 -> 2025-03-31
+[D.]  #59  scala-grammar                                          0.0.0+rev=160e355 -> 0.0.0+rev=c118995
+[U.]  #60  sof-firmware                                           2025.01-zstd -> 2025.01.1-zstd
+[U.]  #61  superhtml-grammar                                      0.0.0+rev=28dcf0e -> 0.0.0+rev=16887e9
+[D.]  #62  tcl-grammar                                            0.0.0+rev=98015eb -> 0.0.0+rev=f15e711
+[D.]  #63  tera-grammar                                           0.0.0+rev=482b475 -> 0.0.0+rev=25a7c61
+[U.]  #64  vimplugin-CopilotChat.nvim                             2025-03-28 -> 2025-04-09
+[U.]  #65  vimplugin-cmp-nvim-lsp                                 2024-12-10 -> 2025-04-01
+[U.]  #66  vimplugin-cmp-path                                     2022-10-03 -> 2025-04-01
+[U.]  #67  vimplugin-conform.nvim                                 2025-03-20 -> 2025-04-06
+[U.]  #68  vimplugin-copilot.lua                                  2025-03-29 -> 2025-04-08
+[U.]  #69  vimplugin-cyberdream.nvim                              2025-03-27 -> 2025-04-03
+[U.]  #70  vimplugin-easy-dotnet.nvim                             2025-03-29 -> 2025-04-09
+[U.]  #71  vimplugin-hardtime.nvim                                2025-03-08 -> 2025-04-07
+[U.]  #72  vimplugin-luajit2.1-rustaceanvim                       5.25.2-1-unstable-5.25.2-1 -> 6.0.1-1-unstable-6.0.1-1
+[U.]  #73  vimplugin-mini.nvim                                    2025-03-28 -> 2025-04-08
+[U.]  #74  vimplugin-neo-tree.nvim                                2025-03-27 -> 2025-04-09
+[U.]  #75  vimplugin-nvim-autopairs                               2025-03-20 -> 2025-04-06
+[U.]  #76  vimplugin-nvim-lint                                    2025-03-26 -> 2025-04-05
+[U.]  #77  vimplugin-nvim-lspconfig                               2025-03-27 -> 2025-04-09
+[U.]  #78  vimplugin-nvim-treesitter                              2025-03-29 -> 2025-04-07
+[U.]  #79  vimplugin-roslyn.nvim                                  2025-03-28 -> 2025-04-08
+[U.]  #80  vscode                                                 1.98.2 -> 1.99.1
+[U.]  #81  webkitgtk                                              2.48.0+abi=4.1 -> 2.48.1+abi=4.1
+[U*]  #82  wpaperd                                                1.1.1 -> 1.2.0
+[U.]  #83  x86_energy_perf_policy                                 6.12.21 -> 6.12.23
+[U.]  #84  xl2tpd                                                 1.3.18 -> 1.3.19
+[U*]  #85  yazi                                                   25.3.2 x2 -> 25.4.8 x2
+[U.]  #86  yt-dlp                                                 2025.3.27 -> 2025.3.31
 Added packages:
-[A.]  #1  caddy-grammar    0.0.0+rev=2686186
-[A.]  #2  javadoc-grammar  0.0.0+rev=db9589e
-[A.]  #3  utf8proc         2.10.0
+[A.]  #1  etc-bash_logout      <none>
+[A.]  #2  libblake3            1.8.0
+[A.]  #3  nixCats-plugin-nvim  <none>
+[A.]  #4  rapidcheck           0-unstable-2023-12-14
+[A.]  #5  resvg                0.44.0
 Removed packages:
-[R.]  #01  hm-firefox-extensions                                         <none>
-[R.]  #02  hm_.mozillafirefoxfirefoxprofilenamehere.keep                 <none>
-[R.]  #03  hm_.mozillafirefoxfirefoxprofilenameherechromeconfig.css      <none>
-[R.]  #04  hm_.mozillafirefoxfirefoxprofilenameherechromeuserChrome.css  <none>
-[R.]  #05  hm_.mozillafirefoxfirefoxprofilenamehereuser.js               <none>
-[R.]  #06  hm_.mozillafirefoxprofiles.ini                                <none>
-[R.]  #07  keep                                                          <none>
-[R.]  #08  libvterm-neovim                                               0.3.3
-[R.]  #09  msgpack-c                                                     6.1.0
-[R.]  #10  sidebery                                                      5.2.0
-Closure size: 2619 -> 2611 (160 paths added, 168 paths removed, delta -8, disk usage -26.0MiB).
+[R.]  #1  init.lua          <none>
+[R.]  #2  nixCats           <none>
+[R.]  #3  setup.lua         <none>
+[R.]  #4  vim-python3-deps  <none>
+Closure size: 2622 -> 2623 (261 paths added, 260 paths removed, delta +1, disk usage +118.0MiB).
