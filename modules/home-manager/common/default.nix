@@ -11,6 +11,7 @@
     ../programs/starship
     ../programs/hypr
     ../programs/neovim
+    ../programs/firefox
   ];
 
 }
