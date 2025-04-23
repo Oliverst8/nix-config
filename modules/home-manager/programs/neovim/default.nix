@@ -72,6 +72,7 @@ in
               jdt-language-server
               vscode-langservers-extracted
               typescript-language-server
+              gopls
             ];
             kickstart-debug = [
               delve
