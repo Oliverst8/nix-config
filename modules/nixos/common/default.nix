@@ -34,6 +34,7 @@
     ../programs/git
     ../programs/docker
     ../programs/vscode
+    ../programs/distrobox
 
     #Custom pkgs
     ../../../pkgs/gottis
