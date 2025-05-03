@@ -16,6 +16,7 @@ MimeType=x-scheme-handler/wfdm;
 ```
 
 This should go inside
+
 ```sh
-~/.local/share/applications
+~/.local/share/applications/wiseflow-device-monitor.desktop
 ```
