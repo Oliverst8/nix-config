@@ -1,14 +1,11 @@
+# In your configuration.nix or in a separate module file
+{ config, pkgs, ... }:
+
 let
-  pkgs = import <nixpkgs> { };
-  std = pkgs.stdenv;
-in
-rec {
-  wiseflow-device-monitor-source = std.mkDerivation {
+  wiseflow-device-monitor-source = pkgs.stdenv.mkDerivation {
     name = "wiseflow-device-monitor-source";
-    src = ./wiseflow_device_monitor_2.4.3_linux.deb;
-
+    src = ./wiseflow_device_monitor_2.4.3_linux.deb; # Path to your .deb file
     nativeBuildInputs = [ pkgs.dpkg ];
-
     unpackPhase = ''
       dpkg-deb --fsys-tarfile $src | tar -x --no-same-owner
       mv usr $out
@@ -16,6 +13,7 @@ rec {
   };
 
   wiseflow-device-monitor = pkgs.buildFHSEnv {
+    # Note: buildFHSUserEnv instead of buildFHSEnv
     name = "wiseflow-device-monitor";
     targetPkgs = pkgs: [
       pkgs.gtk3
@@ -38,4 +36,11 @@ rec {
     ];
     runScript = "${wiseflow-device-monitor-source}/bin/wiseflow-device-monitor";
   };
+in
+{
+  # Add the package to your system packages
+  environment.systemPackages = [
+    wiseflow-device-monitor
+  ];
+
 }
