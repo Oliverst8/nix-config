@@ -20,3 +20,9 @@ This should go inside
 ```sh
 ~/.local/share/applications/wiseflow-device-monitor.desktop
 ```
+
+
+Last test working commit
+```
+def6decf92883d5e419572caee6f6385d7663608
+```
