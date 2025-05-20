@@ -1,5 +1,5 @@
 return {
-  --[[ 'CopilotC-Nvim/CopilotChat.nvim',
+  'CopilotC-Nvim/CopilotChat.nvim',
   dependencies = {
     { 'nvim-lua/plenary.nvim', branch = 'master' }, -- for curl, log and async functions
     { 'zbirenbaum/copilot.lua' },
@@ -25,5 +25,5 @@ return {
     -- Add keymaps for quick access
     { '<leader>cc', '<cmd>CopilotChat<CR>', desc = 'CopilotChat - Open' },
     { '<leader>ct', '<cmd>CopilotChatToggle<CR>', desc = 'CopilotChat - Toggle' },
-  }, ]]
+  },
 }
