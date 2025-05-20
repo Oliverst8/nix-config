@@ -14,5 +14,6 @@ In the following section all of my options can be found
 |docker.enable|bool|Enable and install docker|false|
 |docker.lazydocker.enable|bool|Enable lazydocker (Only works if docker is enabled)|true|
 |vscode.enable|bool|Enable/Install vscode|true|
+|itu.wiseflow.enable|bool|Enable/Install wiseflow|false|
 
 ## Section
