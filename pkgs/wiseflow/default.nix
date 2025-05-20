@@ -1,5 +1,10 @@
 # In your configuration.nix or in a separate module file
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   wiseflow-device-monitor-source = pkgs.stdenv.mkDerivation {
@@ -39,8 +44,10 @@ let
 in
 {
   # Add the package to your system packages
-  environment.systemPackages = [
-    wiseflow-device-monitor
-  ];
+  config = lib.mkIf config.itu.wiseflow.enable {
+    environment.systemPackages = [
+      wiseflow-device-monitor
+    ];
+  };
 
 }
