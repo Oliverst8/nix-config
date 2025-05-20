@@ -49,5 +49,10 @@ with lib;
     description = "Enable/Install vscode";
     default = true;
   };
+  options.itu.wiseflow.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install wiseflow";
+    default = false;
+  };
 
 }
