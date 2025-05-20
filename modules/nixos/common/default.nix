@@ -174,6 +174,7 @@
 
       pkgs.rustup
       pkgs.jetbrains.rust-rover
+      pkgs.alacritty
     ];
 
     #Install fonts
