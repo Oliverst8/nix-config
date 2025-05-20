@@ -26,3 +26,7 @@ Last test working commit
 ```
 def6decf92883d5e419572caee6f6385d7663608
 ```
+
+Turn of AI pisss
+Jetbrains
+And copilot chat neovim
