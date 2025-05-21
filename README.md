@@ -16,4 +16,18 @@ In the following section all of my options can be found
 |vscode.enable|bool|Enable/Install vscode|true|
 |itu.wiseflow.enable|bool|Enable/Install wiseflow|false|
 
-## Section
+## Garbage collect 
+```
+nix-env --list-generations
+
+nix-collect-garbage  --delete-old
+
+nix-collect-garbage  --delete-generations 1 2 3
+
+# recommeneded to sometimes run as sudo to collect additional garbage
+sudo nix-collect-garbage -d
+
+# As a separation of concerns - you will need to run this command to clean out boot
+sudo /run/current-system/bin/switch-to-configuration boot
+```
+[Link to post](https://www.reddit.com/r/NixOS/comments/10107km/comment/j2lekuj/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
