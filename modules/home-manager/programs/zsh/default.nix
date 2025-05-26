@@ -22,6 +22,7 @@ in
         y = "yazi";
         sp = "spotify_player";
         sus = "python -c 'print(chr(sum(range(ord(min(str(not())))))))'";
+        stim = "asciiquarium";
       };
 
       #history = {

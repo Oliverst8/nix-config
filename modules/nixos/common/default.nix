@@ -175,6 +175,8 @@
       pkgs.rustup
       pkgs.jetbrains.rust-rover
       pkgs.alacritty
+
+      pkgs.asciiquarium-transparent
     ];
 
     #Install fonts
