@@ -38,12 +38,7 @@
         background = {
           # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
           blur_passes = 0; # 0 disables blurring
-          blur_size = 7;
-          noise = 1.17e-2;
-          contrast = 0.8916;
-          brightness = 0.8172;
-          vibrancy = 0.1696;
-          vibrancy_darkness = 0.0;
+          color = "rgba(00000000)";
         };
 
       };
