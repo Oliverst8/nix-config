@@ -3,7 +3,7 @@
 with lib;
 
 {
-  options.desktop.hyprland = mkOption {
+  options.desktop.hyprland.enable = mkOption {
     type = types.bool;
     description = "Enable/Install hyprland";
     default = false;
@@ -53,6 +53,11 @@ with lib;
     type = types.bool;
     description = "Enable/Install wiseflow";
     default = false;
+  };
+  options.desktop.hyprland.monitors = mkOption {
+    type = types.listOf types.str;
+    default = [ ];
+    description = "List of monitor description for hyprland";
   };
 
 }
