@@ -15,6 +15,7 @@ In the following section all of my options can be found
 |docker.lazydocker.enable|bool|Enable lazydocker (Only works if docker is enabled)|true|
 |vscode.enable|bool|Enable/Install vscode|true|
 |itu.wiseflow.enable|bool|Enable/Install wiseflow|false|
+|desktop.hyprland.monitors|listOf types.str|List of monitor description for hyprland|[ ]|
 
 ## Garbage collect 
 ```
