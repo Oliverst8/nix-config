@@ -35,9 +35,13 @@ lst = []
 lst.append("""| Option name | Type | Description | Default value |
 |---------|---------|---------|---------|\n""")
 
+type_map = {
+    "listOf types.str": "str []",
+}
 for match in x:
     option = match.groupdict()
-    row = f"|{option["name"]}|{option["type"]}|{option["description"]}|{option["default"]}|\n"
+    type_value = type_map.get(option["type"], option["type"])
+    row = f"|{option["name"]}|{type_value}|{option["description"]}|{option["default"]}|\n"
     lst.append(row)
 table = "".join(lst)
 insertTable(table)
