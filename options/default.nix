@@ -56,8 +56,8 @@ with lib;
   };
   options.desktop.hyprland.monitors = mkOption {
     type = types.listOf types.str;
-    default = [ ];
     description = "List of monitor description for hyprland";
+    default = [ ];
   };
 
 }
