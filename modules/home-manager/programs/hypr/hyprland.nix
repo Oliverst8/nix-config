@@ -25,10 +25,11 @@ in
         #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       ];
       settings = {
-        monitor = [
-          #"HDMI-A-1, prefered, auto, 1, mirror,eDP-1"
-          ",preferred,auto,auto"
-        ];
+        monitor = config.desktop.hyprland.monitors;
+        #[
+        #"HDMI-A-1, prefered, auto, 1, mirror,eDP-1"
+        #",preferred,auto,auto"
+        #];
 
         xwayland = {
           force_zero_scaling = true;
