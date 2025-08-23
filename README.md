@@ -32,3 +32,14 @@ sudo nix-collect-garbage -d
 sudo /run/current-system/bin/switch-to-configuration boot
 ```
 [Link to post](https://www.reddit.com/r/NixOS/comments/10107km/comment/j2lekuj/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
+
+## Allow flakes on setup
+The following needs to be added to allow rebuilding from flakes
+
+```
+# Enable nix flakes
+nix.settings.experimental-features = [
+  "nix-command"
+  "flakes"
+];
+```
