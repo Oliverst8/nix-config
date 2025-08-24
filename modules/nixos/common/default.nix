@@ -41,6 +41,7 @@
 
     #ITU
     ../ITU/4semester
+    ../ITU/5semester
   ];
 
   config = {
