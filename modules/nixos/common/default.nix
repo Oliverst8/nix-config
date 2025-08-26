@@ -178,6 +178,7 @@
       pkgs.alacritty
 
       pkgs.asciiquarium-transparent
+      pkgs.tmux
     ];
 
     #Install fonts
