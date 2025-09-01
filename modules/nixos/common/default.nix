@@ -180,6 +180,7 @@
 
       pkgs.asciiquarium-transparent
       pkgs.tmux
+      pkgs.postman
     ];
 
     #Install fonts
