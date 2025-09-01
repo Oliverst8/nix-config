@@ -35,6 +35,7 @@
     ../programs/docker
     ../programs/vscode
     ../programs/distrobox
+    ../programs/virt-manager
 
     #Custom pkgs
     ../../../pkgs/gottis

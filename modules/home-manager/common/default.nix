@@ -12,6 +12,7 @@
     ../programs/hypr
     ../programs/neovim
     ../programs/firefox
+    ../programs/virt-manager
   ];
 
 }
