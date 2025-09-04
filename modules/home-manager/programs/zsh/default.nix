@@ -23,6 +23,8 @@ in
         sp = "spotify_player";
         sus = "python -c 'print(chr(sum(range(ord(min(str(not())))))))'";
         stim = "asciiquarium";
+        fslex = "dotnet /home/ostarup/ITU/psd/ProgramsAsDataCodeE2025/fsharp/fslex.dll";
+        fsyacc = "dotnet /home/ostarup/ITU/psd/ProgramsAsDataCodeE2025/fsharp/fsyacc.dll";
       };
 
       #history = {
