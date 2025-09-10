@@ -6,7 +6,7 @@
     git.enable = true;
     docker.enable = true;
     desktop.hyprland.enable = true;
-    itu.wiseflow.enable = false;
+    drivers.nvidia.enable = true;
 
     desktop.hyprland.monitors = [
     ];

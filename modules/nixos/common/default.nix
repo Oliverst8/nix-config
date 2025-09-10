@@ -37,6 +37,8 @@
     ../programs/distrobox
     ../programs/virt-manager
 
+    ../drivers/nvidia
+
     #Custom pkgs
     ../../../pkgs/gottis
 
