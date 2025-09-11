@@ -16,6 +16,7 @@ In the following section all of my options can be found
 |vscode.enable|bool|Enable/Install vscode|true|
 |itu.wiseflow.enable|bool|Enable/Install wiseflow|false|
 |desktop.hyprland.monitors|str []|List of monitor description for hyprland|[ ]|
+|drivers.nvidia.enable|bool|Enable/Install nvidia drivers|false|
 
 ## Garbage collect 
 ```
