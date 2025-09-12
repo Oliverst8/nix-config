@@ -59,5 +59,10 @@ with lib;
     description = "List of monitor description for hyprland";
     default = [ ];
   };
+  options.drivers.nvidia.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install nvidia drivers";
+    default = false;
+  };
 
 }
