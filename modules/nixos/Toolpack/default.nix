@@ -11,9 +11,10 @@
     pkgs.dotnet-ef
     pkgs.python313
     pkgs.docker
-    pkgs.nodejs_22
-    pkgs.pnpm
+    pkgs.nodejs_24
+    pkgs.vscode-fhs
+    pkgs.dbeaver-bin
     pkgs.azure-cli
-    pkgs.galculator
+    pkgs.lazysql
   ];
 }
