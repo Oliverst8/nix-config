@@ -16,5 +16,7 @@
     pkgs.dbeaver-bin
     pkgs.azure-cli
     pkgs.lazysql
+    pkgs.prettierd
+    pkgs.csharpier
   ];
 }

@@ -25,12 +25,30 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      javascript = { 'prettierd' },
+      typescript = { 'prettierd' },
+      javascriptreact = { 'prettierd' },
+      typescriptreact = { 'prettierd' },
+      css = { 'prettierd' },
+      scss = { 'prettierd' },
+      json = { 'prettierd' },
+      yaml = { 'prettierd' },
+      markdown = { 'prettierd' },
+      html = { 'prettierd' },
+      cs = { 'csharpier' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.
       -- javascript = { { "prettierd", "prettier" } },
+    },
+    formatters = {
+      csharpier = {
+        command = 'dotnet-csharpier',
+        args = { '--write-stdout' },
+        stdin = true,
+      },
     },
   },
 }
