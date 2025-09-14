@@ -6,7 +6,7 @@ return {
   opts = {
     -- your configuration comes here; leave empty for default settings
     -- exe = 'Microsoft.CodeAnalysis.LanguageServer',
-    config = {
+    vim.lsp.config('roslyn', {
       cmd = {
         'Microsoft.CodeAnalysis.LanguageServer',
         '--logLevel=Information',
@@ -42,6 +42,6 @@ return {
           dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = true,
         },
       },
-    },
+    }),
   },
 }
