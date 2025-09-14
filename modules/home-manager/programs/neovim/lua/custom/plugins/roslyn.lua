@@ -5,8 +5,14 @@ return {
   ---@type RoslynNvimConfig
   opts = {
     -- your configuration comes here; leave empty for default settings
-    exe = 'Microsoft.CodeAnalysis.LanguageServer',
+    -- exe = 'Microsoft.CodeAnalysis.LanguageServer',
     config = {
+      cmd = {
+        'Microsoft.CodeAnalysis.LanguageServer',
+        '--logLevel=Information',
+        '--extensionLogDirectory=' .. vim.fs.dirname(vim.lsp.get_log_path()),
+        '--stdio',
+      },
       settings = {
         ['csharp|background_analysis'] = {
           dotnet_analyzer_diagnostics_scope = 'fullSolution',
