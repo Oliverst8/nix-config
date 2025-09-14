@@ -13,6 +13,7 @@
     ../programs/neovim
     ../programs/firefox
     ../programs/virt-manager
+    ../programs/tmux
   ];
 
 }
