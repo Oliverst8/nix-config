@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.tmux = {
@@ -6,6 +6,19 @@
     keyMode = "vi";
     baseIndex = 1;
     clock24 = true;
+    plugins = with pkgs; [
+      {
+        plugin = tmuxPlugins.tokyo-night-tmux;
+        extraConfig = "
+	  set -g @plugin 'fabioluciano/tmux-tokyo-night'
+	### Tokyo Night Theme configuration
+set -g @theme_variation 'moon'
+set -g @theme_left_separator ''
+set -g @theme_right_separator ''
+set -g @theme_plugins 'datetime,weather,playerctl,yay'
+	  ";
+      }
+    ];
     extraConfig = "
 			# Bind `prefix + v` to enter copy-mode
 			bind v copy-mode
@@ -22,10 +35,6 @@
 			# In copy-mode, `y` copies the selection and clears it,
 			# but does NOT exit copy-mode — only i can exit
 			bind-key -T copy-mode-vi 'y' send -X copy-selection-no-clear \; send -X clear-selection
-
-			# Bind Escape to enter copy-mode without prefix
-			bind-key -n Escape copy-mode
-
 
 			";
   };
