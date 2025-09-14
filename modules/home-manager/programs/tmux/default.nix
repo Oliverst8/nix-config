@@ -6,7 +6,6 @@
     keyMode = "vi";
     baseIndex = 1;
     clock24 = true;
-    prefix = "C-a";
     extraConfig = "
 			# Bind `prefix + v` to enter copy-mode
 			bind v copy-mode
