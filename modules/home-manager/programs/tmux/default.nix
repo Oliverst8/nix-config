@@ -13,7 +13,12 @@
           set -g @theme_variation 'moon'
           set -g @theme_left_separator ''
           set -g @theme_right_separator ''
-          set -g @theme_plugins 'datetime,weather,playerctl,yay'
+          ### Enable transparency
+          set -g @theme_left_separator ''
+          set -g @theme_right_separator ''
+          set -g @theme_transparent_status_bar 'true'
+          set -g @theme_transparent_left_separator_inverse ''
+          set -g @theme_transparent_right_separator_inverse ''
           	  ";
       }
     ];
