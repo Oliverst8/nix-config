@@ -17,6 +17,7 @@ in
           set -g @theme_variation "moon"
           set -g @theme_left_separator ""
           set -g @theme_right_separator ""
+          set -g @theme_disable_plugins 1
 
           ### Enable transparency
           set -g @theme_transparent_status_bar "true"
