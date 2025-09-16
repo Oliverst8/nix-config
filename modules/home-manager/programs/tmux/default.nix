@@ -8,6 +8,7 @@ in
     enable = true;
     keyMode = "vi";
     baseIndex = 1;
+    prefix = "C-a";
 
     plugins = [
       {
