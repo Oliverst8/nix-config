@@ -69,5 +69,10 @@ with lib;
     description = "Path to background image for hyprland";
     default = "~/nixos/imgs/.background/City-Rain.png";
   };
+  options.discord.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install discord";
+    default = false;
+  };
 
 }

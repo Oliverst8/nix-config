@@ -1,6 +1,12 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
-
-  environment.systemPackages = [ pkgs.distrobox ];
+  config = {
+    environment.systemPackages = lib.mkIf config.discord.enable [ pkgs.distrobox ];
+  };
 }

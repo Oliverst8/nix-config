@@ -36,6 +36,7 @@
     ../programs/vscode
     ../programs/distrobox
     ../programs/virt-manager
+    ../programs/discord
 
     ../drivers/nvidia
 

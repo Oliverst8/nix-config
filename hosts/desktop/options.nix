@@ -8,6 +8,7 @@
     docker.enable = true;
     desktop.hyprland.enable = true;
     drivers.nvidia.enable = true;
+    discord.enable = true;
     env.background = "~/nixos/imgs/.background/pure-black-background.jpg";
 
     desktop.hyprland.monitors = [
