@@ -18,6 +18,7 @@ In the following section all of my options can be found
 |desktop.hyprland.monitors|str []|List of monitor description for hyprland|[ ]|
 |drivers.nvidia.enable|bool|Enable/Install nvidia drivers|false|
 |env.background|str|Path to background image for hyprland|"~/nixos/imgs/.background/City-Rain.png"|
+|discord.enable|bool|Enable/Install discord|false|
 
 ## Garbage collect 
 ```
