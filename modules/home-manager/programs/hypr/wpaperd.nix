@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   config = {
@@ -6,7 +6,7 @@
       enable = true;
       settings = {
         any = {
-          path = "~/nixos/imgs/.background";
+          path = config.env.background;
         };
       };
     };

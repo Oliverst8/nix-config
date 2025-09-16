@@ -64,5 +64,10 @@ with lib;
     description = "Enable/Install nvidia drivers";
     default = false;
   };
+  options.env.background = mkOption {
+    type = types.str;
+    description = "Path to background image for hyprland";
+    default = "~/nixos/imgs/.background/City-Rain.png";
+  };
 
 }
