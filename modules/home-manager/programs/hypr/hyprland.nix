@@ -21,6 +21,7 @@ in
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       plugins = [
         pkgs.hyprlandPlugins.hyprexpo
         inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
@@ -139,6 +140,11 @@ in
           "$mainMod, 8, workspace, 8"
           "$mainMod, 9, workspace, 9"
           "$mainMod, 0, workspace, 10"
+          "bind = $mainMod, z, split-workspace, 1"
+          "bind = $mainMod, x, split-workspace, 2"
+          "bind = $mainMod, c, split-workspace, 3"
+          "bind = $mainMod, v, split-workspace, 4"
+          "bind = $mainMod, b, split-workspace, 5"
           "$mainMod SHIFT, 1, movetoworkspace, 1"
           "$mainMod SHIFT, 2, movetoworkspace, 2"
           "$mainMod SHIFT, 3, movetoworkspace, 3"

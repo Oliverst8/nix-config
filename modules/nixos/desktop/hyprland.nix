@@ -26,7 +26,7 @@
     };
     services.displayManager.sddm.wayland.enable = true;
 
-    programs.hyprland.enable = true;
+    #programs.hyprland.enable = true;
     programs.hyprland.xwayland.enable = true;
 
     environment.systemPackages = with pkgs; [
