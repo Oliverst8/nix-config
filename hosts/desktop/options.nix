@@ -1,6 +1,7 @@
 { ... }:
 {
   config = {
+    #Self made options
     gottis.enable = true;
     systemFolder.name = "desktop";
     git.enable = true;
@@ -10,6 +11,7 @@
 
     desktop.hyprland.monitors = [
     ];
+
   };
 
 }
