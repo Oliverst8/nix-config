@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }:
 
@@ -22,7 +23,7 @@ in
       enable = true;
       plugins = [
         pkgs.hyprlandPlugins.hyprexpo
-        #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+        inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
       ];
       settings = {
         monitor = config.desktop.hyprland.monitors;

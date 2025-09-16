@@ -25,6 +25,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    split-monitor-workspaces = {
+      url = "github:Duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland"; # <- make sure this line is present for the plugin to work as intended
+    };
   };
 
   outputs =
@@ -33,6 +37,7 @@
       nixpkgs,
       nixos-wsl,
       nixCats,
+      split-monitor-workspaces,
       ...
     }@inputs:
     let
