@@ -19,6 +19,7 @@ In the following section all of my options can be found
 |drivers.nvidia.enable|bool|Enable/Install nvidia drivers|false|
 |env.background|str|Path to background image for hyprland|"~/nixos/imgs/.background/City-Rain.png"|
 |discord.enable|bool|Enable/Install discord|false|
+|kitty-cli.enable|bool|Enable/Install the kattis cli tool kitty-cli|false|
 
 ## Garbage collect 
 ```
