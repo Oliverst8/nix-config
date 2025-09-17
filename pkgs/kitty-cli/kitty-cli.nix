@@ -6,7 +6,7 @@
 }:
 
 rustPlatform.buildRustPackage rec {
-  pname = "kittie";
+  pname = "kitty";
   version = "0.9.0"; # you can bump this if you track a release tag
 
   src = fetchFromGitHub {
@@ -19,6 +19,10 @@ rustPlatform.buildRustPackage rec {
   cargoLock = {
     lockFile = "${src}/Cargo.lock";
   };
+
+  postInstall = ''
+    mv "$out/bin/kitty" "$out/bin/kittie"
+  '';
 
   # Fix openssl-sys build
   nativeBuildInputs = [
