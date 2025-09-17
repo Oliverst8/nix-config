@@ -74,5 +74,9 @@ with lib;
     description = "Enable/Install discord";
     default = false;
   };
-
+  options.hypridle.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install hypridle";
+    default = false;
+  };
 }
