@@ -74,5 +74,10 @@ with lib;
     description = "Enable/Install discord";
     default = false;
   };
+  options.kitty-cli.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install the kattis cli tool kitty-cli";
+    default = false;
+  };
 
 }
