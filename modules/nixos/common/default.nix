@@ -185,6 +185,7 @@
 
       pkgs.asciiquarium-transparent
       pkgs.postman
+      pkgs.zip
     ];
 
     #Install fonts
