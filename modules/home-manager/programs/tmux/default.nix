@@ -10,6 +10,11 @@ in
     baseIndex = 1;
     prefix = "C-a";
 
+    # For neovim
+    escapeTime = 0;
+    focusEvents = true;
+    terminal = "screen-256color";
+
     plugins = [
       {
         plugin = tmux-tokyo-night;
