@@ -4,24 +4,24 @@
 
 In the following section all of my options can be found
 
-| Option name               | Type   | Description                                                       | Default value                            |
-| ------------------------- | ------ | ----------------------------------------------------------------- | ---------------------------------------- |
-| desktop.hyprland.enable   | bool   | Enable/Install hyprland                                           | false                                    |
-| systemFolder.name         | str    | The name of the current system (The name the config folder is in) | ""                                       |
-| gottis.enable             | bool   | Enable gottis                                                     | false                                    |
-| git.enable                | bool   | Enable git                                                        | false                                    |
-| git.lazygit.enable        | bool   | Enable lazygit (Only works if git is enabled)                     | true                                     |
-| git.gh.enable             | bool   | Enable the github cli (Only works if git is enabled)              | true                                     |
-| docker.enable             | bool   | Enable and install docker                                         | false                                    |
-| docker.lazydocker.enable  | bool   | Enable lazydocker (Only works if docker is enabled)               | true                                     |
-| vscode.enable             | bool   | Enable/Install vscode                                             | true                                     |
-| itu.wiseflow.enable       | bool   | Enable/Install wiseflow                                           | false                                    |
-| desktop.hyprland.monitors | str [] | List of monitor description for hyprland                          | [ ]                                      |
-| drivers.nvidia.enable     | bool   | Enable/Install nvidia drivers                                     | false                                    |
-| env.background            | str    | Path to background image for hyprland                             | "~/nixos/imgs/.background/City-Rain.png" |
-| discord.enable            | bool   | Enable/Install discord                                            | false                                    |
-| hypridle.enable           | bool   | Enable/Install hypridle                                           | false                                    |
-| kitty-cli.enable          | bool   | Enable/Install the kattis cli tool kitty-cli                      | false                                    |
+| Option name | Type | Description | Default value |
+|---------|---------|---------|---------|
+|desktop.hyprland.enable|bool|Enable/Install hyprland|false|
+|systemFolder.name|str|The name of the current system (The name the config folder is in)|""|
+|gottis.enable|bool|Enable gottis|false|
+|git.enable|bool|Enable git|false|
+|git.lazygit.enable|bool|Enable lazygit (Only works if git is enabled)|true|
+|git.gh.enable|bool|Enable the github cli (Only works if git is enabled)|true|
+|docker.enable|bool|Enable and install docker|false|
+|docker.lazydocker.enable|bool|Enable lazydocker (Only works if docker is enabled)|true|
+|vscode.enable|bool|Enable/Install vscode|true|
+|itu.wiseflow.enable|bool|Enable/Install wiseflow|false|
+|desktop.hyprland.monitors|str []|List of monitor description for hyprland|[ ]|
+|drivers.nvidia.enable|bool|Enable/Install nvidia drivers|false|
+|env.background|str|Path to background image for hyprland|"~/nixos/imgs/.background/City-Rain.png"|
+|discord.enable|bool|Enable/Install discord|false|
+|hypridle.enable|bool|Enable/Install hypridle|false|
+|kitty-cli.enable|bool|Enable/Install the kattis cli tool kitty-cli|false|
 
 ## Garbage collect
 
