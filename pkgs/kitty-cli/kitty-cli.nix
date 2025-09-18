@@ -10,10 +10,10 @@ rustPlatform.buildRustPackage rec {
   version = "0.9.0"; # you can bump this if you track a release tag
 
   src = fetchFromGitHub {
-    owner = "avborup";
-    repo = "kitty";
-    rev = "master"; # or use a release tag/commit hash for reproducibility
-    sha256 = "sha256-6/ednV6hpTObID8VgSxu0xw23DI9Njvz1UuGVWrQH0g="; # replace with actual hash
+    owner = "oliverst8";
+    repo = "kittie";
+    rev = "feat/contest"; # or use a release tag/commit hash for reproducibility
+    sha256 = "sha256-6ua7zA2X0ftf3OLJyBGgSDFkgqsqiOqz1Pt2rWe6cck="; # replace with actual hash
   };
 
   cargoLock = {
