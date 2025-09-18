@@ -42,6 +42,7 @@
 
     #Custom pkgs
     ../../../pkgs/gottis
+    ../../../pkgs/kitty-cli
 
     #ITU
     ../ITU/4semester
