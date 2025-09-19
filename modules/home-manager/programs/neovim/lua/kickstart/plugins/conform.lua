@@ -43,12 +43,5 @@ return { -- Autoformat
       -- is found.
       -- javascript = { { "prettierd", "prettier" } },
     },
-    formatters = {
-      csharpier = {
-        command = 'dotnet-csharpier',
-        args = { '--write-stdout' },
-        stdin = true,
-      },
-    },
   },
 }
