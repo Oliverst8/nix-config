@@ -35,5 +35,8 @@
         "ostarup" = import ./home.nix;
       };
     };
+    #Nixos build in options
+    networking.interfaces.enp12s0.wakeOnLan.enable = true;
+
   };
 }

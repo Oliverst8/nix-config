@@ -1,6 +1,7 @@
 # Nix config
 
 ## Options
+
 In the following section all of my options can be found
 
 | Option name | Type | Description | Default value |
@@ -17,8 +18,13 @@ In the following section all of my options can be found
 |itu.wiseflow.enable|bool|Enable/Install wiseflow|false|
 |desktop.hyprland.monitors|str []|List of monitor description for hyprland|[ ]|
 |drivers.nvidia.enable|bool|Enable/Install nvidia drivers|false|
+|env.background|str|Path to background image for hyprland|"~/nixos/imgs/.background/City-Rain.png"|
+|discord.enable|bool|Enable/Install discord|false|
+|hypridle.enable|bool|Enable/Install hypridle|false|
+|kitty-cli.enable|bool|Enable/Install the kattis cli tool kitty-cli|false|
 
-## Garbage collect 
+## Garbage collect
+
 ```
 nix-env --list-generations
 
@@ -32,9 +38,11 @@ sudo nix-collect-garbage -d
 # As a separation of concerns - you will need to run this command to clean out boot
 sudo /run/current-system/bin/switch-to-configuration boot
 ```
+
 [Link to post](https://www.reddit.com/r/NixOS/comments/10107km/comment/j2lekuj/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button)
 
 ## Allow flakes on setup
+
 The following needs to be added to allow rebuilding from flakes
 
 ```

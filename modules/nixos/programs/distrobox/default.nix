@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
-
-  environment.systemPackages = [ pkgs.distrobox ];
+  config = {
+    environment.systemPackages = [ pkgs.distrobox ];
+  };
 }

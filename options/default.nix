@@ -64,5 +64,24 @@ with lib;
     description = "Enable/Install nvidia drivers";
     default = false;
   };
-
+  options.env.background = mkOption {
+    type = types.str;
+    description = "Path to background image for hyprland";
+    default = "~/nixos/imgs/.background/City-Rain.png";
+  };
+  options.discord.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install discord";
+    default = false;
+  };
+  options.hypridle.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install hypridle";
+    default = false;
+  };
+  options.kitty-cli.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install the kattis cli tool kitty-cli";
+    default = false;
+  };
 }

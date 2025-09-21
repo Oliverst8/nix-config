@@ -15,21 +15,16 @@
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
-
     };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     sddm-sugar-candy-nix = {
       url = "gitlab:Zhaith-Izaliel/sddm-sugar-candy-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-
   };
 
   outputs =
@@ -40,43 +35,49 @@
       nixCats,
       ...
     }@inputs:
-    {
-      nixosConfigurations = {
-        default = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/default/configuration.nix
-            #./hosts/laptop/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-        };
-        laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/laptop/configuration.nix
-            #./hosts/laptop/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-        };
-        desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/desktop/configuration.nix
-            inputs.home-manager.nixosModules.default
-          ];
-        };
-        wsl = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/wsl/configuration.nix
-            inputs.home-manager.nixosModules.default
+    let
+      systems = [
+        {
+          name = "default";
+          arch = "x86_64-linux";
+          extraModules = [ ];
+        }
+        {
+          name = "laptop";
+          arch = "x86_64-linux";
+          extraModules = [ ];
+        }
+        {
+          name = "desktop";
+          arch = "x86_64-linux";
+          extraModules = [ ];
+        }
+        {
+          name = "wsl";
+          arch = "x86_64-linux";
+          extraModules = [
             nixos-wsl.nixosModules.default
             {
               wsl.enable = true;
             }
           ];
-        };
-      };
+        }
+      ];
+    in
+    {
+      nixosConfigurations = builtins.listToAttrs (
+        map (system: {
+          name = system.name;
+          value = nixpkgs.lib.nixosSystem {
+            system = system.arch;
+            specialArgs = { inherit inputs; };
+            modules = [
+              ./hosts/${system.name}/configuration.nix
+              inputs.home-manager.nixosModules.default
+            ]
+            ++ system.extraModules;
+          };
+        }) systems
+      );
     };
 }

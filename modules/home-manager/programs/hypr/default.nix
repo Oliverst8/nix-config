@@ -6,5 +6,6 @@
     ./hyprlock.nix
     ./waybar.nix
     ./wpaperd.nix
+    ./hypridle.nix
   ];
 }

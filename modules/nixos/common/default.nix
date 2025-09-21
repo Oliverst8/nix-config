@@ -36,11 +36,13 @@
     ../programs/vscode
     ../programs/distrobox
     ../programs/virt-manager
+    ../programs/discord
 
     ../drivers/nvidia
 
     #Custom pkgs
     ../../../pkgs/gottis
+    ../../../pkgs/kitty-cli
 
     #ITU
     ../ITU/4semester
@@ -184,6 +186,7 @@
 
       pkgs.asciiquarium-transparent
       pkgs.postman
+      pkgs.zip
     ];
 
     #Install fonts
