@@ -2,6 +2,7 @@
 
 let
   tmux-tokyo-night = import ./tmux-tokyo-night.nix { inherit pkgs; };
+  tmux-named-snapshot = import ./tmux-named-snapshot.nix { inherit pkgs; };
 in
 {
   programs.tmux = {
@@ -31,6 +32,11 @@ in
           set -g @theme_transparent_right_separator_inverse ""
         '';
       }
+      pkgs.tmuxPlugins.resurrect
+      {
+        plugin = tmux-named-snapshot;
+      }
+
     ];
 
     extraConfig = ''
