@@ -35,6 +35,10 @@ in
       pkgs.tmuxPlugins.resurrect
       {
         plugin = tmux-named-snapshot;
+        extraConfig = ''
+          set -g @named-snapshot-save 'C-m:manual M:* C-d:Toolpack'
+          set -g @named-snapshot-restore 'C-n:manual N:* D:Toolpack'
+        '';
       }
 
     ];

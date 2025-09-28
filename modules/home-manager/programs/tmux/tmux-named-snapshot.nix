@@ -1,13 +1,13 @@
 { pkgs }:
 
 pkgs.tmuxPlugins.mkTmuxPlugin {
-  pluginname = "tmux-named-snapshot.tmux";
-  rtpfilepath = "tmux-named-snapshot.tmux";
+  pluginName = "named-snapshot.tmux";
+  rtpFilePath = "named-snapshot.tmux";
   version = "v1"; # or the latest release
-  src = pkgs.fetchfromgithub {
+  src = pkgs.fetchFromGitHub {
     owner = "spywhere";
     repo = "tmux-named-snapshot";
     rev = "main"; # replace with the tag or commit you want
-    sha256 = "sha256-wjdbunwmxbw/jjvc34ujowif18poc3wvo1s+hk9slg4=";
+    sha256 = "sha256-EW1X+ZVl+hIIqAsj+bv6dkjQtNiBEhUYOQK/8bFEpV8=";
   };
 }
