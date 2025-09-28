@@ -73,6 +73,7 @@ in
               vscode-langservers-extracted
               typescript-language-server
               gopls
+              clang-tools
             ];
             kickstart-debug = [
               delve

@@ -16,6 +16,5 @@
     pkgs.azure-cli
     pkgs.lazysql
     pkgs.prettierd
-    pkgs.csharpier
   ];
 }
