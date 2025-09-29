@@ -36,8 +36,8 @@ in
       {
         plugin = tmux-named-snapshot;
         extraConfig = ''
-          set -g @named-snapshot-save 'C-m:manual M:* C-d:Toolpack'
-          set -g @named-snapshot-restore 'C-n:manual N:* D:Toolpack'
+          set -g @named-snapshot-save 'C-m:manual M:* C-t:Toolpack'
+          set -g @named-snapshot-restore 'C-n:manual N:* T:Toolpack'
         '';
       }
 
