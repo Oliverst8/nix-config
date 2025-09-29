@@ -188,6 +188,7 @@
       pkgs.postman
       pkgs.zip
       pkgs.act
+      pkgs.fzf
     ];
 
     #Install fonts
