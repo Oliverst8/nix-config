@@ -37,6 +37,7 @@
     ../programs/distrobox
     ../programs/virt-manager
     ../programs/discord
+    ../programs/plymouth
 
     ../drivers/nvidia
 
