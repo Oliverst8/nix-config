@@ -125,6 +125,7 @@ in
               lazygit-nvim
               nvim-config-local
               nvim-notify
+              plenary-nvim
             ];
             kickstart-debug = [
               nvim-dap
