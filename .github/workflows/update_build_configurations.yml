@@ -1,0 +1,46 @@
+name: Build NixOS Configurations
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        config: [default, laptop, desktop, wsl]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: feat/update
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v26
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            accept-flake-config = true
+
+      - name: Update flake inputs
+        run: |
+          nix flake update
+
+      - name: Build NixOS configuration - ${{ matrix.config }}
+        run: |
+          nix build .#nixosConfigurations.${{ matrix.config }}.config.system.build.toplevel -L
+
+      - name: Check flake
+        if: matrix.config == 'default'
+        run: |
+          nix flake check -L
+        continue-on-error: true
+
+      - name: Show build outputs
+        if: success()
+        run: |
+          echo "✅ Successfully built ${{ matrix.config }} configuration"
+          ls -lah result/
