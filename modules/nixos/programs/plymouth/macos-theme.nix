@@ -19,8 +19,6 @@ stdenvNoCC.mkDerivation {
   postPatch = ''
     # Remove not needed files
     rm -f README.md
-    # Move into the theme directory
-    cd apple-mac-plymouth
   '';
 
   dontBuild = true;
@@ -28,7 +26,7 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
     mkdir -p $out/share/plymouth/themes/apple-mac-plymouth
-    cp apple-mac-plymouth/* $out/share/plymouth/themes/apple-mac-plymouth/
+    cp -r apple-mac-plymouth/* $out/share/plymouth/themes/apple-mac-plymouth/
     find $out/share/plymouth/themes/ -name \*.plymouth -exec sed -i "s@\/usr\/@$out\/@" {} \;
     runHook postInstall
   '';
