@@ -37,6 +37,7 @@
     ../programs/distrobox
     ../programs/virt-manager
     ../programs/discord
+    ../programs/plymouth
 
     ../drivers/nvidia
 
@@ -187,6 +188,8 @@
       pkgs.asciiquarium-transparent
       pkgs.postman
       pkgs.zip
+      pkgs.act
+      pkgs.fzf
     ];
 
     #Install fonts

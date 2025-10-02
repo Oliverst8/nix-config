@@ -6,7 +6,7 @@ return {
   },
   opts = {
     -- Add any configuration options here
-    model = 'claude-3.7-sonnet',
+    model = 'claude-sonnet-4.5',
     window = {
       layout = 'vertical',
       width = 0.3, -- fractional width of parent window (number between 0 and 1)

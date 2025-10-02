@@ -2,6 +2,7 @@
 
 let
   tmux-tokyo-night = import ./tmux-tokyo-night.nix { inherit pkgs; };
+  tmux-named-snapshot = import ./tmux-named-snapshot.nix { inherit pkgs; };
 in
 {
   programs.tmux = {
@@ -31,6 +32,15 @@ in
           set -g @theme_transparent_right_separator_inverse ""
         '';
       }
+      pkgs.tmuxPlugins.resurrect
+      {
+        plugin = tmux-named-snapshot;
+        extraConfig = ''
+          set -g @named-snapshot-save 'C-m:manual M:* C-t:Toolpack'
+          set -g @named-snapshot-restore 'C-n:manual N:* T:Toolpack'
+        '';
+      }
+
     ];
 
     extraConfig = ''

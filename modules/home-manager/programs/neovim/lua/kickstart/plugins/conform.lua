@@ -17,7 +17,7 @@ return { -- Autoformat
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
+      local disable_filetypes = { cs = true, c = true, cpp = true }
       return {
         timeout_ms = 500,
         lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -35,20 +35,12 @@ return { -- Autoformat
       yaml = { 'prettierd' },
       markdown = { 'prettierd' },
       html = { 'prettierd' },
-      cs = { 'csharpier' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
       -- You can use a sub-list to tell conform to run *until* a formatter
       -- is found.
       -- javascript = { { "prettierd", "prettier" } },
-    },
-    formatters = {
-      csharpier = {
-        command = 'dotnet-csharpier',
-        args = { '--write-stdout' },
-        stdin = true,
-      },
     },
   },
 }

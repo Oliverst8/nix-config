@@ -73,6 +73,7 @@ in
               vscode-langservers-extracted
               typescript-language-server
               gopls
+              clang-tools
             ];
             kickstart-debug = [
               delve
@@ -124,6 +125,7 @@ in
               lazygit-nvim
               nvim-config-local
               nvim-notify
+              plenary-nvim
             ];
             kickstart-debug = [
               nvim-dap

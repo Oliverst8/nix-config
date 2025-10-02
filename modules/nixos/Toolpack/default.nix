@@ -12,11 +12,9 @@
     pkgs.python313
     pkgs.docker
     pkgs.nodejs_24
-    pkgs.vscode-fhs
     pkgs.dbeaver-bin
     pkgs.azure-cli
     pkgs.lazysql
     pkgs.prettierd
-    pkgs.csharpier
   ];
 }
