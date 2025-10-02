@@ -12,8 +12,8 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "oliverst8";
     repo = "MacOS-sus-Boot-Plymouth";
-    rev = "master";
-    hash = "sha256-rTn/btgy3MHHyfcblxrQRVssksNNjvF5p0nDyVQpScI="; # You'll need to update this hash
+    rev = "06d67a53bdcdfda7286dab36a8780b97b04b5d32";
+    hash = "sha256-+DQe+Xco7FWtPwgEe9AWPLAnSw2+Ptk9VEQtieI01uY="; # You'll need to update this hash
   };
 
   postPatch = ''
