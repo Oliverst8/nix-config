@@ -84,4 +84,9 @@ with lib;
     description = "Enable/Install the kattis cli tool kitty-cli";
     default = false;
   };
+  options.apple-sus.enable = mkOption {
+    type = types.bool;
+    description = "Enable the apple sus plymouth theme";
+    default = false;
+  };
 }

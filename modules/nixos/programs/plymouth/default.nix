@@ -1,6 +1,11 @@
-{ pkgs, ... }:
 {
-  boot = {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  boot = lib.mkIf config.apple-sus.enable {
 
     plymouth = {
       enable = true;
