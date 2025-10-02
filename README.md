@@ -22,6 +22,7 @@ In the following section all of my options can be found
 |discord.enable|bool|Enable/Install discord|false|
 |hypridle.enable|bool|Enable/Install hypridle|false|
 |kitty-cli.enable|bool|Enable/Install the kattis cli tool kitty-cli|false|
+|apple-sus.enable|bool|Enable the apple sus plymouth theme|false|
 
 ## Garbage collect
 
