@@ -33,13 +33,4 @@ stdenvNoCC.mkDerivation {
 
   passthru.updateScript = unstableGitUpdater { };
 
-  meta = {
-    description = "MacOS-inspired Plymouth boot theme";
-    longDescription = ''
-      A Plymouth boot theme inspired by the MacOS boot animation.
-    '';
-    homepage = "https://github.com/nilotpalbiswas/MacOS-Boot-Plymouth";
-    license = lib.licenses.unfree; # No license specified in the repository
-    platforms = lib.platforms.linux;
-  };
 }
