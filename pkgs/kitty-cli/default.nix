@@ -2,13 +2,14 @@
   config,
   lib,
   pkgs,
+  sources,
   ...
 }:
 
 with lib;
 
 let
-  kittie = pkgs.callPackage ./kitty-cli.nix { };
+  kittie = pkgs.callPackage ./kitty-cli.nix { inherit sources; };
 in
 {
 
