@@ -71,7 +71,10 @@
           name = system.name;
           value = nixpkgs.lib.nixosSystem {
             system = system.arch;
-            specialArgs = { inherit inputs; };
+            specialArgs = {
+              inherit inputs;
+              sources = inputs.sources.sources;
+            };
             modules = [
               ./hosts/${system.name}/configuration.nix
               inputs.home-manager.nixosModules.default
