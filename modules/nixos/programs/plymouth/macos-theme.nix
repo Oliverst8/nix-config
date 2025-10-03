@@ -1,20 +1,15 @@
 {
   stdenvNoCC,
-  fetchFromGitHub,
   lib,
   unstableGitUpdater,
+  sources,
 }:
 
 stdenvNoCC.mkDerivation {
   pname = "plymouth-macos-theme";
   version = "0-unstable-2020-02-16";
 
-  src = fetchFromGitHub {
-    owner = "oliverst8";
-    repo = "MacOS-sus-Boot-Plymouth";
-    rev = "06d67a53bdcdfda7286dab36a8780b97b04b5d32";
-    hash = "sha256-+DQe+Xco7FWtPwgEe9AWPLAnSw2+Ptk9VEQtieI01uY="; # You'll need to update this hash
-  };
+  src = sources.plymouth-macos-theme;
 
   postPatch = ''
     # Remove not needed files
@@ -32,5 +27,4 @@ stdenvNoCC.mkDerivation {
   '';
 
   passthru.updateScript = unstableGitUpdater { };
-
 }

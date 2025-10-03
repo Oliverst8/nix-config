@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  sources,
   ...
 }:
 {
@@ -11,7 +12,7 @@
       enable = true;
       theme = "apple-mac-plymouth";
       themePackages = [
-        (pkgs.callPackage ./macos-theme.nix { })
+        (pkgs.callPackage ./macos-theme.nix { inherit sources; })
       ];
     };
 
