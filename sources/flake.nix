@@ -1,11 +1,10 @@
 {
-  description = "Pinned Git sources for my config";
+  description = "Pinned Git sources";
 
   inputs = {
-    # Pin repo and branch
     kitty-src = {
       url = "github:oliverst8/kittie/feat/contest";
-      flake = false; # repo isn't a flake
+      flake = false;
     };
     plymouth-macos-theme-src = {
       url = "github:oliverst8/MacOS-sus-Boot-Plymouth";

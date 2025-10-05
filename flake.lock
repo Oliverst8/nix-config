@@ -420,6 +420,23 @@
         "type": "github"
       }
     },
+    "kitty-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1758222219,
+        "narHash": "sha256-FL7X8FKMItWJkXxPKFUbH5s0PBhc5/PWnZEzrxl4YCU=",
+        "owner": "oliverst8",
+        "repo": "kittie",
+        "rev": "2444ad95adb56382e267f530c57a0ccc22df27bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oliverst8",
+        "ref": "feat/contest",
+        "repo": "kittie",
+        "type": "github"
+      }
+    },
     "nixCats": {
       "locked": {
         "lastModified": 1753170780,
@@ -520,7 +537,8 @@
         "nixCats": "nixCats",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
-        "sddm-sugar-candy-nix": "sddm-sugar-candy-nix"
+        "sddm-sugar-candy-nix": "sddm-sugar-candy-nix",
+        "sources": "sources"
       }
     },
     "sddm-sugar-candy-nix": {
@@ -542,6 +560,20 @@
         "repo": "sddm-sugar-candy-nix",
         "type": "gitlab"
       }
+    },
+    "sources": {
+      "inputs": {
+        "kitty-src": "kitty-src"
+      },
+      "locked": {
+        "path": "./sources",
+        "type": "path"
+      },
+      "original": {
+        "path": "./sources",
+        "type": "path"
+      },
+      "parent": []
     },
     "systems": {
       "locked": {
