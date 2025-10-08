@@ -20,10 +20,12 @@ in
     networking.networkmanager.enable = true;
 
     # Apply patch to wpa_supplicant if enabled
-    nixpkgs.config.packageOverrides = lib.mkIf cfg.enable (pkgs: {
-      wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
-        patches = attrs.patches ++ [ ../../../patches/eduroam.patch ];
-      });
-    });
+    nixpkgs.config.packageOverrides = (
+      pkgs: {
+        wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
+          patches = attrs.patches ++ [ ../../../patches/eduroam.patch ];
+        });
+      }
+    );
   };
 }
