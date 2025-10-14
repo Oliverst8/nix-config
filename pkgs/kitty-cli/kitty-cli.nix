@@ -13,7 +13,7 @@ rustPlatform.buildRustPackage rec {
     owner = "oliverst8";
     repo = "kittie";
     rev = "feat/contest"; # or use a release tag/commit hash for reproducibility
-    sha256 = "sha256-6ua7zA2X0ftf3OLJyBGgSDFkgqsqiOqz1Pt2rWe6cck="; # replace with actual hash
+    sha256 = "sha256-FL7X8FKMItWJkXxPKFUbH5s0PBhc5/PWnZEzrxl4YCU="; # replace with actual hash
   };
 
   cargoLock = {
