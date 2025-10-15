@@ -23,6 +23,7 @@ In the following section all of my options can be found
 |hypridle.enable|bool|Enable/Install hypridle|false|
 |kitty-cli.enable|bool|Enable/Install the kattis cli tool kitty-cli|false|
 |apple-sus.enable|bool|Enable the apple sus plymouth theme|false|
+|itu.eduroam.enable|bool|Enable if wpa_supplicant should be patched to allow eduroam to work|false|
 
 ## Garbage collect
 
