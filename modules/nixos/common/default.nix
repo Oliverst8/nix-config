@@ -28,7 +28,6 @@
     ../../../options
 
     ../network
-    ../network/default-backup.nix
     ../desktop
 
     ../programs/neovim

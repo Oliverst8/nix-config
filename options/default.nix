@@ -89,4 +89,9 @@ with lib;
     description = "Enable the apple sus plymouth theme";
     default = false;
   };
+  options.itu.eduroam.enable = mkOption {
+    type = types.bool;
+    description = "Enable if wpa_supplicant should be patched to allow eduroam to work";
+    default = false;
+  };
 }
