@@ -35,7 +35,7 @@
       libnotify
       swww
       kitty
-      rofi-wayland
+      rofi
       brightnessctl
       networkmanagerapplet
       swayosd

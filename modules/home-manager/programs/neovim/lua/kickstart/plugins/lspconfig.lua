@@ -160,22 +160,7 @@ return { -- LSP Configuration & Plugins
           map('<leader>th', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
           end, '[T]oggle Inlay [H]ints')
-          vim.lsp.inlay_hint.enable(true)
         end
-
-        -- This ensures LSP is working properly after opening files with Telescope
-        vim.api.nvim_create_autocmd('BufEnter', {
-          group = vim.api.nvim_create_augroup('kickstart-lsp-attach-bufenter', { clear = true }),
-          callback = function()
-            local buf = vim.api.nvim_get_current_buf()
-            -- Check if buffer has LSP attached
-            local clients = vim.lsp.get_clients { buffer = buf }
-            if #clients == 0 then
-              -- Try to attach LSP if not already attached
-              vim.cmd 'LspStart'
-            end
-          end,
-        })
       end,
     })
 
@@ -185,6 +170,7 @@ return { -- LSP Configuration & Plugins
     --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+    vim.lsp.config('*', { capabilities = capabilities })
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -241,17 +227,13 @@ return { -- LSP Configuration & Plugins
     -- You could MAKE it work, using lspsAndRuntimeDeps and sharedLibraries in nixCats
     -- but don't... its not worth it. Just add the lsp to lspsAndRuntimeDeps.
     if require('nixCatsUtils').isNixCats then
-      for server_name, _ in pairs(servers) do
-        require('lspconfig')[server_name].setup {
-          capabilities = capabilities,
-          settings = (servers[server_name] or {}).settings,
-          filetypes = (servers[server_name] or {}).filetypes,
-          cmd = (servers[server_name] or {}).cmd,
-          root_pattern = (servers[server_name] or {}).root_pattern,
-        }
+      -- set up the servers to be loaded on the appropriate filetypes!
+      for server_name, cfg in pairs(servers) do
+        vim.lsp.config(server_name, cfg)
+        vim.lsp.enable(server_name)
       end
     else
-      -- NOTE: nixCats: and if no nix, do it the normal way
+      -- NOTE: nixCats: and if no nix, use mason
 
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
@@ -272,12 +254,8 @@ return { -- LSP Configuration & Plugins
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
+            vim.lsp.config(server_name, servers[server_name] or {})
+            vim.lsp.enable(server_name)
           end,
         },
       }

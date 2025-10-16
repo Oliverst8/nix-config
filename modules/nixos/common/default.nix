@@ -153,9 +153,9 @@
     environment.systemPackages = [
       pkgs.vim # Text editor
       pkgs.steam-run # Allows the use of mason and lsps with neovim
-      pkgs.libsForQt5.okular
+      pkgs.kdePackages.okular
       pkgs.pavucontrol
-      pkgs.libsForQt5.dolphin # File browser
+      pkgs.kdePackages.dolphin # File browser
       pkgs.power-profiles-daemon # Power profiles
       pkgs.mpv # Video player
 
