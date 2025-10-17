@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, sources, ... }:
 
 let
-  tmux-tokyo-night = import ./tmux-tokyo-night.nix { inherit pkgs; };
-  tmux-named-snapshot = import ./tmux-named-snapshot.nix { inherit pkgs; };
+  tmux-tokyo-night = import ./tmux-tokyo-night.nix { inherit pkgs sources; };
+  tmux-named-snapshot = import ./tmux-named-snapshot.nix { inherit pkgs sources; };
 in
 {
   programs.tmux = {
