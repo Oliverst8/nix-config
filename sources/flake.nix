@@ -10,18 +10,18 @@
       url = "github:oliverst8/MacOS-sus-Boot-Plymouth";
       flake = false;
     };
+    gottis-src = {
+      url = "github:oliverst8/gottis";
+      flake = false;
+    };
+
   };
 
-  outputs =
-    {
-      self,
-      kitty-src,
-      plymouth-macos-theme-src,
-    }:
-    {
-      sources = {
-        kitty = kitty-src;
-        plymouth-macos-theme = plymouth-macos-theme-src;
-      };
+  outputs = inputs: {
+    sources = {
+      kitty = inputs.kitty-src;
+      plymouth-macos-theme = inputs.plymouth-macos-theme-src;
+      gottis = inputs.gottis-src;
     };
+  };
 }
