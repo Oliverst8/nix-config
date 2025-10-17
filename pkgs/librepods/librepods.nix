@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
     owner = "kavishdevar";
     repo = "librepods";
     rev = "v${version}"; # or use a specific commit hash
-    hash = ""; # Run nix-build first to get the correct hash
+    hash = "sha256-FnDYQ3EPx2hpeCCZvbf5PJo+KCj+YO+DNg+++UpZ7Xs="; # Run nix-build first to get the correct hash
   };
 
   sourceRoot = "${src.name}/linux";
