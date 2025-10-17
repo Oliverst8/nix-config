@@ -109,6 +109,22 @@
         "type": "github"
       }
     },
+    "gottis-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1757879133,
+        "narHash": "sha256-mU7etkoMQGVz/LYtyRQXEb4w/9CQU9iys8atJgo5/vc=",
+        "owner": "oliverst8",
+        "repo": "gottis",
+        "rev": "3ecfaec91569dbc19120d3ebe7efdde3e5ff249a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oliverst8",
+        "repo": "gottis",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -505,6 +521,22 @@
         "type": "github"
       }
     },
+    "plymouth-macos-theme-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759405216,
+        "narHash": "sha256-+DQe+Xco7FWtPwgEe9AWPLAnSw2+Ptk9VEQtieI01uY=",
+        "owner": "oliverst8",
+        "repo": "MacOS-sus-Boot-Plymouth",
+        "rev": "06d67a53bdcdfda7286dab36a8780b97b04b5d32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oliverst8",
+        "repo": "MacOS-sus-Boot-Plymouth",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -563,7 +595,11 @@
     },
     "sources": {
       "inputs": {
-        "kitty-src": "kitty-src"
+        "gottis-src": "gottis-src",
+        "kitty-src": "kitty-src",
+        "plymouth-macos-theme-src": "plymouth-macos-theme-src",
+        "tmux-named-snapshot-src": "tmux-named-snapshot-src",
+        "tmux-tokyo-night-src": "tmux-tokyo-night-src"
       },
       "locked": {
         "path": "./sources",
@@ -587,6 +623,38 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default-linux",
+        "type": "github"
+      }
+    },
+    "tmux-named-snapshot-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720106207,
+        "narHash": "sha256-EW1X+ZVl+hIIqAsj+bv6dkjQtNiBEhUYOQK/8bFEpV8=",
+        "owner": "spywhere",
+        "repo": "tmux-named-snapshot",
+        "rev": "872fedef62c1b732a56ca643f2354346912e06c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "spywhere",
+        "repo": "tmux-named-snapshot",
+        "type": "github"
+      }
+    },
+    "tmux-tokyo-night-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1753605278,
+        "narHash": "sha256-WjDbunWmxbw/jjvc34ujOWif18POC3WVO1s+hk9SLg4=",
+        "owner": "fabioluciano",
+        "repo": "tmux-tokyo-night",
+        "rev": "97cdce3e785f8a6cc1c569b87cd3020fdad7e637",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fabioluciano",
+        "repo": "tmux-tokyo-night",
         "type": "github"
       }
     },
