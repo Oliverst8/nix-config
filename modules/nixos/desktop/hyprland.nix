@@ -47,6 +47,7 @@
       pkgs.grim
       pkgs.slurp
       pkgs.smile
+      blueman
     ];
 
     xdg.portal.enable = true;
