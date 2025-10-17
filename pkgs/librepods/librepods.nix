@@ -41,6 +41,10 @@ stdenv.mkDerivation rec {
     "-DCMAKE_BUILD_TYPE=Release"
   ];
 
+  postInstall = ''
+    mv $out/bin/applinux $out/bin/librepods
+  '';
+
   meta = with lib; {
     description = "AirPods liberated from Apple's ecosystem";
     homepage = "https://github.com/kavishdevar/librepods";
