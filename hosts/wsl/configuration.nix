@@ -10,6 +10,7 @@
   pkgs,
   inputs,
   lib,
+  sources,
   ...
 }:
 
@@ -32,7 +33,7 @@
 
   home-manager = {
     # also pass inputs to home-manager modules
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs sources; };
     users = {
       "ostarup" = import ./home.nix;
     };
