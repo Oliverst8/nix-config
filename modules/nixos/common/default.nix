@@ -190,6 +190,7 @@
       pkgs.zip
       pkgs.act
       pkgs.fzf
+      pkgs.lsof
     ];
 
     #Install fonts
