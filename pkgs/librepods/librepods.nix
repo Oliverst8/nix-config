@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   stdenv,
   fetchFromGitHub,
   cmake,
@@ -53,4 +54,5 @@ stdenv.mkDerivation rec {
     platforms = platforms.linux;
     mainProgram = "librepods";
   };
+
 }
