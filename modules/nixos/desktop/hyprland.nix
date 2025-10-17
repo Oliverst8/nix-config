@@ -35,7 +35,7 @@
       libnotify
       swww
       kitty
-      rofi-wayland
+      rofi
       brightnessctl
       networkmanagerapplet
       swayosd
@@ -47,6 +47,7 @@
       pkgs.grim
       pkgs.slurp
       pkgs.smile
+      blueman
     ];
 
     xdg.portal.enable = true;
