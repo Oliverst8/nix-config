@@ -9,13 +9,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        config: [default, laptop, desktop, wsl]
+        config: [laptop, desktop, wsl]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: feat/update
 
       - name: Install Nix
         uses: cachix/install-nix-action@v26
