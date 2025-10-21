@@ -44,6 +44,7 @@
     #Custom pkgs
     ../../../pkgs/gottis
     ../../../pkgs/kitty-cli
+    ../../../pkgs/librepods
 
     #ITU
     ../ITU/4semester

@@ -111,6 +111,10 @@ in
           sensitivity = -0.5;
         };
 
+        windowrule = [
+          "float, pin, title:AirPods Settings"
+        ];
+
         "$mainMod" = "SUPER";
 
         bind = [
