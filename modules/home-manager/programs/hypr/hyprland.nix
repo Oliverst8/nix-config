@@ -200,6 +200,7 @@ in
           "dunst"
           "exec swayosd-server"
           "libinput-gestures"
+          "librepods --hide"
         ];
       };
     };
