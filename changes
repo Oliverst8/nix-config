@@ -1,93 +1,142 @@
 CHANGED
-[U.] ada-grammar                        0.0.0+rev=364d3f4 -> 0.0.0+rev=b23672d
-[D.] c_sharp-grammar                    0.0.0+rev=3431444 -> 0.0.0+rev=6563c3a
-[U*] code                               1.105.0, 1.105.0-bwrap, 1.105.0-fhsenv-profile, 1.105.0-fhsenv-rootfs, 1.105.0-init -> 1.105.1, 1.105.1-bwrap, 1.105.1-fhsenv-profile, 1.105.1-fhsenv-rootfs, 1.105.1-init
-[U.] comment-grammar                    0.0.0+rev=689be73 -> 0.0.0+rev=db922d7
-[U.] css-grammar                        0.0.0+rev=6e327db -> 0.0.0+rev=dda5cfc
-[U.] dart-grammar                       0.0.0+rev=80e23c0 -> 0.0.0+rev=d4d8f3e
-[U*] docker                             28.4.0 -> 28.5.1
-[U.] docker-containerd                  28.4.0 -> 28.5.1
-[U.] docker-runc                        28.4.0 -> 28.5.1
-[U.] docker-tini                        28.4.0 -> 28.5.1
-[U.] dotnet-sdk                         8.0.120, 8.0.414, 9.0.305, 10.0.100-rc.1.25451.107 -> 8.0.121, 8.0.415, 9.0.306, 10.0.100-rc.2.25502.107
-[U.] dotnet-sdk-wrapped                 8.0.120, 8.0.414, 9.0.305, 10.0.100-rc.1.25451.107 -> 8.0.121, 8.0.415, 9.0.306, 10.0.100-rc.2.25502.107
-[D.] editorconfig-grammar               0.0.0+rev=947228f -> 0.0.0+rev=911d701
-[U.] enforce-grammar                    0.0.0+rev=a194046 -> 0.0.0+rev=eb27968
-[D.] erlang-grammar                     0.0.0+rev=df268da -> 0.0.0+rev=a260cb6
-[U*] firefox                            143.0.4 ×2 -> 144.0 ×2
-[U.] firefox-unwrapped                  143.0.4 -> 144.0
-[U*] fzf                                0.65.2, 0.65.2-man -> 0.66.0, 0.66.0-man
-[U*] gh                                 2.81.0 -> 2.82.0
-[U.] gleam-grammar                      0.0.0+rev=dae1551 -> 0.0.0+rev=ec3c27c
-[U*] goland                             2025.2.2 -> 2025.2.3
-[U.] hare-grammar                       0.0.0+rev=4af5d82 -> 0.0.0+rev=eed7ddf
-[U.] hyprgraphics                       0.1.6 -> 0.2.0
-[U.] hyprutils                          0.9.0 -> 0.10.0
-[U.] imagemagick                        7.1.2-5 -> 7.1.2-7
-[U.] initrd-linux                       6.12.52 -> 6.12.53
-[U.] ipxe                               1.21.1-unstable-2025-10-09 -> 1.21.1-unstable-2025-10-16
-[D.] javadoc-grammar                    0.0.0+rev=c39005f -> 0.0.0+rev=92f9d71
-[U.] jetbrains-jdk-jcef                 21.0.8-b1140.54 -> 21.0.8-b1148.57
-[U.] kio                                6.19.0 -> 6.19.1
-[D.] kitty-grammar                      0.0.0+rev=49f877c -> 0.0.0+rev=064d1b4
-[U.] linux                              6.12.52, 6.12.52-modules ×2, 6.12.52-modules-shrunk -> 6.12.53, 6.12.53-modules ×2, 6.12.53-modules-shrunk
-[U.] mesa                               25.2.4 -> 25.2.5
-[U.] mlir-grammar                       0.0.0+rev=14152c1 -> 0.0.0+rev=7eadef0
-[U.] moby                               28.4.0 -> 28.5.1
-[U.] multi-account-containers           8.3.0 -> 8.3.1
-[C.] ngtcp2                             1.15.1 ×3 -> 1.15.1 ×2, 1.16.0
-[U.] nixos-system-laptop                25.11.20251012.cf3f5c4 -> 25.11.20251019.5e2a59a
-[U.] nss                                3.115.1 -> 3.117
-[U*] pnpm                               10.18.2 -> 10.18.3
-[U*] postman                            11.58.4 -> 11.67.0
-[D.] prisma-grammar                     0.0.0+rev=73f39a6 -> 0.0.0+rev=3556b2c
-[U*] python3.13-azure-cli               2.77.0 -> 2.78.0
-[U.] python3.13-azure-cli-core          2.77.0 -> 2.78.0
-[U.] python3.13-azure-mgmt-resource-all 2.77.0 -> 2.78.0
-[U.] python3.13-azure-mgmt-sql          4.0.0b20 -> 4.0.0b22
-[U.] python3.13-azure-multiapi-storage  1.5.0 -> 1.6.0
-[U.] python3.13-msal                    1.32.3 -> 1.33.0
-[D.] racket-grammar                     0.0.0+rev=6d63a20 -> 0.0.0+rev=130e765
-[U*] rider                              2025.2.2 -> 2025.2.3
-[U*] ripgrep                            14.1.1 -> 15.0.0
-[U.] roslyn-ls                          5.0.0-2.25424.1 -> 5.1.0-1.25506.3
-[U.] rust-grammar                       0.0.0+rev=00d7cbc -> 0.0.0+rev=261b202
-[U*] rust-rover                         2025.2.2 -> 2025.2.3
-[U.] samba                              4.22.3 -> 4.22.5
-[D.] scheme-grammar                     0.0.0+rev=67b5c8d -> 0.0.0+rev=591893b
-[U*] sddm-sugar-candy-nix               2.10.2 -> 2.11.0
-[D*] sddm-wrapped                       <none> ×2 -> <none>
-[U.] sql-grammar                        0.0.0+rev=0a997b0 -> 0.0.0+rev=4afe285
-[U.] superhtml-grammar                  0.0.0+rev=4b60dd9 -> 0.0.0+rev=aeaa0c7
-[U.] systemverilog-grammar              0.0.0+rev=9e06a0d -> 0.0.0+rev=e88937e
-[U.] t32-grammar                        0.0.0+rev=5f20682 -> 0.0.0+rev=d4e26ab
-[U.] vimplugin-CopilotChat.nvim         2025-10-01 -> 2025-10-08
-[U.] vimplugin-conform.nvim             2025-10-02 -> 2025-10-08
-[U.] vimplugin-copilot.lua              2025-09-30 -> 2025-10-09
-[U.] vimplugin-easy-dotnet.nvim         2025-10-01 -> 2025-10-12
-[U.] vimplugin-lazy.nvim                2025-10-02 -> 2025-10-09
-[U.] vimplugin-lazydev.nvim             2025-09-17 -> 2025-10-08
-[U.] vimplugin-mini.nvim                2025-09-30 -> 2025-10-12
-[U.] vimplugin-neo-tree.nvim            2025-10-01 -> 2025-10-10
-[U.] vimplugin-nvim-dap                 2025-09-20 -> 2025-10-04
-[U.] vimplugin-nvim-lint                2025-09-24 -> 2025-10-07
-[U.] vimplugin-nvim-lspconfig           2025-10-01 -> 2025-10-11
-[U.] vimplugin-roslyn.nvim              2025-09-10 -> 2025-10-07
-[U.] vimplugin-todo-comments.nvim       2025-01-14 -> 2025-10-08
-[U.] vimplugin-which-key.nvim           2025-09-23 -> 2025-10-08
-[U.] vscode                             1.105.0 -> 1.105.1
-[U.] webkitgtk                          2.50.0+abi=4.1 -> 2.50.1+abi=4.1
-[U.] x86_energy_perf_policy             6.12.52 -> 6.12.53
-[U*] xdg-desktop-portal-hyprland        1.3.10 -> 1.3.11
-[U.] xresources-grammar                 0.0.0+rev=c6f240a -> 0.0.0+rev=fd546d4
-[U.] yaml-grammar                       0.0.0+rev=3431ec2 -> 0.0.0+rev=7708026
-[U.] yt-dlp                             2025.09.26 -> 2025.10.14
+[U.] OVMF                         202508-fd -> 202508.01-fd
+[U.] abseil-cpp                   20250814.0 ×2 -> 20250814.1 ×2
+[D.] ada-grammar                  0.0.0+rev=b23672d -> 0.0.0+rev=6c26c44
+[U.] btrfs-progs                  6.16 -> 6.17
+[U.] bundler                      2.7.1 -> 2.7.2
+[U.] clang                        21.1.1, 21.1.1-lib -> 21.1.2, 21.1.2-lib
+[U.] clang-tools                  21.1.1 -> 21.1.2
+[U.] clang-wrapper                21.1.1 -> 21.1.2
+[D.] cmake-grammar                0.0.0+rev=cf97996 -> 0.0.0+rev=c7b2a71
+[U.] compiler-rt-libc             21.1.1, 21.1.1-dev -> 21.1.2, 21.1.2-dev
+[U.] coreutils                    9.7 ×2 -> 9.8 ×2
+[U*] coreutils-full               9.7, 9.7-info -> 9.8, 9.8-info
+[U*] dbeaver-bin                  25.2.2 -> 25.2.3
+[D.] dot-grammar                  0.0.0+rev=9ab8555 -> 0.0.0+rev=71e2c52
+[U.] ell                          0.79 ×2 -> 0.80 ×2
+[U.] expat                        2.7.2 ×2, 2.7.2-dev -> 2.7.3 ×2, 2.7.3-dev
+[U.] glslang                      15.4.0 -> 16.0.0
+[U*] go                           1.25.1 -> 1.25.2
+[U.] gumbo                        0.13.1 -> 0.13.2
+[U.] harfbuzz                     11.2.1 ×2 -> 12.1.0 ×2
+[U.] harfbuzz-icu                 11.2.1 -> 12.1.0
+[U.] hwdata                       0.399 ×2 -> 0.400 ×2
+[U.] initrd-linux                 6.12.53 -> 6.12.54
+[U*] iproute2                     6.16.0 -> 6.17.0
+[D*] kbd                          2.9.0 ×4 -> 2.9.0 ×2
+[U.] libdrm                       2.4.125 ×2, 2.4.125-bin ×2, 2.4.125-dev ×2 -> 2.4.126 ×2, 2.4.126-bin ×2, 2.4.126-dev ×2
+[U.] libheif                      1.20.2 -> 1.20.2-lib
+[U.] libimobiledevice             1.3.0-unstable-2024-05-20 -> 1.4.0
+[U.] libmpg123                    1.33.2 ×2 -> 1.33.3 ×2
+[U*] libnotify                    0.8.6, 0.8.6-man -> 0.8.7, 0.8.7-man
+[U.] libpq                        17.6 -> 18.0
+[U*] libressl                     4.1.0 ×2, 4.1.0-man, 4.1.0-nc ×2 -> 4.2.0 ×2, 4.2.0-man, 4.2.0-nc ×2
+[U.] libunistring                 1.3 ×2 -> 1.4 ×2
+[U.] libxcb-cursor                0.1.5 -> 0.1.6
+[C.] libxfixes                    6.0.1 ×2, 6.0.1-dev -> 6.0.2 ×2
+[U.] libxml2                      2.14.6 ×2, 2.14.6-bin, 2.14.6-dev, 2.14.6-py -> 2.15.0 ×3, 2.15.0-bin ×2, 2.15.0-dev, 2.15.0-py
+[U.] linux                        6.12.53, 6.12.53-modules ×2, 6.12.53-modules-shrunk -> 6.12.54, 6.12.54-modules ×2, 6.12.54-modules-shrunk
+[U.] llvm                         21.1.1-lib -> 21.1.2-lib
+[U.] mdadm                        4.3 -> 4.4
+[U*] mkpasswd                     5.6.4 -> 5.6.5
+[D.] mlir-grammar                 0.0.0+rev=7eadef0 -> 0.0.0+rev=47c3f2c
+[U.] mpg123                       1.33.2 ×2 -> 1.33.3 ×2
+[U.] multi-account-containers     8.3.1 -> 8.3.3
+[U.] nghttp3                      1.11.0 ×2 -> 1.12.0 ×2
+[U.] nixos-system-laptop          25.11.20251019.5e2a59a -> 25.11.20251022.01f116e
+[U*] nodejs                       22.19.0 -> 22.20.0
+[U.] nss                          3.112.1, 3.112.1-man -> 3.112.2, 3.112.2-man
+[U.] oh-my-zsh                    2025-09-27 -> 2025-10-15
+[U.] openjdk                      21.0.8+9 -> 21.0.9+8
+[U*] openssh                      10.0p2 -> 10.1p1
+[U.] openssl                      3.5.2 ×2, 3.5.2-bin, 3.5.2-dev, 3.5.2-man -> 3.6.0 ×2, 3.6.0-bin, 3.6.0-dev, 3.6.0-man
+[U.] p11-kit                      0.25.5 ×2, 0.25.5-bin -> 0.25.9 ×2, 0.25.9-bin
+[U.] pango                        1.56.3 ×2, 1.56.3-bin -> 1.56.4 ×2, 1.56.4-bin
+[U*] pipewire                     1.4.8 ×2, 1.4.8-doc, 1.4.8-jack, 1.4.8-man -> 1.4.9 ×2, 1.4.9-doc, 1.4.9-jack, 1.4.9-man
+[U.] plasma-activities            6.4.5 -> 6.5.0
+[U.] plasma-activities-stats      6.4.5 -> 6.5.0
+[U*] pnpm                         10.18.3 -> 10.19.0
+[U.] pyright                      1.1.403 -> 1.1.406
+[U.] pyright-internal             1.1.403 -> 1.1.406
+[U*] python3                      3.13.7 ×2, 3.13.7-env ×5 -> 3.13.8 ×2, 3.13.8-env ×5
+[U*] python3.13                   3.13.7-doc -> 3.13.8-doc
+[U.] python3.13-cffi              1.17.1 -> 2.0.0
+[U.] python3.13-cryptography      45.0.4 -> 46.0.1
+[U.] python3.13-dnspython         2.7.0 -> 2.8.0
+[U.] python3.13-markupsafe        3.0.2 -> 3.0.3
+[U.] python3.13-psutil            7.0.0 -> 7.1.0
+[U.] python3.13-pycparser         2.22 -> 2.23
+[U.] python3.13-pyyaml            6.0.2 -> 6.0.3
+[U.] python3.13-typing-extensions 4.14.1 -> 4.15.0
+[U.] qmljs-grammar                0.0.0+rev=0889da4 -> 0.0.0+rev=0bec435
+[U.] qt5compat                    6.9.2 -> 6.10.0
+[U*] qtbase                       6.9.2, 6.9.2-only-plugins-qml -> 6.10.0, 6.10.0-only-plugins-qml
+[U.] qtconnectivity               6.9.2 -> 6.10.0
+[U.] qtdeclarative                6.9.2 -> 6.10.0
+[U.] qtmultimedia                 6.9.2 -> 6.10.0
+[U.] qtquick3d                    6.9.2 -> 6.10.0
+[U.] qtshadertools                6.9.2 -> 6.10.0
+[U.] qtspeech                     6.9.2 -> 6.10.0
+[U*] qtsvg                        6.9.2 -> 6.10.0
+[U.] qttools                      6.9.2 -> 6.10.0
+[U.] qttranslations               6.9.2 -> 6.10.0
+[U.] qtwayland                    6.9.2, 6.9.2-only-plugins-qml -> 6.10.0, 6.10.0-only-plugins-qml
+[U.] sdl3                         3.2.22-lib -> 3.2.24-lib
+[D.] sparql-grammar               0.0.0+rev=d853661 -> 0.0.0+rev=1ef52d3
+[U.] sql-grammar                  0.0.0+rev=4afe285 -> 0.0.0+rev=d71f2bd
+[U*] strace                       6.16, 6.16-man -> 6.17, 6.17-man
+[D.] superhtml-grammar            0.0.0+rev=aeaa0c7 -> 0.0.0+rev=8b5bb27
+[U*] systemd                      257.9 ×2, 257.9-man -> 258 ×2, 258-man
+[U.] systemd-minimal              257.9 ×2 -> 258 ×2
+[U.] systemd-minimal-libs         257.9 ×2 -> 258 ×2
+[D.] systemverilog-grammar        0.0.0+rev=e88937e -> 0.0.0+rev=7c4b01b
+[D.] t32-grammar                  0.0.0+rev=d4e26ab -> 0.0.0+rev=2f604ad
+[U.] tree-sitter                  0.25.6 -> 0.25.10
+[U.] ublock-origin                1.66.4 -> 1.67.0
+[U*] util-linux                   2.41.1-bin, 2.41.1-lastlog, 2.41.1-lib, 2.41.1-login, 2.41.1-man, 2.41.1-mount, 2.41.1-swap -> 2.41.2-bin, 2.41.2-lastlog, 2.41.2-lib, 2.41.2-login, 2.41.2-man, 2.41.2-mount, 2.41.2-swap
+[U.] util-linux-minimal           2.41.1, 2.41.1-bin, 2.41.1-lib ×2, 2.41.1-login ×2, 2.41.1-man, 2.41.1-mount ×2, 2.41.1-swap ×2 -> 2.41.2, 2.41.2-bin, 2.41.2-lib ×2, 2.41.2-login ×2, 2.41.2-man, 2.41.2-mount ×2, 2.41.2-swap ×2
+[U*] vim                          9.1.1765, 9.1.1765-xxd -> 9.1.1833, 9.1.1833-xxd
+[U.] vimplugin-CopilotChat.nvim   2025-10-08 -> 2025-10-18
+[U.] vimplugin-copilot.lua        2025-10-09 -> 2025-10-17
+[U.] vimplugin-easy-dotnet.nvim   2025-10-12 -> 2025-10-19
+[U.] vimplugin-mini.nvim          2025-10-12 -> 2025-10-20
+[U.] vimplugin-neo-tree.nvim      2025-10-10 -> 2025-10-15
+[U.] vimplugin-nvim-autopairs     2025-07-01 -> 2025-10-12
+[U.] vimplugin-nvim-dap           2025-10-04 -> 2025-10-15
+[U.] vulkan-loader                1.4.321.0 ×2 -> 1.4.328.0 ×2
+[U.] x86_energy_perf_policy       6.12.53 -> 6.12.54
+[D.] xresources-grammar           0.0.0+rev=fd546d4 -> 0.0.0+rev=321231f
+
+ADDED
+[A.] hwloc                        2.12.2-lib
+[A.] initrd-fsinfo                <none>
+[A.] keymap                       <none>
+[A.] kitemmodels                  6.19.0
+[A.] libtatsu                     1.0.5
+[A.] libxcomposite                0.4.6
+[A.] libxdamage                   1.1.6
+[A.] libxfont_2                   2.0.7
+[A.] libxft                       2.3.9 ×2
+[A.] libxi                        1.8.2 ×2
+[A.] libxinerama                  1.1.5
+[A.] libxp                        1.0.4, 1.0.4-dev
+[A.] libxpresent                  1.0.2
+[A.] libxscrnsaver                1.2.5
+[A.] libxtst                      1.2.5
+[A.] link-units                   <none>
+[A.] stage                        1-init.sh
 
 REMOVED
-[R.] initrd-fsinfo                      <none>
-[R.] keymap                             <none>
-[R.] link-units                         <none>
-[R.] stage                              1-init.sh
+[R.] libXScrnSaver                1.2.5
+[R.] libXcomposite                0.4.6
+[R.] libXdamage                   1.1.6
+[R.] libXfont2                    2.0.7
+[R.] libXft                       2.3.9 ×2
+[R.] libXi                        1.8.2 ×2
+[R.] libXinerama                  1.1.5
+[R.] libXp                        1.0.4, 1.0.4-dev
+[R.] libXpresent                  1.0.2
+[R.] libXtst                      1.2.5
 
-SIZE: 29.6 GiB -> 29.9 GiB
-DIFF: 379 MiB
+SIZE: 30.0 GiB -> 30.0 GiB
+DIFF: 102 MiB
