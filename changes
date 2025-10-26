@@ -1,142 +1,19 @@
 CHANGED
-[U.] OVMF                         202508-fd -> 202508.01-fd
-[U.] abseil-cpp                   20250814.0 ×2 -> 20250814.1 ×2
-[D.] ada-grammar                  0.0.0+rev=b23672d -> 0.0.0+rev=6c26c44
-[U.] btrfs-progs                  6.16 -> 6.17
-[U.] bundler                      2.7.1 -> 2.7.2
-[U.] clang                        21.1.1, 21.1.1-lib -> 21.1.2, 21.1.2-lib
-[U.] clang-tools                  21.1.1 -> 21.1.2
-[U.] clang-wrapper                21.1.1 -> 21.1.2
-[D.] cmake-grammar                0.0.0+rev=cf97996 -> 0.0.0+rev=c7b2a71
-[U.] compiler-rt-libc             21.1.1, 21.1.1-dev -> 21.1.2, 21.1.2-dev
-[U.] coreutils                    9.7 ×2 -> 9.8 ×2
-[U*] coreutils-full               9.7, 9.7-info -> 9.8, 9.8-info
-[U*] dbeaver-bin                  25.2.2 -> 25.2.3
-[D.] dot-grammar                  0.0.0+rev=9ab8555 -> 0.0.0+rev=71e2c52
-[U.] ell                          0.79 ×2 -> 0.80 ×2
-[U.] expat                        2.7.2 ×2, 2.7.2-dev -> 2.7.3 ×2, 2.7.3-dev
-[U.] glslang                      15.4.0 -> 16.0.0
-[U*] go                           1.25.1 -> 1.25.2
-[U.] gumbo                        0.13.1 -> 0.13.2
-[U.] harfbuzz                     11.2.1 ×2 -> 12.1.0 ×2
-[U.] harfbuzz-icu                 11.2.1 -> 12.1.0
-[U.] hwdata                       0.399 ×2 -> 0.400 ×2
-[U.] initrd-linux                 6.12.53 -> 6.12.54
-[U*] iproute2                     6.16.0 -> 6.17.0
-[D*] kbd                          2.9.0 ×4 -> 2.9.0 ×2
-[U.] libdrm                       2.4.125 ×2, 2.4.125-bin ×2, 2.4.125-dev ×2 -> 2.4.126 ×2, 2.4.126-bin ×2, 2.4.126-dev ×2
-[U.] libheif                      1.20.2 -> 1.20.2-lib
-[U.] libimobiledevice             1.3.0-unstable-2024-05-20 -> 1.4.0
-[U.] libmpg123                    1.33.2 ×2 -> 1.33.3 ×2
-[U*] libnotify                    0.8.6, 0.8.6-man -> 0.8.7, 0.8.7-man
-[U.] libpq                        17.6 -> 18.0
-[U*] libressl                     4.1.0 ×2, 4.1.0-man, 4.1.0-nc ×2 -> 4.2.0 ×2, 4.2.0-man, 4.2.0-nc ×2
-[U.] libunistring                 1.3 ×2 -> 1.4 ×2
-[U.] libxcb-cursor                0.1.5 -> 0.1.6
-[C.] libxfixes                    6.0.1 ×2, 6.0.1-dev -> 6.0.2 ×2
-[U.] libxml2                      2.14.6 ×2, 2.14.6-bin, 2.14.6-dev, 2.14.6-py -> 2.15.0 ×3, 2.15.0-bin ×2, 2.15.0-dev, 2.15.0-py
-[U.] linux                        6.12.53, 6.12.53-modules ×2, 6.12.53-modules-shrunk -> 6.12.54, 6.12.54-modules ×2, 6.12.54-modules-shrunk
-[U.] llvm                         21.1.1-lib -> 21.1.2-lib
-[U.] mdadm                        4.3 -> 4.4
-[U*] mkpasswd                     5.6.4 -> 5.6.5
-[D.] mlir-grammar                 0.0.0+rev=7eadef0 -> 0.0.0+rev=47c3f2c
-[U.] mpg123                       1.33.2 ×2 -> 1.33.3 ×2
-[U.] multi-account-containers     8.3.1 -> 8.3.3
-[U.] nghttp3                      1.11.0 ×2 -> 1.12.0 ×2
-[U.] nixos-system-laptop          25.11.20251019.5e2a59a -> 25.11.20251022.01f116e
-[U*] nodejs                       22.19.0 -> 22.20.0
-[U.] nss                          3.112.1, 3.112.1-man -> 3.112.2, 3.112.2-man
-[U.] oh-my-zsh                    2025-09-27 -> 2025-10-15
-[U.] openjdk                      21.0.8+9 -> 21.0.9+8
-[U*] openssh                      10.0p2 -> 10.1p1
-[U.] openssl                      3.5.2 ×2, 3.5.2-bin, 3.5.2-dev, 3.5.2-man -> 3.6.0 ×2, 3.6.0-bin, 3.6.0-dev, 3.6.0-man
-[U.] p11-kit                      0.25.5 ×2, 0.25.5-bin -> 0.25.9 ×2, 0.25.9-bin
-[U.] pango                        1.56.3 ×2, 1.56.3-bin -> 1.56.4 ×2, 1.56.4-bin
-[U*] pipewire                     1.4.8 ×2, 1.4.8-doc, 1.4.8-jack, 1.4.8-man -> 1.4.9 ×2, 1.4.9-doc, 1.4.9-jack, 1.4.9-man
-[U.] plasma-activities            6.4.5 -> 6.5.0
-[U.] plasma-activities-stats      6.4.5 -> 6.5.0
-[U*] pnpm                         10.18.3 -> 10.19.0
-[U.] pyright                      1.1.403 -> 1.1.406
-[U.] pyright-internal             1.1.403 -> 1.1.406
-[U*] python3                      3.13.7 ×2, 3.13.7-env ×5 -> 3.13.8 ×2, 3.13.8-env ×5
-[U*] python3.13                   3.13.7-doc -> 3.13.8-doc
-[U.] python3.13-cffi              1.17.1 -> 2.0.0
-[U.] python3.13-cryptography      45.0.4 -> 46.0.1
-[U.] python3.13-dnspython         2.7.0 -> 2.8.0
-[U.] python3.13-markupsafe        3.0.2 -> 3.0.3
-[U.] python3.13-psutil            7.0.0 -> 7.1.0
-[U.] python3.13-pycparser         2.22 -> 2.23
-[U.] python3.13-pyyaml            6.0.2 -> 6.0.3
-[U.] python3.13-typing-extensions 4.14.1 -> 4.15.0
-[U.] qmljs-grammar                0.0.0+rev=0889da4 -> 0.0.0+rev=0bec435
-[U.] qt5compat                    6.9.2 -> 6.10.0
-[U*] qtbase                       6.9.2, 6.9.2-only-plugins-qml -> 6.10.0, 6.10.0-only-plugins-qml
-[U.] qtconnectivity               6.9.2 -> 6.10.0
-[U.] qtdeclarative                6.9.2 -> 6.10.0
-[U.] qtmultimedia                 6.9.2 -> 6.10.0
-[U.] qtquick3d                    6.9.2 -> 6.10.0
-[U.] qtshadertools                6.9.2 -> 6.10.0
-[U.] qtspeech                     6.9.2 -> 6.10.0
-[U*] qtsvg                        6.9.2 -> 6.10.0
-[U.] qttools                      6.9.2 -> 6.10.0
-[U.] qttranslations               6.9.2 -> 6.10.0
-[U.] qtwayland                    6.9.2, 6.9.2-only-plugins-qml -> 6.10.0, 6.10.0-only-plugins-qml
-[U.] sdl3                         3.2.22-lib -> 3.2.24-lib
-[D.] sparql-grammar               0.0.0+rev=d853661 -> 0.0.0+rev=1ef52d3
-[U.] sql-grammar                  0.0.0+rev=4afe285 -> 0.0.0+rev=d71f2bd
-[U*] strace                       6.16, 6.16-man -> 6.17, 6.17-man
-[D.] superhtml-grammar            0.0.0+rev=aeaa0c7 -> 0.0.0+rev=8b5bb27
-[U*] systemd                      257.9 ×2, 257.9-man -> 258 ×2, 258-man
-[U.] systemd-minimal              257.9 ×2 -> 258 ×2
-[U.] systemd-minimal-libs         257.9 ×2 -> 258 ×2
-[D.] systemverilog-grammar        0.0.0+rev=e88937e -> 0.0.0+rev=7c4b01b
-[D.] t32-grammar                  0.0.0+rev=d4e26ab -> 0.0.0+rev=2f604ad
-[U.] tree-sitter                  0.25.6 -> 0.25.10
-[U.] ublock-origin                1.66.4 -> 1.67.0
-[U*] util-linux                   2.41.1-bin, 2.41.1-lastlog, 2.41.1-lib, 2.41.1-login, 2.41.1-man, 2.41.1-mount, 2.41.1-swap -> 2.41.2-bin, 2.41.2-lastlog, 2.41.2-lib, 2.41.2-login, 2.41.2-man, 2.41.2-mount, 2.41.2-swap
-[U.] util-linux-minimal           2.41.1, 2.41.1-bin, 2.41.1-lib ×2, 2.41.1-login ×2, 2.41.1-man, 2.41.1-mount ×2, 2.41.1-swap ×2 -> 2.41.2, 2.41.2-bin, 2.41.2-lib ×2, 2.41.2-login ×2, 2.41.2-man, 2.41.2-mount ×2, 2.41.2-swap ×2
-[U*] vim                          9.1.1765, 9.1.1765-xxd -> 9.1.1833, 9.1.1833-xxd
-[U.] vimplugin-CopilotChat.nvim   2025-10-08 -> 2025-10-18
-[U.] vimplugin-copilot.lua        2025-10-09 -> 2025-10-17
-[U.] vimplugin-easy-dotnet.nvim   2025-10-12 -> 2025-10-19
-[U.] vimplugin-mini.nvim          2025-10-12 -> 2025-10-20
-[U.] vimplugin-neo-tree.nvim      2025-10-10 -> 2025-10-15
-[U.] vimplugin-nvim-autopairs     2025-07-01 -> 2025-10-12
-[U.] vimplugin-nvim-dap           2025-10-04 -> 2025-10-15
-[U.] vulkan-loader                1.4.321.0 ×2 -> 1.4.328.0 ×2
-[U.] x86_energy_perf_policy       6.12.53 -> 6.12.54
-[D.] xresources-grammar           0.0.0+rev=fd546d4 -> 0.0.0+rev=321231f
+[U*] bind                   9.20.13-host, 9.20.13-lib, 9.20.13-man -> 9.20.15-host, 9.20.15-lib, 9.20.15-man
+[U.] bitwarden              2025.9.0 -> 2025.10.0
+[U*] gh                     2.82.0 -> 2.82.1
+[U*] ghostty                1.2.2, 1.2.2-man, 1.2.2-shell_integration, 1.2.2-terminfo, 1.2.2-vim -> 1.2.3, 1.2.3-man, 1.2.3-shell_integration, 1.2.3-terminfo, 1.2.3-vim
+[U.] initrd-linux           6.12.54 -> 6.12.55
+[U.] ipxe                   1.21.1-unstable-2025-10-16 -> 1.21.1-unstable-2025-10-20
+[U.] linux                  6.12.54, 6.12.54-modules ×2, 6.12.54-modules-shrunk -> 6.12.55, 6.12.55-modules ×2, 6.12.55-modules-shrunk
+[U.] linux-firmware         20251011-zstd -> 20251021-zstd
+[U.] ngtcp2                 1.16.0 -> 1.17.0
+[U*] nixos-rebuild-ng       0.0.0 -> 25.11
+[U.] nixos-system-laptop    25.11.20251022.01f116e -> 25.11.20251025.6a08e6b
+[U*] qemu                   10.1.0, 10.1.0-doc, 10.1.0-ga -> 10.1.2, 10.1.2-doc, 10.1.2-ga
+[U*] ripgrep                15.0.0 -> 15.1.0
+[U.] x86_energy_perf_policy 6.12.54 -> 6.12.55
+[U.] yt-dlp                 2025.10.14 -> 2025.10.22
 
-ADDED
-[A.] hwloc                        2.12.2-lib
-[A.] initrd-fsinfo                <none>
-[A.] keymap                       <none>
-[A.] kitemmodels                  6.19.0
-[A.] libtatsu                     1.0.5
-[A.] libxcomposite                0.4.6
-[A.] libxdamage                   1.1.6
-[A.] libxfont_2                   2.0.7
-[A.] libxft                       2.3.9 ×2
-[A.] libxi                        1.8.2 ×2
-[A.] libxinerama                  1.1.5
-[A.] libxp                        1.0.4, 1.0.4-dev
-[A.] libxpresent                  1.0.2
-[A.] libxscrnsaver                1.2.5
-[A.] libxtst                      1.2.5
-[A.] link-units                   <none>
-[A.] stage                        1-init.sh
-
-REMOVED
-[R.] libXScrnSaver                1.2.5
-[R.] libXcomposite                0.4.6
-[R.] libXdamage                   1.1.6
-[R.] libXfont2                    2.0.7
-[R.] libXft                       2.3.9 ×2
-[R.] libXi                        1.8.2 ×2
-[R.] libXinerama                  1.1.5
-[R.] libXp                        1.0.4, 1.0.4-dev
-[R.] libXpresent                  1.0.2
-[R.] libXtst                      1.2.5
-
-SIZE: 30.0 GiB -> 30.0 GiB
-DIFF: 102 MiB
+SIZE: 30.0 GiB -> 30.1 GiB
+DIFF: 2.57 MiB
