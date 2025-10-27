@@ -38,6 +38,7 @@
     ../programs/virt-manager
     ../programs/discord
     ../programs/plymouth
+    ../programs/tailscale
 
     ../drivers/nvidia
 
