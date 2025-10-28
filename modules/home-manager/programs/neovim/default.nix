@@ -126,6 +126,7 @@ in
               nvim-config-local
               nvim-notify
               plenary-nvim
+              tiny-inline-diagnostic-nvim
             ];
             kickstart-debug = [
               nvim-dap
