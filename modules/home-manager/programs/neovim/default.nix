@@ -64,7 +64,7 @@ in
               nixd
               stylua
               lynx
-              pyright
+              basedpyright
               rust-analyzer
               roslyn-ls
               fsautocomplete
