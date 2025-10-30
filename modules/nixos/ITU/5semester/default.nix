@@ -9,6 +9,7 @@
     pkgs.protoc-gen-go-grpc
     pkgs.protoc-gen-go
     pkgs.protobuf
+    pkgs.jetbrains.clion
   ];
 
 }
