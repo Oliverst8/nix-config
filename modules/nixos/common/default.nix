@@ -171,7 +171,7 @@
       pkgs.starship # Terminal theme
       pkgs.tlp # Makes laptop more power efficent
       pkgs.unzip
-      pkgs.htop
+      pkgs.btop
       pkgs.mdcat # Markdown cat
 
       pkgs.yazi # Tui file manager
