@@ -147,22 +147,20 @@ local function show_letters_above()
   -- split into characters (works with multibyte)
   local chars = vim.fn.split(line, '\\zs')
   local length = table.getn(chars)
-  local first_half = length / 2
 
-  local label2 = {}
-  for i = 1, first_half do
+  local label_before_cursor = {}
+  for i = 1, col do
     print(i)
+    table.insert(label_before_cursor, i % 10)
     --table.insert(label2, first_half - i + 1, i)
   end
 
-  -- build one virtual line string with padding equal to each character's display width
-  local label = {}
-  for i, ch in ipairs(chars) do
-    local num = i % 10
-    -- append the letter and pad so it occupies the same display width as the underlying character
-    table.insert(label, num)
+  local label_after_cursor = {}
+  for i = col, length do
+    table.insert(label_after_cursor, (i - col + 1) % 10)
   end
-  local virt_line_text = table.concat(label)
+
+  local virt_line_text = table.concat(label_before_cursor) .. ' ' .. table.concat(label_after_cursor)
 
   -- clear previous
   vim.api.nvim_buf_clear_namespace(buf, ns, 0, -1)
