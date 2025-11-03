@@ -136,7 +136,7 @@ vim.keymap.set('n', '<leader>mp', function()
   end
 end, {})
 
-vim.keymap.set('n', 'th', function()
+local function show_letters_above()
   -- show_letters_above.lua
   local ns = vim.api.nvim_create_namespace 'CharHintsAbove'
   local buf = vim.api.nvim_get_current_buf()
@@ -158,7 +158,7 @@ vim.keymap.set('n', 'th', function()
   -- build one virtual line string with padding equal to each character's display width
   local label = {}
   for i, ch in ipairs(chars) do
-    local num
+    local num = i % 10
     -- append the letter and pad so it occupies the same display width as the underlying character
     table.insert(label, num)
   end
@@ -173,4 +173,8 @@ vim.keymap.set('n', 'th', function()
     virt_lines_above = true,
     -- ephemeral = true, -- optional on newer Neovim to avoid undo history pollution
   })
-end, {})
+end
+
+vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+  callback = show_letters_above,
+})
