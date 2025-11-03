@@ -155,9 +155,19 @@ local function show_letters_above()
     --table.insert(label2, first_half - i + 1, i)
   end
 
+  local seen_amount = {}
   local label_after_cursor = {}
   for i = col, length do
-    table.insert(label_after_cursor, (i - col + 1) % 10)
+    local letter = line:sub(i + 2, i + 2)
+    seen_amount[letter] = (seen_amount[letter] or 0) + 1
+    local toInsert = seen_amount[letter]
+    if toInsert > 9 and letter ~= ' ' then
+      break
+    end
+    if letter == ' ' then
+      toInsert = ' '
+    end
+    table.insert(label_after_cursor, toInsert)
   end
 
   local virt_line_text = table.concat(label_before_cursor) .. ' ' .. table.concat(label_after_cursor)
@@ -171,6 +181,7 @@ local function show_letters_above()
     virt_lines_above = true,
     -- ephemeral = true, -- optional on newer Neovim to avoid undo history pollution
   })
+  ::continue::
 end
 
 vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
