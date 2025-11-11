@@ -21,8 +21,15 @@ This should go inside
 ~/.local/share/applications/wiseflow-device-monitor.desktop
 ```
 
+This made it work, no idea why:
+
+```
+xdg-mime default wiseflow-device-monitor.desktop x-scheme-handler/wfdm
+xdg-mime query default x-scheme-handler/wfdm
+```
 
 Last test working commit
+
 ```
 def6decf92883d5e419572caee6f6385d7663608
 ```

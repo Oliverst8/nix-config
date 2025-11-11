@@ -1,15 +1,16 @@
-# In your configuration.nix or in a separate module file
 {
   config,
   pkgs,
   lib,
+  old,
   ...
 }:
 
 let
+
   wiseflow-device-monitor-source = pkgs.stdenv.mkDerivation {
     name = "wiseflow-device-monitor-source";
-    src = ./wiseflow_device_monitor_2.4.3_linux.deb; # Path to your .deb file
+    src = ./wiseflow_device_monitor_2.5.0_linux.deb;
     nativeBuildInputs = [ pkgs.dpkg ];
     unpackPhase = ''
       dpkg-deb --fsys-tarfile $src | tar -x --no-same-owner
@@ -17,37 +18,40 @@ let
     '';
   };
 
+  # Use oldPkgs.webkitgtk_4_0 from the pinned 25.05 set
   wiseflow-device-monitor = pkgs.buildFHSEnv {
-    # Note: buildFHSUserEnv instead of buildFHSEnv
     name = "wiseflow-device-monitor";
     targetPkgs = pkgs: [
-      pkgs.gtk3
-      pkgs.gnome-screenshot
-      pkgs.xorg.xwininfo
-      pkgs.glibc
-      pkgs.glib
-      pkgs.freetype
-      pkgs.fontconfig
-      pkgs.alsa-lib
-      pkgs.libxkbcommon
-      pkgs.gtk3
-      pkgs.webkitgtk
-      pkgs.gdk-pixbuf
-      pkgs.xorg.libX11
-      pkgs.xorg.libXext
-      pkgs.xorg.libXrender
-      pkgs.xorg.libXtst
-      pkgs.xorg.libXi
+      old.gtk3
+      old.gnome-screenshot
+      old.xorg.xwininfo
+      old.glibc
+      old.glib
+      old.freetype
+      old.fontconfig
+      old.alsa-lib
+      old.libxkbcommon
+      old.webkitgtk_4_0
+      old.gdk-pixbuf
+      old.xorg.libX11
+      old.xorg.libXext
+      old.xorg.libXrender
+      old.xorg.libXtst
+      old.xorg.libXi
+      old.mesa
+      old.libgbm
+      old.libglvnd
+      old.libdrm
     ];
-    runScript = "${wiseflow-device-monitor-source}/bin/wiseflow-device-monitor";
+    runScript = ''
+      env LIBGL_ALWAYS_SOFTWARE=1 ${wiseflow-device-monitor-source}/bin/wiseflow-device-monitor
+    '';
   };
 in
 {
-  # Add the package to your system packages
   config = lib.mkIf config.itu.wiseflow.enable {
     environment.systemPackages = [
       wiseflow-device-monitor
     ];
   };
-
 }
