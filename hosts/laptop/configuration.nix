@@ -24,7 +24,7 @@
 
   config = {
 
-    desktop.environment = "hyprland"; # Pick between kde or hyprland
+    desktop.environment = "both"; # Pick between kde or hyprland
     networking.hostName = "laptop"; # Define your hostname.
 
     #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
