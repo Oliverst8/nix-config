@@ -44,7 +44,7 @@ let
       old.libdrm
     ];
     runScript = ''
-      env LIBGL_ALWAYS_SOFTWARE=1 ${wiseflow-device-monitor-source}/bin/wiseflow-device-monitor
+      env LIBGL_ALWAYS_SOFTWARE=1 ${wiseflow-device-monitor-source}/bin/wiseflow-device-monitor "$@"
     '';
   };
 in
