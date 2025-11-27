@@ -193,6 +193,7 @@
       pkgs.act
       pkgs.fzf
       pkgs.lsof
+      pkgs.pulseaudio
     ];
 
     #Install fonts
