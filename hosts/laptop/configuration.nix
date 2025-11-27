@@ -36,5 +36,9 @@
         "ostarup" = import ./home.nix;
       };
     };
+    # Use old sound driver to allow sound over HDMI
+    boot.extraModprobeConfig = ''
+      options snd-intel-dspcfg dsp_driver=1
+    '';
   };
 }
