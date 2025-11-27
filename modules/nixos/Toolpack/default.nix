@@ -16,5 +16,6 @@
     pkgs.azure-cli
     pkgs.lazysql
     pkgs.prettierd
+    pkgs.jetbrains.webstorm
   ];
 }
