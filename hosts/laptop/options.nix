@@ -6,7 +6,7 @@
     git.enable = true;
     docker.enable = true;
     desktop.hyprland.enable = true;
-    itu.wiseflow.enable = true;
+    itu.wiseflow.enable = false;
     kitty-cli.enable = true;
     apple-sus.enable = true;
     itu.eduroam.enable = true;
