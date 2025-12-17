@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    oldNixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     sources.url = "./sources";
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
@@ -32,6 +33,7 @@
     {
       self,
       nixpkgs,
+      oldNixpkgs,
       nixos-wsl,
       nixCats,
       ...
@@ -71,10 +73,13 @@
           name = system.name;
           value = nixpkgs.lib.nixosSystem {
             system = system.arch;
+
             specialArgs = {
               inherit inputs;
               sources = inputs.sources.sources;
+              old = inputs.oldNixpkgs.legacyPackages.${system.arch};
             };
+
             modules = [
               ./hosts/${system.name}/configuration.nix
               inputs.home-manager.nixosModules.default
