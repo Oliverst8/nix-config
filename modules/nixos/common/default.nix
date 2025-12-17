@@ -21,7 +21,7 @@
     inputs.home-manager.nixosModules.default
 
     #Custom modules
-    inputs.sddm-sugar-candy-nix.nixosModules.default
+    # inputs.sddm-sugar-candy-nix.nixosModules.default
 
     #-------------------------------------------------------
 
