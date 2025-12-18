@@ -67,7 +67,7 @@ with lib;
   options.env.background = mkOption {
     type = types.str;
     description = "Path to background image for hyprland";
-    default = "~/nixos/imgs/.background/City-Rain.png";
+    default = "~/nixos/imgs/.background/volcanic-moon.jpg";
   };
   options.discord.enable = mkOption {
     type = types.bool;
