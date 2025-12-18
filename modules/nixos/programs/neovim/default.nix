@@ -10,7 +10,6 @@
     fd
     git
     lua
-    cargo
     go
   ];
 }
