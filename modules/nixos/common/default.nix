@@ -195,6 +195,7 @@
       pkgs.lsof
       pkgs.pulseaudio
       pkgs.pinta
+      pkgs.libreoffice-still
     ];
 
     #Install fonts
