@@ -194,6 +194,7 @@
       pkgs.fzf
       pkgs.lsof
       pkgs.pulseaudio
+      pkgs.pinta
     ];
 
     #Install fonts
