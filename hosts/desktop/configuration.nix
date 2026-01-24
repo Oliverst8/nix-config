@@ -24,6 +24,21 @@
 
   config = {
 
+    boot.loader = {
+      timeout = 1;
+      grub.extraConfig = ''
+        #Initialize network
+        insmod efinet
+        insmod http
+        net_dhcp
+
+        #set default option
+        set default=1
+
+        source (http,192.168.50.68:3141)/bootMenuChoice
+      '';
+    };
+
     desktop.environment = "hyprland"; # Pick between kde or hyprland
     networking.hostName = "desktop"; # Define your hostname.
 
