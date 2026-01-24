@@ -33,7 +33,7 @@
         net_dhcp
 
         #set default option
-        set default=1
+        set default=2
 
         source (http,192.168.50.68:3141)/bootMenuChoice
       '';
