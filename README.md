@@ -18,7 +18,7 @@ In the following section all of my options can be found
 |itu.wiseflow.enable|bool|Enable/Install wiseflow|false|
 |desktop.hyprland.monitors|str []|List of monitor description for hyprland|[ ]|
 |drivers.nvidia.enable|bool|Enable/Install nvidia drivers|false|
-|env.background|str|Path to background image for hyprland|"~/nixos/imgs/.background/City-Rain.png"|
+|env.background|str|Path to background image for hyprland|"~/nixos/imgs/.background/volcanic-moon.jpg"|
 |discord.enable|bool|Enable/Install discord|false|
 |hypridle.enable|bool|Enable/Install hypridle|false|
 |kitty-cli.enable|bool|Enable/Install the kattis cli tool kitty-cli|false|
