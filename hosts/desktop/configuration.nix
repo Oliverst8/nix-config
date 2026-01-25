@@ -24,6 +24,18 @@
 
   config = {
 
+    services = {
+      fail2ban.enable = true;
+      openssh = {
+        enable = true;
+        ports = [ 22 ];
+        settings = {
+          PasswordAuthentication = false;
+          PermitRootLogin = "no";
+        };
+      };
+    };
+
     boot.loader = {
       timeout = 1;
       grub.extraConfig = ''
