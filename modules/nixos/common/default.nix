@@ -164,7 +164,7 @@
       pkgs.direnv
       pkgs.nix-direnv
 
-      pkgs.nixfmt-rfc-style # Formatter for nix
+      pkgs.nixfmt # Formatter for nix
       pkgs.nil # Nix language server
       pkgs.tree # Tree command
       pkgs.ghostty # Terminal
