@@ -112,7 +112,7 @@ in
         };
 
         windowrule = [
-          "float, pin, title:AirPods Settings"
+          "match:title AirPods Settings, float true, pin true"
         ];
 
         "$mainMod" = "SUPER";
