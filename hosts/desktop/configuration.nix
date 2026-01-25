@@ -30,6 +30,7 @@
         enable = true;
         ports = [ 22 ];
         settings = {
+          AllowUsers = [ "ostarup" ];
           PasswordAuthentication = false;
           PermitRootLogin = "no";
         };
