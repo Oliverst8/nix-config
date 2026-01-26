@@ -50,6 +50,7 @@
     #ITU
     ../ITU/4semester
     ../ITU/5semester
+    ../ITU/6semester
 
     ../Toolpack
   ];
