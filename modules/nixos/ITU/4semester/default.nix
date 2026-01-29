@@ -17,7 +17,6 @@
     pkgs.nodejs_22
     pkgs.pnpm
     pkgs.azure-cli
-    pkgs.galculator
   ];
 
   nixpkgs.config.permittedInsecurePackages = [ "dotnet-sdk-7.0.410" ];
