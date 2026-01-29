@@ -198,6 +198,7 @@
       pkgs.libreoffice-still
       pkgs.pandoc
       pkgs.texlive.combined.scheme-small
+      pkgs.uv
     ];
 
     #Install fonts
