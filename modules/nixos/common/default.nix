@@ -134,6 +134,7 @@
       extraGroups = [
         "networkmanager"
         "wheel"
+        "kvm"
         "input"
         "docker"
       ];
