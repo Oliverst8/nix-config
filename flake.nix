@@ -83,6 +83,10 @@
             modules = [
               ./hosts/${system.name}/configuration.nix
               inputs.home-manager.nixosModules.default
+              {
+                nixpkgs.config.allowUnfree = true;
+                home-manager.users.ostarup.nixpkgs.config.allowUnfree = true;
+              }
             ]
             ++ system.extraModules;
           };
