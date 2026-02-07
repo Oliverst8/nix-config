@@ -39,6 +39,7 @@
     ../programs/discord
     ../programs/plymouth
     ../programs/tailscale
+    ../programs/btop
 
     ../drivers/nvidia
 
@@ -173,7 +174,6 @@
       pkgs.starship # Terminal theme
       pkgs.tlp # Makes laptop more power efficent
       pkgs.unzip
-      pkgs.btop
       pkgs.mdcat # Markdown cat
 
       pkgs.yazi # Tui file manager
