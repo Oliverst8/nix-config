@@ -17,5 +17,6 @@
     pkgs.lazysql
     pkgs.prettierd
     pkgs.jetbrains.webstorm
+    pkgs.csharpier
   ];
 }
