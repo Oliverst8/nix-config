@@ -40,6 +40,7 @@
     ../programs/plymouth
     ../programs/tailscale
     ../programs/btop
+    ../programs/steam
 
     ../drivers/nvidia
 

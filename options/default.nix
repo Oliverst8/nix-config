@@ -94,4 +94,9 @@ with lib;
     description = "Enable if wpa_supplicant should be patched to allow eduroam to work";
     default = false;
   };
+  options.steam.enable = mkOption {
+    type = types.bool;
+    description = "Enable steam";
+    default = false;
+  };
 }
