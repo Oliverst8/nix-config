@@ -202,6 +202,7 @@
       pkgs.pandoc
       pkgs.texlive.combined.scheme-small
       pkgs.uv
+      pkgs.opencode
     ];
 
     #Install fonts
