@@ -76,8 +76,19 @@
 
     nix.settings.auto-optimise-store = true;
 
-    #Make touchpad work after sleep
-    powerManagement.powerUpCommands = "sudo rmmod atkbd; sudo modprobe atkbd reset=1";
+    # Make touchpad work after sleep
+    systemd.services.fix-atkbd = {
+      description = "Reload atkbd module to fix touchpad after sleep";
+      wantedBy = [ "sleep.target" ];
+      after = [ "sleep.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = [
+          "${pkgs.kmod}/bin/rmmod atkbd"
+          "${pkgs.kmod}/bin/modprobe atkbd reset=1"
+        ];
+      };
+    };
 
     # Set your time zone.
     time.timeZone = "Europe/Copenhagen";
