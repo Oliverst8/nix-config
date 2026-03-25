@@ -72,8 +72,6 @@
         map (system: {
           name = system.name;
           value = nixpkgs.lib.nixosSystem {
-            system = system.arch;
-
             specialArgs = {
               inherit inputs;
               sources = inputs.sources.sources;
@@ -81,6 +79,7 @@
             };
 
             modules = [
+              { nixpkgs.hostPlatform = system.arch; }
               ./hosts/${system.name}/configuration.nix
               inputs.home-manager.nixosModules.default
               {

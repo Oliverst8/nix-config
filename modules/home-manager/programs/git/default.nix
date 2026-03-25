@@ -15,5 +15,6 @@
       init.defaultBranch = "main";
       credential.helper = "!gh auth git-credential";
     };
+    signing.format = null;
   };
 }
