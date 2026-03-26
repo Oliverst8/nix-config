@@ -71,7 +71,6 @@ in
               fantomas
               jdt-language-server
               vscode-langservers-extracted
-              typescript-language-server
               gopls
               clang-tools
             ];
@@ -128,6 +127,7 @@ in
               plenary-nvim
               tiny-inline-diagnostic-nvim
               actions-preview-nvim
+              typescript-tools-nvim
             ];
             kickstart-debug = [
               nvim-dap
