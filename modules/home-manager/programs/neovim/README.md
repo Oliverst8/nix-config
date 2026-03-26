@@ -42,3 +42,30 @@ builtins.attrValues pkgs.vimPlugins.nvim-treesitter.grammarPlugins
 # or
 pkgs.neovimUtils.grammarToPlugin pkgs.tree-sitter-grammars.somegrammar
 ```
+
+## Add plugins not in nixos packages
+
+To add any future plugin without a nixpkgs package, follow these 3 steps:
+
+1. In flake.nix, add a plugins-<name> input:
+
+```nix
+  plugins-my-plugin = {                                                                                                         url = "github:author/my-plugin.nvim";                                                                                       flake = false;
+  };
+```
+
+2. In default.nix startupPlugins.general, add:
+
+```nix
+   pkgs.neovimPlugins.my-plugin
+```
+
+3. Create lua/custom/plugins/my-plugin.lua with the lazy spec:
+
+```lua
+return {                                                                                                                      'author/my-plugin.nvim',
+        config = function() ... end,
+        }
+```
+
+Then run nix flake update plugins-my-plugin && sudo nixos-rebuild switch (or the equivalent for your workflow).

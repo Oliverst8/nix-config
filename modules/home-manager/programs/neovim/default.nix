@@ -115,7 +115,7 @@ in
               #     lua
               #   ]
               # ))
-              # NOTE: custome plugins
+              # NOTE: custom plugins
               hardtime-nvim
               CopilotChat-nvim
               rustaceanvim
@@ -128,6 +128,13 @@ in
               tiny-inline-diagnostic-nvim
               actions-preview-nvim
               typescript-tools-nvim
+              # ----------------------------------------------------------------
+              # Plugins NOT in nixpkgs — sourced via flake inputs.
+              # Pattern: add `plugins-<name> = { url = "github:..."; flake = false; };`
+              # to flake.nix inputs, then reference as pkgs.neovimPlugins.<name> here,
+              # and create lua/custom/plugins/<name>.lua for the lazy spec.
+              # ----------------------------------------------------------------
+              pkgs.neovimPlugins.ts-error-translator
             ];
             kickstart-debug = [
               nvim-dap
