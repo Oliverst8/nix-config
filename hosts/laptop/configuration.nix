@@ -27,6 +27,20 @@
     desktop.environment = "both"; # Pick between kde or hyprland
     networking.hostName = "laptop"; # Define your hostname.
 
+    # Make touchpad work after sleep
+    systemd.services.fix-atkbd = {
+      description = "Reload atkbd module to fix touchpad after sleep";
+      wantedBy = [ "sleep.target" ];
+      after = [ "sleep.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = [
+          "${pkgs.kmod}/bin/rmmod atkbd"
+          "${pkgs.kmod}/bin/modprobe atkbd reset=1"
+        ];
+      };
+    };
+
     #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
 
     home-manager = {
