@@ -64,6 +64,8 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = false
 
+vim.lsp.buf.code_action = require('actions-preview').code_actions
+
 --[[ vim.diagnostic.config {
   -- Use the default configuration
   virtual_lines = true,
