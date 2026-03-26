@@ -27,6 +27,16 @@
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
+    # Neovim plugins not in nixpkgs — add new ones with the "plugins-" prefix.
+    # nixCats's standardPluginOverlay picks these up automatically and exposes
+    # them as pkgs.neovimPlugins.<name>  (strip the "plugins-" prefix).
+    # Then reference them in modules/home-manager/programs/neovim/default.nix
+    # under startupPlugins and create a lua config in lua/custom/plugins/.
+    plugins-ts-error-translator = {
+      url = "github:dmmulroy/ts-error-translator.nvim";
+      flake = false;
+    };
   };
 
   outputs =
