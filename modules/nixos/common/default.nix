@@ -214,6 +214,7 @@
       pkgs.texlive.combined.scheme-small
       pkgs.uv
       pkgs.opencode
+      pkgs.claude-code
     ];
 
     #Install fonts
