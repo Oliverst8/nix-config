@@ -68,6 +68,11 @@
 
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+    #Increase file watch limit because of dotnet and javascript
+    boot.kernel.sysctl = {
+      "fs.inotify.max_user_watches" = 1048576;
+    };
+
     # Enable nix flakes
     nix.settings.experimental-features = [
       "nix-command"
