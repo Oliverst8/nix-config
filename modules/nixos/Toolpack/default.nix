@@ -19,5 +19,6 @@
     pkgs.prettierd
     pkgs.jetbrains.webstorm
     pkgs.csharpier
+    pkgs.azure-functions-core-tools
   ];
 }
