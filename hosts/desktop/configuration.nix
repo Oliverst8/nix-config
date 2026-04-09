@@ -33,6 +33,7 @@
           AllowUsers = [ "ostarup" ];
           PasswordAuthentication = false;
           PermitRootLogin = "no";
+          X11Forwarding = true;
         };
       };
     };
