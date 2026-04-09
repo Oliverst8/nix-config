@@ -207,6 +207,7 @@
       pkgs.opencode
       pkgs.claude-code
       pkgs.spotify
+      pkgs.xorg.xauth
     ];
 
     #Install fonts
