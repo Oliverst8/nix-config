@@ -206,6 +206,7 @@
       pkgs.uv
       pkgs.opencode
       pkgs.claude-code
+      pkgs.spotify
     ];
 
     #Install fonts
