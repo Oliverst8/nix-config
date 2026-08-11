@@ -75,7 +75,6 @@ in
         };
 
         dwindle = {
-          pseudotile = true;
           preserve_split = true;
         };
 
@@ -125,7 +124,7 @@ in
           "$mainMod, P, pseudo,"
           "$mainMod, code:60, exec,smile"
           ", code:107, exec, grim -g \"$(slurp -d)\" - | wl-copy"
-          "$mainMod, J, togglesplit,"
+          "$mainMod, J, layoutmsg, togglesplit"
           "$mainMod, F, fullscreen, 0"
           "$mainMod, L, exec, hyprlock"
           "$mainMod, left, movefocus, l"
