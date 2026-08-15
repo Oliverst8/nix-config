@@ -99,4 +99,9 @@ with lib;
     description = "Enable steam";
     default = false;
   };
+  options.fprint.enable = mkOption {
+    type = types.bool;
+    description = "Enable fingerprint reader support (fprintd) for login, sudo, sddm and hyprlock";
+    default = false;
+  };
 }

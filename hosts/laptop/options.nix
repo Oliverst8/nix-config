@@ -11,6 +11,7 @@
     apple-sus.enable = true;
     itu.eduroam.enable = true;
     steam.enable = true;
+    fprint.enable = true;
 
     desktop.hyprland.monitors = [
       "desc:BOE 0x07F7,1920x1080@60,0x0,1"

@@ -41,6 +41,7 @@
     ../programs/tailscale
     ../programs/btop
     ../programs/steam
+    ../programs/fprint
 
     ../drivers/nvidia
 
