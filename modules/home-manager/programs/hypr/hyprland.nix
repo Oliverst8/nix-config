@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 
@@ -178,6 +179,7 @@ in
         };
 
         exec-once = [
+          "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
           "swww init"
           "nm-applet --indicator"
           "wpaperd"
