@@ -25,6 +25,7 @@ In the following section all of my options can be found
 |apple-sus.enable|bool|Enable the apple sus plymouth theme|false|
 |itu.eduroam.enable|bool|Enable if wpa_supplicant should be patched to allow eduroam to work|false|
 |steam.enable|bool|Enable steam|false|
+|fprint.enable|bool|Enable fingerprint reader support (fprintd) for login, sudo, sddm and hyprlock|false|
 
 ## Garbage collect
 
