@@ -1,0 +1,58 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{
+  config,
+  pkgs,
+  inputs,
+  sources,
+  lib,
+  ...
+}:
+
+{
+
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./options.nix
+
+    ../../modules/nixos/common
+    ../../pkgs/wiseflow
+  ];
+
+  config = {
+
+    desktop.environment = "both"; # Pick between kde or hyprland
+    networking.hostName = "laptop"; # Define your hostname.
+
+    # Make touchpad work after sleep
+    systemd.services.fix-atkbd = {
+      description = "Reload atkbd module to fix touchpad after sleep";
+      wantedBy = [ "sleep.target" ];
+      after = [ "sleep.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = [
+          "${pkgs.kmod}/bin/rmmod atkbd"
+          "${pkgs.kmod}/bin/modprobe atkbd reset=1"
+        ];
+      };
+    };
+
+    #networking.eduroamPatch.enable = true; # Enable being able to connect to the wifi at ITU
+
+    home-manager = {
+      # also pass inputs to home-manager modules
+      extraSpecialArgs = { inherit inputs sources; };
+      users = {
+        "ostarup" = import ./home.nix;
+      };
+    };
+    # Use old sound driver to allow sound over HDMI
+    boot.extraModprobeConfig = ''
+      options snd-intel-dspcfg dsp_driver=1
+    '';
+  };
+}
