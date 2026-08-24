@@ -54,6 +54,7 @@
     ../ITU/4semester
     ../ITU/5semester
     ../ITU/6semester
+    ../ITU/7semester
 
     ../Toolpack
   ];
