@@ -185,6 +185,7 @@
       pkgs.spotify-player # TUI spotfiy https://github.com/aome510/spotify-player
 
       pkgs.jetbrains.goland
+      pkgs.jetbrains.gateway
       pkgs.bc
       pkgs.jq
 
