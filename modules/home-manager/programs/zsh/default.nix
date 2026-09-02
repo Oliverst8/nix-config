@@ -119,5 +119,8 @@ in
         }
       '';
     };
+    programs.atuin = {
+      enable = true;
+    };
   };
 }
