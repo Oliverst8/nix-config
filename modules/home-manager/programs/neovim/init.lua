@@ -115,6 +115,9 @@ require 'options'
 -- keymaps
 require 'keymaps'
 
+-- your own stuff
+require 'custom.functions.kittie-nvim'
+
 -- plugins
 require 'lazy-plugins'
 
