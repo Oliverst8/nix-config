@@ -72,6 +72,7 @@ in
               jdt-language-server
               vscode-langservers-extracted
               gopls
+              erlang-language-platform
               clang-tools
             ];
             kickstart-debug = [
