@@ -34,13 +34,42 @@ function M.kittie_get()
 end
 
 function M.kittie_submit()
-  local cmd = 'kittie submit -y'
-  cmd = problem_folder == '' and cmd or (cmd .. ' ' .. problem_folder)
-  vim.notify 'Submitting problem'
-  local handle = io.popen(cmd)
-  local result = handle:read '*a'
-  handle:close()
-  vim.notify(result)
+  local cmd = { 'kittie', 'submit', '-y' }
+  if problem_folder ~= '' then
+    table.insert(cmd, problem_folder)
+  end
+
+  local buf = vim.api.nvim_create_buf(false, true)
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = 'editor',
+    width = math.floor(vim.o.columns * 0.7),
+    height = math.floor(vim.o.lines * 0.4),
+    row = math.floor(vim.o.lines * 0.25),
+    col = math.floor(vim.o.columns * 0.15),
+    style = 'minimal',
+    border = 'rounded',
+    title = ' Submitting to kattis ',
+    title_pos = 'center',
+  })
+
+  vim.fn.jobstart(cmd, {
+    term = true,
+    on_exit = function(_, code)
+      if code == 0 then
+        vim.notify('Submission accepted', vim.log.levels.INFO)
+      else
+        vim.notify('kittie exited with ' .. code, vim.log.levels.WARN)
+      end
+    end,
+  })
+
+  vim.keymap.set('n', 'q', function()
+    if vim.api.nvim_win_is_valid(win) then
+      vim.api.nvim_win_close(win, true)
+    end
+  end, { buffer = buf, nowait = true })
+
+  vim.cmd 'startinsert' -- so the terminal scrolls/follows output
 end
 
 function M.kittie_test()
