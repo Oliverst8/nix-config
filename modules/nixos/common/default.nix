@@ -205,7 +205,6 @@
       pkgs.lsof
       pkgs.pulseaudio
       pkgs.pinta
-      pkgs.libreoffice-still
       pkgs.pandoc
       pkgs.texlive.combined.scheme-small
       pkgs.uv
