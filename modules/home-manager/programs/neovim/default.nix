@@ -71,6 +71,7 @@ in
               fantomas
               jdt-language-server
               vscode-langservers-extracted
+              typescript
               gopls
               erlang-language-platform
               clang-tools
@@ -224,6 +225,8 @@ in
             # see :help nixCats.flake.outputs.settings
             settings = {
               wrapRc = true;
+              #wrapRc = false;
+              unwrappedCfgPath = "${config.home.homeDirectory}/nixos/modules/home-manager/programs/neovim";
               # IMPORTANT:
               # your alias may not conflict with your other packages.
               aliases = [ "vim" ];
