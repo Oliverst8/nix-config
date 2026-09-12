@@ -14,7 +14,6 @@
     pkgs.dotnet-ef
     pkgs.python313
     pkgs.docker
-    pkgs.nodejs_22
     pkgs.pnpm
     pkgs.azure-cli
   ];
