@@ -11,7 +11,7 @@
     ])
     pkgs.teams-for-linux
     pkgs.dotnet-ef
-    pkgs.python313
+    pkgs.python315
     pkgs.docker
     pkgs.nodejs_24
     pkgs.dbeaver-bin

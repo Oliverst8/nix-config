@@ -12,7 +12,6 @@
       pkgs.dotnetCorePackages.sdk_9_0
     ])
     pkgs.dotnet-ef
-    pkgs.python313
     pkgs.docker
     pkgs.pnpm
     pkgs.azure-cli
