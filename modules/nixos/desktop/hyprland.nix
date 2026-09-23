@@ -36,6 +36,7 @@
       swww
       kitty
       rofi
+      vicinae
       brightnessctl
       networkmanagerapplet
       swayosd

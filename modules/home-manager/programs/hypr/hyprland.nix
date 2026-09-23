@@ -156,7 +156,7 @@ in
           "$mainMod SHIFT, S, movetoworkspace, special:magic"
           "$mainMod, mouse_down, workspace, e+1"
           "$mainMod, mouse_up, workspace, e-1"
-          "$mainMod, SPACE, exec, rofi -show drun -show-icons"
+          "$mainMod, SPACE, exec, vicinae toggle"
           "$mainMod SHIFT, Q, exec, ${browser}"
           "$mainMod, A, exec, ~/.config/hypr-backup/rofi_keybinds.sh"
         ];
@@ -186,6 +186,7 @@ in
           "waybar"
           "dunst"
           "exec swayosd-server"
+          "vicinae server"
           "libinput-gestures"
           "librepods --hide"
         ];
