@@ -44,6 +44,11 @@ with lib;
     description = "Enable lazydocker (Only works if docker is enabled)";
     default = true;
   };
+  options.zen.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install the zen browser";
+    default = false;
+  };
   options.vscode.enable = mkOption {
     type = types.bool;
     description = "Enable/Install vscode";

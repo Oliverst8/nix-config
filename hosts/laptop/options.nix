@@ -12,6 +12,7 @@
     itu.eduroam.enable = true;
     steam.enable = true;
     fprint.enable = true;
+    zen.enable = true;
 
     desktop.hyprland.monitors = [
       "desc:Lenovo Group Limited 0x403A,1920x1200@60,0x0,1"
