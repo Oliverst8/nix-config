@@ -1,4 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, sources, ... }:
+
+let
+  azure-functions-core-tools =
+    pkgs.callPackage ../../../pkgs/azure-functions-core-tools/azure-functions-core-tools.nix
+      {
+        inherit sources;
+      };
+in
 {
 
   environment.systemPackages = [
@@ -20,6 +28,6 @@
     pkgs.prettierd
     pkgs.jetbrains.webstorm
     pkgs.csharpier
-    pkgs.azure-functions-core-tools
+    azure-functions-core-tools
   ];
 }

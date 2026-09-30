@@ -22,6 +22,11 @@
       url = "github:spywhere/tmux-named-snapshot";
       flake = false;
     };
+    # Bump the tag and pkgs/azure-functions-core-tools/deps.json together.
+    azure-functions-core-tools-src = {
+      url = "github:Azure/azure-functions-core-tools/4.15.1";
+      flake = false;
+    };
 
   };
 
@@ -32,6 +37,7 @@
       gottis = inputs.gottis-src;
       tmux-tokyo-night = inputs.tmux-tokyo-night-src;
       tmux-named-snapshot = inputs.tmux-named-snapshot-src;
+      azure-functions-core-tools = inputs.azure-functions-core-tools-src;
     };
   };
 }

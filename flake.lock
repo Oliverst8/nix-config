@@ -33,6 +33,23 @@
         "type": "github"
       }
     },
+    "azure-functions-core-tools-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790102340,
+        "narHash": "sha256-qeTHGBEg4XJ2E2uLP4r5r05X+ECrujJdv9kW1MX2Dfo=",
+        "owner": "Azure",
+        "repo": "azure-functions-core-tools",
+        "rev": "ab9c13e844d467e3eb2ce5db19e66bc0212cd144",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Azure",
+        "ref": "4.15.1",
+        "repo": "azure-functions-core-tools",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
@@ -645,6 +662,7 @@
     },
     "sources": {
       "inputs": {
+        "azure-functions-core-tools-src": "azure-functions-core-tools-src",
         "gottis-src": "gottis-src",
         "kitty-src": "kitty-src",
         "plymouth-macos-theme-src": "plymouth-macos-theme-src",
