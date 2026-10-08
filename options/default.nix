@@ -104,4 +104,9 @@ with lib;
     description = "Enable fingerprint reader support (fprintd) for login, sudo, sddm and hyprlock";
     default = false;
   };
+  options.battery.warn.enable = mkOption {
+    type = types.bool;
+    description = "Enable low battery warnings (notification + sound at 10% and 5%)";
+    default = false;
+  };
 }

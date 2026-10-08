@@ -42,6 +42,7 @@
     ../programs/btop
     ../programs/steam
     ../programs/fprint
+    ../programs/battery-warning
 
     ../drivers/nvidia
 
