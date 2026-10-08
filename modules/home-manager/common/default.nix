@@ -11,6 +11,7 @@
     ../programs/starship
     ../programs/hypr
     ../programs/neovim
+    ../programs/clangd
     ../programs/firefox
     ../programs/virt-manager
     ../programs/tmux
