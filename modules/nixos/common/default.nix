@@ -217,6 +217,11 @@
     #Install fonts
     fonts.packages = with pkgs; [ nerd-fonts.meslo-lg ];
 
+    programs.localsend = {
+      enable = true;
+      openFirewall = true; # opens port 53317 TCP/UDP
+    };
+
     # This value determines the NixOS release from which the default
     # settings for stateful data, like file locations and database versions
     # on your system were taken. It‘s perfectly fine and recommended to leave
