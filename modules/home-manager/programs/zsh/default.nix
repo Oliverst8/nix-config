@@ -43,6 +43,38 @@ in
       };
 
       initContent = ''
+        # cxx <file.cpp> [args...]
+        # Compile with the competitive-programming flag set and run the result,
+        # so you can do:  cxx sol.cpp < in.txt
+        cxx() {
+          emulate -L zsh
+
+          local src=$1
+          if [[ -z $src ]]; then
+            print -u2 -- "usage: cxx <file.cpp> [args...]   e.g. cxx sol.cpp < in.txt"
+            return 1
+          fi
+          [[ -f $src ]] || [[ ! -f $src.cpp ]] || src=$src.cpp
+          if [[ ! -f $src ]]; then
+            print -u2 -- "cxx: no such file: $1"
+            return 1
+          fi
+          shift
+
+          local bin=''${TMPDIR:-/tmp}/cxxrun-''${src:t:r}-$$
+          NIX_HARDENING_ENABLE= command g++ \
+            -std=gnu++23 -g -Wall -DLOCAL \
+            -fsanitize=address,undefined -fno-sanitize-recover \
+            -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_BACKTRACE \
+            "$src" -lstdc++exp -o "$bin" || return
+
+          "$bin" "$@"
+          local rc=$?
+          rm -f -- "$bin"
+          return $rc
+        }
+        compdef '_files -g "*.(cpp|cc|cxx|c++|C)"' cxx
+
         # jetlink <link|launcher-command|session-id> [-o]
         # Resolves a Code With Me invitation into a full join link (with #p=..&fp=..).
         # -o / --open  launches JetBrains Gateway with the result.

@@ -1,6 +1,9 @@
 return {
   'rachartier/tiny-inline-diagnostic.nvim',
-  event = 'VeryLazy',
+  -- NOTE: must NOT be lazy-loaded. The plugin attaches to a buffer from inside an
+  -- `LspAttach` autocmd and never backfills, so if it loads after a server has
+  -- already attached, that buffer gets signs + underline but no inline message.
+  lazy = false,
   priority = 1000,
   config = function()
     require('tiny-inline-diagnostic').setup {
@@ -126,5 +129,17 @@ return {
       },
     }
     vim.diagnostic.config { virtual_text = false } -- Disable Neovim's default virtual text diagnostics
+
+    -- Belt and braces: attach to any buffer whose LSP client beat us here.
+    for _, client in ipairs(vim.lsp.get_clients()) do
+      for bufnr in pairs(client.attached_buffers or {}) do
+        if vim.api.nvim_buf_is_valid(bufnr) then
+          vim.api.nvim_exec_autocmds('LspAttach', {
+            buffer = bufnr,
+            data = { client_id = client.id },
+          })
+        end
+      end
+    end
   end,
 }
