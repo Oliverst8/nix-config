@@ -63,7 +63,7 @@ in
 
           local bin=''${TMPDIR:-/tmp}/cxxrun-''${src:t:r}-$$
           NIX_HARDENING_ENABLE= command g++ \
-            -std=gnu++23 -g -Wall -DLOCAL \
+            -std=gnu++23 -g -Wall -Wextra -DLOCAL \
             -fsanitize=address,undefined -fno-sanitize-recover \
             -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_BACKTRACE \
             "$src" -lstdc++exp -o "$bin" || return
