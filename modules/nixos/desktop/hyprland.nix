@@ -49,6 +49,7 @@
       pkgs.slurp
       pkgs.smile
       blueman
+      ripdrag
     ];
 
     xdg.portal.enable = true;
