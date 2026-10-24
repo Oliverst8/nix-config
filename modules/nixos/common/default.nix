@@ -134,6 +134,12 @@
     # Enbale zsh
     programs.zsh.enable = true;
 
+    # oh-my-zsh runs compinit itself
+    programs.zsh.enableGlobalCompInit = false;
+
+    # starship overwrites the prompt anyway
+    programs.zsh.promptInit = "";
+
     # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.ostarup = {
       isNormalUser = true;

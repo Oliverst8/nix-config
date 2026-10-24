@@ -30,6 +30,8 @@ in
       #};
       oh-my-zsh = {
         enable = true;
+        # skip compaudit, the biggest cost in shell startup
+        extraConfig = "ZSH_DISABLE_COMPFIX=true";
         plugins = [
           "git"
           "sudo"
