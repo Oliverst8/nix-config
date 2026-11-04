@@ -51,6 +51,7 @@
     ../../../pkgs/kitty-cli
     ../../../pkgs/librepods
     ../../../pkgs/nixos-package-search
+    ../../../pkgs/claude-usage-waybar
 
     #ITU
     ../ITU/4semester

@@ -14,6 +14,7 @@
     fprint.enable = true;
     battery.warn.enable = true;
     nixos-package-search.enable = true;
+    claude-usage-waybar.enable = true;
 
     desktop.hyprland.monitors = [
       "desc:Lenovo Group Limited 0x403A,1920x1200@60,0x0,1"

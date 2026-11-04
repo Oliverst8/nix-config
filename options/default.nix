@@ -114,4 +114,9 @@ with lib;
     description = "Enable low battery warnings (notification + sound at 10% and 5%)";
     default = false;
   };
+  options.claude-usage-waybar.enable = mkOption {
+    type = types.bool;
+    description = "Enable the Claude Code usage waybar module (needs statusLine wired up in ~/.claude/settings.json)";
+    default = false;
+  };
 }

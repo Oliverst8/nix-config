@@ -50,6 +50,22 @@
         "type": "github"
       }
     },
+    "claude-usage-waybar-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1776745030,
+        "narHash": "sha256-xeDqlArdt8MjHEL6RMuuGvePgscNK35gG+G314GpPlI=",
+        "owner": "infiniV",
+        "repo": "claude-usage-waybar",
+        "rev": "be4a8166257e21829e49bc550d4319bb0723a9d4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "infiniV",
+        "repo": "claude-usage-waybar",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
@@ -679,6 +695,7 @@
     "sources": {
       "inputs": {
         "azure-functions-core-tools-src": "azure-functions-core-tools-src",
+        "claude-usage-waybar-src": "claude-usage-waybar-src",
         "gottis-src": "gottis-src",
         "kitty-src": "kitty-src",
         "nixos-package-search-src": "nixos-package-search-src",

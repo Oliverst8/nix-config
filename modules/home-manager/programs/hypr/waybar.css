@@ -53,6 +53,7 @@ tooltip {
 #language,
 #idle_inhibitor,
 #custom-language,
+#custom-claude-usage,
 #custom-updates,
 #custom-caffeine,
 #custom-weather,
@@ -149,4 +150,23 @@ tooltip {
   border-radius: 0px 10px 10px 0px;
   border-right: 0px;
   margin-left: 0px;
+}
+
+#custom-claude-usage {
+  border-radius: 10px;
+  margin-right: 10px;
+  font-feature-settings: "tnum";
+}
+
+#custom-claude-usage.stale,
+#custom-claude-usage.empty {
+  opacity: 0.4;
+}
+
+#custom-claude-usage.critical {
+  color: #c9a227;
+}
+
+#custom-claude-usage.exhausted {
+  color: #d24646;
 }

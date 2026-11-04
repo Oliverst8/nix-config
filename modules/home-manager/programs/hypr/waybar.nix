@@ -1,5 +1,19 @@
-{ ... }:
+{
+  config,
+  lib,
+  pkgs,
+  sources,
+  ...
+}:
 
+let
+  claudeUsage = config.claude-usage-waybar.enable;
+  claude-usage-waybar =
+    pkgs.callPackage ../../../../pkgs/claude-usage-waybar/claude-usage-waybar.nix
+      {
+        inherit sources;
+      };
+in
 {
   config = {
     programs.waybar = {
@@ -25,7 +39,7 @@
             "hyprland/language"
           ];
           "modules-center" = [ "hyprland/workspaces" ];
-          "modules-right" = [
+          "modules-right" = lib.optional claudeUsage "custom/claude-usage" ++ [
             "tray"
             "network"
             "backlight"
@@ -172,8 +186,39 @@
               "deactivated" = "";
             };
           };
+        }
+        // lib.optionalAttrs claudeUsage {
+          "custom/claude-usage" = {
+            "exec" = "${claude-usage-waybar}/bin/claude-usage-bar";
+            "interval" = 15;
+            "return-type" = "json";
+            "format" = "{}";
+            "tooltip" = true;
+            "on-click" = "setsid -f ${claude-usage-waybar}/bin/claude-usage-popup";
+          };
         };
       };
+    };
+
+    # Backfills today's tokens + cost from ccusage; the bar only gets rate limits.
+    systemd.user.services.claude-usage-today = lib.mkIf claudeUsage {
+      Unit.Description = "Backfill today's Claude Code tokens and cost from ccusage";
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${claude-usage-waybar}/bin/claude-usage-today";
+        Nice = 10;
+      };
+    };
+
+    systemd.user.timers.claude-usage-today = lib.mkIf claudeUsage {
+      Unit.Description = "Run the Claude Code usage backfill every 5 min";
+      Timer = {
+        OnActiveSec = "30s";
+        OnBootSec = "1min";
+        OnUnitActiveSec = "5min";
+        Persistent = true;
+      };
+      Install.WantedBy = [ "timers.target" ];
     };
   };
 }

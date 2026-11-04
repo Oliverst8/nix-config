@@ -26,6 +26,10 @@
       url = "github:oliverst8/nixos-package-search";
       flake = false;
     };
+    claude-usage-waybar-src = {
+      url = "github:infiniV/claude-usage-waybar";
+      flake = false;
+    };
     # Bump the tag and pkgs/azure-functions-core-tools/deps.json together.
     azure-functions-core-tools-src = {
       url = "github:Azure/azure-functions-core-tools/4.15.1";
@@ -43,6 +47,7 @@
       tmux-named-snapshot = inputs.tmux-named-snapshot-src;
       azure-functions-core-tools = inputs.azure-functions-core-tools-src;
       nixos-package-search = inputs.nixos-package-search-src;
+      claude-usage-waybar = inputs.claude-usage-waybar-src;
     };
   };
 }
