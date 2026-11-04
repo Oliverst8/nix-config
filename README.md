@@ -28,6 +28,7 @@ In the following section all of my options can be found
 |fprint.enable|bool|Enable fingerprint reader support (fprintd) for login, sudo, sddm and hyprlock|false|
 |nixos-package-search.enable|bool|Enable/Install nixos-package-search (Alt + Space in hyprland)|false|
 |battery.warn.enable|bool|Enable low battery warnings (notification + sound at 10% and 5%)|false|
+|claude-usage-waybar.enable|bool|Enable the Claude Code usage waybar module (needs statusLine wired up in ~/.claude/settings.json)|false|
 
 ## Garbage collect
 
