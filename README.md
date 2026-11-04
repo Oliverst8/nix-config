@@ -26,6 +26,7 @@ In the following section all of my options can be found
 |itu.eduroam.enable|bool|Enable if wpa_supplicant should be patched to allow eduroam to work|false|
 |steam.enable|bool|Enable steam|false|
 |fprint.enable|bool|Enable fingerprint reader support (fprintd) for login, sudo, sddm and hyprlock|false|
+|nixos-package-search.enable|bool|Enable/Install nixos-package-search (Alt + Space in hyprland)|false|
 |battery.warn.enable|bool|Enable low battery warnings (notification + sound at 10% and 5%)|false|
 
 ## Garbage collect
