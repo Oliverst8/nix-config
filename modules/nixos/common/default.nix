@@ -50,6 +50,7 @@
     ../../../pkgs/gottis
     ../../../pkgs/kitty-cli
     ../../../pkgs/librepods
+    ../../../pkgs/nixos-package-search
 
     #ITU
     ../ITU/4semester

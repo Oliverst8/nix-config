@@ -111,7 +111,8 @@ in
 
         windowrule = [
           "match:title AirPods Settings, float true, pin true"
-        ];
+        ]
+        ++ lib.optional config.nixos-package-search.enable "match:class nixos-package-search, no_anim true";
 
         "$mainMod" = "SUPER";
 
@@ -159,7 +160,8 @@ in
           "$mainMod, SPACE, exec, vicinae toggle"
           "$mainMod SHIFT, Q, exec, ${browser}"
           "$mainMod, A, exec, ~/.config/hypr-backup/rofi_keybinds.sh"
-        ];
+        ]
+        ++ lib.optional config.nixos-package-search.enable "ALT, SPACE, exec, nixos-package-search";
 
         bindm = [
           "$mainMod, mouse:272, movewindow"

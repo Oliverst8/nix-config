@@ -523,6 +523,22 @@
         "type": "github"
       }
     },
+    "nixos-package-search-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793822635,
+        "narHash": "sha256-XjYAeuAd33IED7hhHVbwm6zv5vkqx2Z3oOH6CxXc8Fo=",
+        "owner": "oliverst8",
+        "repo": "nixos-package-search",
+        "rev": "336a66ed1f6649ee36aeb42ab441bcd2d9aefaae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oliverst8",
+        "repo": "nixos-package-search",
+        "type": "github"
+      }
+    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -665,6 +681,7 @@
         "azure-functions-core-tools-src": "azure-functions-core-tools-src",
         "gottis-src": "gottis-src",
         "kitty-src": "kitty-src",
+        "nixos-package-search-src": "nixos-package-search-src",
         "plymouth-macos-theme-src": "plymouth-macos-theme-src",
         "tmux-named-snapshot-src": "tmux-named-snapshot-src",
         "tmux-tokyo-night-src": "tmux-tokyo-night-src"

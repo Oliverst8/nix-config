@@ -28,6 +28,7 @@
     # };
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
+
     # Neovim plugins not in nixpkgs — add new ones with the "plugins-" prefix.
     # nixCats's standardPluginOverlay picks these up automatically and exposes
     # them as pkgs.neovimPlugins.<name>  (strip the "plugins-" prefix).

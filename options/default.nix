@@ -104,6 +104,11 @@ with lib;
     description = "Enable fingerprint reader support (fprintd) for login, sudo, sddm and hyprlock";
     default = false;
   };
+  options.nixos-package-search.enable = mkOption {
+    type = types.bool;
+    description = "Enable/Install nixos-package-search (Alt + Space in hyprland)";
+    default = false;
+  };
   options.battery.warn.enable = mkOption {
     type = types.bool;
     description = "Enable low battery warnings (notification + sound at 10% and 5%)";
