@@ -31,7 +31,8 @@ rustPlatform.buildRustPackage rec {
     pkgs.pkg-config
     pkgs.makeWrapper
   ];
-  buildInputs = runtimeLibs;
+  # aws-lc-sys honours the hook's AWS_LC_SYS_USE_SYSTEM, so it needs the real library.
+  buildInputs = runtimeLibs ++ [ pkgs.aws-lc ];
 
   postFixup = ''
     wrapProgram $out/bin/nixos-package-search \

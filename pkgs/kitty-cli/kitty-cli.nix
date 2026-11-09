@@ -20,8 +20,10 @@ rustPlatform.buildRustPackage rec {
   '';
 
   nativeBuildInputs = [ pkgs.pkg-config ];
-  buildInputs = [ pkgs.openssl ];
-  PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+  buildInputs = [
+    pkgs.openssl
+    pkgs.zstd
+  ];
 
   doCheck = false;
 }

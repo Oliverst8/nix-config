@@ -9,13 +9,18 @@
 let
   pythonEnv = pkgs.python3.withPackages (ps: [ ps.pygobject3 ]);
 
+  # nixpkgs' ccusage misses libzstd, so zstd-sys fails to probe it.
+  ccusage = pkgs.ccusage.overrideAttrs (old: {
+    buildInputs = (old.buildInputs or [ ]) ++ [ pkgs.zstd ];
+  });
+
   runtimeDeps = with pkgs; [
     jq
-    ccusage
     coreutils
     libnotify
     which
-  ];
+  ]
+  ++ [ ccusage ];
 
   # The popup dlopens this before libwayland so it anchors under the bar.
   layerShell = "${pkgs.gtk4-layer-shell}/lib/libgtk4-layer-shell.so.0";
