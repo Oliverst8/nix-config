@@ -11,6 +11,33 @@ let
   fileManager = "dolphin";
   browser = "firefox";
   menu = "wofi --show drun";
+
+  # "output, mode, position, scale" -> hl.monitor table
+  parseMonitor =
+    s:
+    let
+      p = map lib.trim (lib.splitString "," s);
+    in
+    {
+      output = builtins.elemAt p 0;
+      mode = builtins.elemAt p 1;
+      position = builtins.elemAt p 2;
+      scale = builtins.elemAt p 3;
+    };
+
+  exec = cmd: "hl.dsp.exec_cmd(${lib.generators.toLua { } cmd})";
+
+  startup = [
+    "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
+    "nm-applet --indicator"
+    "wpaperd"
+    "waybar"
+    "dunst"
+    "swayosd-server"
+    "vicinae server"
+    "libinput-gestures"
+    "librepods --hide"
+  ];
 in
 {
   options = {
@@ -20,88 +47,63 @@ in
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland = {
       enable = true;
-      plugins = [
-        #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      ];
-      settings = {
-        monitor = config.desktop.hyprland.monitors;
+      configType = "lua";
 
-        xwayland = {
-          force_zero_scaling = true;
-        };
+      settings = {
+        monitor = map parseMonitor config.desktop.hyprland.monitors;
 
         env = [
-          "XCURSOR_SIZE,24"
-          "HYPRCURSOR_SIZE,24"
+          { _args = [ "XCURSOR_SIZE" "24" ]; }
+          { _args = [ "HYPRCURSOR_SIZE" "24" ]; }
         ];
 
-        general = {
-          gaps_in = 5;
-          gaps_out = 20;
-          border_size = 2;
-          # col.active_border = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-          # col.inactive_border = "rgba(595959aa)";
-          resize_on_border = false;
-          allow_tearing = false;
-          layout = "dwindle";
-        };
+        config = {
+          xwayland.force_zero_scaling = true;
 
-        decoration = {
-          rounding = 10;
-          active_opacity = 1.0;
-          inactive_opacity = 1.0;
-          # drop_shadow = true;
-          # shadow_range = 4;
-          # shadow_render_power = 3;
-          #  col.shadow = "rgba(1a1a1aee)";
-          blur = {
-            enabled = true;
-            size = 8;
-            passes = 3;
-            vibrancy = 0.1696;
+          general = {
+            gaps_in = 5;
+            gaps_out = 20;
+            border_size = 2;
+            resize_on_border = false;
+            allow_tearing = false;
+            layout = "dwindle";
           };
-        };
 
-        animations = {
-          enabled = true;
-          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-          animation = [
-            "windows, 1, 7, myBezier"
-            "windowsOut, 1, 7, default, popin 80%"
-            "border, 1, 10, default"
-            "borderangle, 1, 8, default"
-            "fade, 1, 7, default"
-            "workspaces, 1, 6, default"
-          ];
-        };
-
-        dwindle = {
-          preserve_split = true;
-        };
-
-        master = {
-          new_status = "master";
-        };
-
-        misc = {
-          force_default_wallpaper = -1;
-          disable_hyprland_logo = true;
-        };
-
-        input = {
-          kb_layout = "dk";
-          follow_mouse = 1;
-          sensitivity = 0;
-          touchpad = {
-            natural_scroll = true;
+          decoration = {
+            rounding = 10;
+            active_opacity = 1.0;
+            inactive_opacity = 1.0;
+            blur = {
+              enabled = true;
+              size = 8;
+              passes = 3;
+              vibrancy = 0.1696;
+            };
           };
+
+          animations.enabled = true;
+          dwindle.preserve_split = true;
+          master.new_status = "master";
+
+          misc = {
+            force_default_wallpaper = -1;
+            disable_hyprland_logo = true;
+          };
+
+          input = {
+            kb_layout = "dk";
+            follow_mouse = 1;
+            sensitivity = 0;
+            touchpad.natural_scroll = true;
+          };
+
+          gestures.workspace_swipe_cancel_ratio = 0.2;
         };
 
-        gesture = [
-          "3, horizontal, workspace"
-        ];
-        gestures = {
-          workspace_swipe_cancel_ratio = 0.2;
+        gesture = {
+          fingers = 3;
+          direction = "horizontal";
+          action = "workspace";
         };
 
         device = {
@@ -109,90 +111,79 @@ in
           sensitivity = -0.5;
         };
 
-        windowrule = [
-          "match:title AirPods Settings, float true, pin true"
+        window_rule = [
+          {
+            name = "airpods-settings";
+            match.title = "AirPods Settings";
+            float = true;
+            pin = true;
+          }
         ]
-        ++ lib.optional config.nixos-package-search.enable "match:class nixos-package-search, no_anim true";
-
-        "$mainMod" = "SUPER";
-
-        bind = [
-          "$mainMod, Q, exec, ${terminal}"
-          "$mainMod, C, killactive,"
-          "$mainMod, M, exit,"
-          "$mainMod, E, exec, ${fileManager}"
-          "$mainMod, V, togglefloating,"
-          "$mainMod, R, exec, ${menu}"
-          "$mainMod, P, pseudo,"
-          "$mainMod, code:60, exec,smile"
-          ", code:107, exec, grim -g \"$(slurp -d)\" - | wl-copy"
-          "$mainMod, J, layoutmsg, togglesplit"
-          "$mainMod, F, fullscreen, 0"
-          "$mainMod, L, exec, hyprlock"
-          "$mainMod, left, movefocus, l"
-          "$mainMod, right, movefocus, r"
-          "$mainMod, up, movefocus, u"
-          "$mainMod, down, movefocus, d"
-          "$mainMod, 1, workspace, 1"
-          "$mainMod, 2, workspace, 2"
-          "$mainMod, 3, workspace, 3"
-          "$mainMod, 4, workspace, 4"
-          "$mainMod, 5, workspace, 5"
-          "$mainMod, 6, workspace, 6"
-          "$mainMod, 7, workspace, 7"
-          "$mainMod, 8, workspace, 8"
-          "$mainMod, 9, workspace, 9"
-          "$mainMod, 0, workspace, 10"
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-          "$mainMod SHIFT, 5, movetoworkspace, 5"
-          "$mainMod SHIFT, 6, movetoworkspace, 6"
-          "$mainMod SHIFT, 7, movetoworkspace, 7"
-          "$mainMod SHIFT, 8, movetoworkspace, 8"
-          "$mainMod SHIFT, 9, movetoworkspace, 9"
-          "$mainMod SHIFT, 0, movetoworkspace, 10"
-          "$mainMod, S, togglespecialworkspace, magic"
-          "$mainMod SHIFT, S, movetoworkspace, special:magic"
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
-          "$mainMod, SPACE, exec, vicinae toggle"
-          "$mainMod SHIFT, Q, exec, ${browser}"
-          "$mainMod, A, exec, ~/.config/hypr-backup/rofi_keybinds.sh"
-        ]
-        ++ lib.optional config.nixos-package-search.enable "ALT, SPACE, exec, nixos-package-search";
-
-        bindm = [
-          "$mainMod, mouse:272, movewindow"
-          "$mainMod, mouse:273, resizewindow"
-        ];
-
-        bindel = [
-          ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume=raise"
-          ", XF86AudioLowerVolume, exec, swayosd-client --output-volume=lower"
-          ", XF86AudioMute, exec, swayosd-client --output-volume=mute-toggle"
-          ", XF86AudioMicMute, exec, swayosd-client --input-volume=mute-toggle"
-          ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
-          ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
-        ];
-
-        plugin = {
+        ++ lib.optional config.nixos-package-search.enable {
+          name = "nixos-package-search";
+          match.class = "nixos-package-search";
+          no_anim = true;
         };
-
-        exec-once = [
-          "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent"
-          "swww init"
-          "nm-applet --indicator"
-          "wpaperd"
-          "waybar"
-          "dunst"
-          "exec swayosd-server"
-          "vicinae server"
-          "libinput-gestures"
-          "librepods --hide"
-        ];
       };
+
+      extraConfig = ''
+        hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
+        hl.animation({ leaf = "windows",     enabled = true, speed = 7,  bezier = "myBezier" })
+        hl.animation({ leaf = "windowsOut",  enabled = true, speed = 7,  bezier = "default", style = "popin 80%" })
+        hl.animation({ leaf = "border",      enabled = true, speed = 10, bezier = "default" })
+        hl.animation({ leaf = "borderangle", enabled = true, speed = 8,  bezier = "default" })
+        hl.animation({ leaf = "fade",        enabled = true, speed = 7,  bezier = "default" })
+        hl.animation({ leaf = "workspaces",  enabled = true, speed = 6,  bezier = "default" })
+
+        local mainMod = "SUPER"
+
+        hl.bind(mainMod .. " + Q", ${exec terminal})
+        hl.bind(mainMod .. " + C", hl.dsp.window.close())
+        hl.bind(mainMod .. " + M", hl.dsp.exit())
+        hl.bind(mainMod .. " + E", ${exec fileManager})
+        hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+        hl.bind(mainMod .. " + R", ${exec menu})
+        hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+        hl.bind(mainMod .. " + code:60", ${exec "smile"})
+        hl.bind("code:107", ${exec ''grim -g "$(slurp -d)" - | wl-copy''})
+        hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+        hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+        hl.bind(mainMod .. " + L", ${exec "hyprlock"})
+        hl.bind(mainMod .. " + SPACE", ${exec "vicinae toggle"})
+        hl.bind(mainMod .. " + SHIFT + Q", ${exec browser})
+        hl.bind(mainMod .. " + A", ${exec "~/.config/hypr-backup/rofi_keybinds.sh"})
+        ${lib.optionalString config.nixos-package-search.enable ''hl.bind("ALT + SPACE", ${exec "nixos-package-search"})''}
+
+        hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
+        hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+        hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
+        hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+        for i = 1, 10 do
+          local key = i % 10
+          hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }))
+          hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+        end
+
+        hl.bind(mainMod .. " + S",          hl.dsp.workspace.toggle_special("magic"))
+        hl.bind(mainMod .. " + SHIFT + S",  hl.dsp.window.move({ workspace = "special:magic" }))
+        hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+        hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
+
+        hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
+        hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+
+        local media = { locked = true, repeating = true }
+        hl.bind("XF86AudioRaiseVolume",  ${exec "swayosd-client --output-volume=raise"}, media)
+        hl.bind("XF86AudioLowerVolume",  ${exec "swayosd-client --output-volume=lower"}, media)
+        hl.bind("XF86AudioMute",         ${exec "swayosd-client --output-volume=mute-toggle"}, media)
+        hl.bind("XF86AudioMicMute",      ${exec "swayosd-client --input-volume=mute-toggle"}, media)
+        hl.bind("XF86MonBrightnessUp",   ${exec "swayosd-client --brightness raise"}, media)
+        hl.bind("XF86MonBrightnessDown", ${exec "swayosd-client --brightness lower"}, media)
+
+        hl.on("hyprland.start", function()
+        ${lib.concatMapStrings (c: "  hl.exec_cmd(${lib.generators.toLua { } c})\n") startup}end)
+      '';
     };
   };
 }

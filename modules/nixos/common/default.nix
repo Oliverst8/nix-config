@@ -127,7 +127,6 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-      jack.enable = true;
     };
 
     # Enable touchpad support (enabled default in most desktopManager).
@@ -216,12 +215,12 @@
       pkgs.pulseaudio
       pkgs.pinta
       pkgs.pandoc
-      pkgs.texlive.combined.scheme-small
+      pkgs.texliveSmall
       pkgs.uv
       pkgs.opencode
       pkgs.claude-code
       pkgs.spotify
-      pkgs.xorg.xauth
+      pkgs.xauth
     ];
 
     #Install fonts

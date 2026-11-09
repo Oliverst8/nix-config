@@ -5,7 +5,7 @@
   environment.systemPackages = [
     pkgs.scala-cli
     pkgs.conda
-    pkgs.erlang_27
+    pkgs.beam27Packages.erlang
     pkgs.rebar3
   ];
 }
