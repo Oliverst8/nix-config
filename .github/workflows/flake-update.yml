@@ -1,0 +1,235 @@
+name: Flake update
+
+on:
+  schedule:
+    - cron: '0 2 * * 0' # Sundays 02:00 UTC
+  workflow_dispatch:
+    inputs:
+      hosts:
+        description: 'Comma-separated hosts to build (empty = default list)'
+        type: string
+        default: ''
+      update_lock:
+        description: 'Run nix flake update (off = just build the current lock)'
+        type: boolean
+        default: true
+      open_pr:
+        description: 'Create/update the PR (off = dry run, report only in the run summary)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: flake-update
+  cancel-in-progress: false
+
+env:
+  # Hosts to build, as named in nixosConfigurations in flake.nix
+  DEFAULT_HOSTS: 'desktop,laptop'
+  PR_BRANCH: auto/flake-update
+  FAIL_BRANCH: auto/flake-update-failing
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.lock.outputs.proceed }}
+      hosts: ${{ steps.hosts.outputs.hosts }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: cachix/install-nix-action@v31
+
+      - id: hosts
+        env:
+          INPUT_HOSTS: ${{ inputs.hosts }}
+        run: |
+          hosts="${INPUT_HOSTS:-$DEFAULT_HOSTS}"
+          echo "hosts=$(jq -cR 'split(",") | map(gsub("\\s"; "")) | map(select(length > 0))' <<< "$hosts")" >> "$GITHUB_OUTPUT"
+
+      - id: lock
+        env:
+          UPDATE: ${{ github.event_name == 'schedule' || inputs.update_lock }}
+        run: |
+          cp flake.lock old.lock
+          if [ "$UPDATE" = true ]; then
+            nix flake update 2>&1 | tee update.log
+            if cmp -s flake.lock old.lock; then
+              echo "Lock unchanged, nothing to do." | tee -a "$GITHUB_STEP_SUMMARY"
+              echo "proceed=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: lock
+          path: |
+            flake.lock
+            old.lock
+
+  build:
+    needs: update
+    if: needs.update.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        host: ${{ fromJSON(needs.update.outputs.hosts) }}
+    steps:
+      # Frees ~120GiB for /nix; the closures are huge
+      - uses: wimpysworld/nothing-but-nix@v12
+        with:
+          witness-carnage: true
+
+      - uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            extra-substituters = https://hyprland.cachix.org
+            extra-trusted-public-keys = hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=
+
+      - uses: actions/checkout@v7
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: lock
+          path: lock
+
+      - name: Evaluate package lists (old and new lock)
+        env:
+          HOST: ${{ matrix.host }}
+        run: |
+          apply='h: let names = ps: map (p: builtins.parseDrvName (p.name or "")) ps; in {
+            kernel = h.config.boot.kernelPackages.kernel.version;
+            system = names h.config.environment.systemPackages;
+            home = names (h.config.home-manager.users.ostarup.home.packages or [ ]);
+          }'
+          for which in old new; do
+            if [ "$which" = old ]; then cp lock/old.lock flake.lock; else cp lock/flake.lock flake.lock; fi
+            nix eval --json --no-write-lock-file ".#nixosConfigurations.$HOST" --apply "$apply" > "pkgs-$which.json" \
+              || echo null > "pkgs-$which.json"
+          done
+
+      - name: Build
+        id: build
+        env:
+          HOST: ${{ matrix.host }}
+        run: |
+          cp lock/flake.lock flake.lock
+          start=$(date +%s)
+          if nix build --no-link --print-out-paths --keep-going --no-write-lock-file \
+              ".#nixosConfigurations.$HOST.config.system.build.toplevel" \
+              > out-path 2> >(tee build.log >&2); then
+            status=success
+            size=$(nix path-info -S "$(cat out-path)" | awk '{print $2}')
+          else
+            status=failure
+            size=null
+          fi
+          printf '{"status":"%s","duration":%d,"closure_size":%s}\n' \
+            "$status" "$(( $(date +%s) - start ))" "$size" > meta.json
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: result-${{ matrix.host }}
+          path: |
+            meta.json
+            build.log
+            pkgs-old.json
+            pkgs-new.json
+
+      - name: Fail job if build failed
+        if: steps.build.outputs.status != 'success'
+        run: exit 1
+
+  report:
+    needs: [update, build]
+    if: always() && needs.update.outputs.proceed == 'true'
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BASE: ${{ github.event.repository.default_branch }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      # PRs only from the default branch, and only when the lock was actually updated
+      OPEN_PR: ${{ github.ref_name == github.event.repository.default_branch && (github.event_name == 'schedule' || (inputs.open_pr && inputs.update_lock)) }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v8
+        with:
+          path: artifacts
+
+      - name: Render report
+        id: report
+        env:
+          HOSTS: ${{ join(fromJSON(needs.update.outputs.hosts), ',') }}
+        run: |
+          python3 .github/workflows/flake_update_report.py report \
+            --artifacts artifacts --hosts "$HOSTS" --run-url "$RUN_URL" \
+            --date "$(date -u +%F)" --fail-branch "$FAIL_BRANCH" \
+            --out body.md --banner-out banner.md
+          cat body.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Create or update PR
+        if: env.OPEN_PR == 'true'
+        env:
+          ALL_PASSED: ${{ steps.report.outputs.all_passed }}
+          FAILED: ${{ steps.report.outputs.failed }}
+          PASSED: ${{ steps.report.outputs.passed_count }}
+          TOTAL: ${{ steps.report.outputs.total_count }}
+        run: |
+          set -euo pipefail
+          date=$(date -u +%F)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          commit_lock() {
+            git checkout -B "$1" "origin/$BASE"
+            cp artifacts/lock/flake.lock flake.lock
+            git add flake.lock
+            git commit -m "flake.lock: update $date"
+            git push --force origin "$1"
+          }
+
+          pr_json=$(gh pr list --head "$PR_BRANCH" --base "$BASE" --state open --json number,isDraft --jq '.[0] // empty')
+          pr=$(jq -r '.number // empty' <<< "$pr_json")
+          draft=$(jq -r '.isDraft // false' <<< "$pr_json")
+
+          if [ "$ALL_PASSED" = true ]; then
+            commit_lock "$PR_BRANCH"
+            title="flake.lock update $date ✅ $PASSED/$TOTAL"
+            if [ -n "$pr" ]; then
+              gh pr edit "$pr" --title "$title" --body-file body.md
+              if [ "$draft" = true ]; then gh pr ready "$pr"; fi
+            else
+              gh pr create --base "$BASE" --head "$PR_BRANCH" --title "$title" --body-file body.md
+            fi
+            git push origin --delete "$FAIL_BRANCH" 2>/dev/null || true
+          else
+            commit_lock "$FAIL_BRANCH"
+            title="flake.lock update $date ❌ $PASSED/$TOTAL"
+            if [ -z "$pr" ]; then
+              commit_lock "$PR_BRANCH"
+              gh pr create --draft --base "$BASE" --head "$PR_BRANCH" --title "$title" --body-file body.md
+            elif [ "$draft" = true ]; then
+              # Never passed yet, so refresh it with the newest attempt
+              commit_lock "$PR_BRANCH"
+              gh pr edit "$pr" --title "$title" --body-file body.md
+            else
+              # Keep the last passing lock, just flag the failed attempt
+              gh pr view "$pr" --json body --jq .body > current.md
+              python3 .github/workflows/flake_update_report.py banner \
+                --current current.md --banner banner.md --out new.md
+              gh pr edit "$pr" --body-file new.md
+              gh pr comment "$pr" --body "⚠️ Update attempt $date failed on: \`$FAILED\`. This PR still holds the last passing lock. Failing lock: \`$FAIL_BRANCH\`. [Run]($RUN_URL)"
+            fi
+          fi
