@@ -542,11 +542,11 @@
     "nixos-package-search-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1793822635,
-        "narHash": "sha256-XjYAeuAd33IED7hhHVbwm6zv5vkqx2Z3oOH6CxXc8Fo=",
+        "lastModified": 1793960457,
+        "narHash": "sha256-+Gsc8TtEBdLdWzyQJ7mewQtV6nE1vOWcVn2WTgpdAR8=",
         "owner": "oliverst8",
         "repo": "nixos-package-search",
-        "rev": "336a66ed1f6649ee36aeb42ab441bcd2d9aefaae",
+        "rev": "096ae478deff6eb81f580aaaa999b044e9ee7102",
         "type": "github"
       },
       "original": {
