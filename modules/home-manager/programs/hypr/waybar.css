@@ -1,160 +1,138 @@
+/* Palette pulled from volcanic-moon wallpaper */
+@define-color base rgba(24, 14, 26, 0.85);
+@define-color edge rgba(255, 183, 128, 0.18);
+@define-color text #f6e3cf;
+@define-color muted #9d7d8c;
+@define-color amber #ffb780;
+@define-color gold #ffcf9c;
+@define-color rose #e8829a;
+@define-color red #ff6b7a;
+
 * {
   border: none;
   border-radius: 0;
-  font-family: Cartograph CF Nerd Font, monospace;
+  font-family: "JetBrainsMono Nerd Font", monospace;
   font-weight: bold;
   font-size: 14px;
   min-height: 0;
 }
 
 window#waybar {
-  background: rgba(21, 18, 27, 0);
-  color: #22aaaa;
+  background: transparent;
+  color: @text;
 }
 
 tooltip {
-  background: #1e1e2e;
-  border-radius: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #11111b;
-}
-#workspaces button {
-  padding: 5px;
-  padding-right: 8px;
-  color: #313244;
-  margin-right: 5px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  background: rgba(24, 14, 26, 0.95);
+  border: 1px solid @edge;
+  border-radius: 12px;
 }
 
-#workspaces button.active {
-  color: #22aaaa;
+tooltip label {
+  color: @text;
 }
 
-#workspaces button.focused {
-  /*color: #992020;*/
-  background: #10101a;
-  border-radius: 10px;
-}
-
-#workspaces button.urgent {
-  color: #22aaaa;
-  border-radius: 10px;
-}
-
-#workspaces button:hover {
-  text-shadow: inherit;
-  box-shadow: inherit;
-  border-radius: 20px;
-  background: #10101a;
-}
-
-#language,
-#idle_inhibitor,
-#custom-language,
-#custom-claude-usage,
-#custom-updates,
-#custom-caffeine,
-#custom-weather,
-#window,
 #clock,
-#battery,
-#pulseaudio,
-#network,
+#idle_inhibitor,
+#language,
+#mpris,
 #workspaces,
+#custom-claude-usage,
+#cpu,
+#memory,
 #tray,
-#backlight {
-  background: #1e1e2e;
-  padding: 0px 10px;
-  margin: 3px 0px;
-  margin-top: 10px;
-  border: 1px solid #181825;
-}
-
-#tray {
-  border-radius: 10px;
-  margin-right: 10px;
-}
-
-#workspaces {
-  background: #1e1e2e;
-  border-radius: 10px;
-  margin-left: 10px;
-  padding-right: 0px;
-  padding-left: 5px;
-}
-
-#custom-caffeine {
-  border-radius: 10px 0px 0px 10px;
-  border-right: 0px;
-  margin-left: 10px;
-}
-
-#custom-language {
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#custom-updates {
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#window {
-  border-radius: 10px;
-  margin-left: 60px;
-  margin-right: 60px;
-}
-
-#clock {
-  border-radius: 10px 0px 0px 10px;
-  margin-left: 5px;
-  border-right: 0px;
-}
-
-#network {
-  border-left: 0px;
-  /*border-right: 0px;*/
-  border-radius: 10px 0px 0px 10px;
-}
-
-#pulseaudio {
-  border-left: 0px;
-  border-right: 0px;
-}
-
-#pulseaudio.microphone {
-  margin-right: 5px;
-  border-radius: 0 10px 10px 0;
-}
-
+#network,
+#backlight,
+#pulseaudio,
 #battery {
-  border-radius: 0 10px 10px 0;
-  margin-right: 10px;
-  border-left: 0px;
+  background: @base;
+  border: 1px solid @edge;
+  padding: 0 13px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
-#custom-weather {
-  border-right: 0px;
-  margin-left: 0px;
+/* ── left island: clock | date | idle | language ───────── */
+#clock {
+  border-radius: 13px 0 0 13px;
+  border-right: none;
+  margin-left: 12px;
+  padding-left: 15px;
+  color: @gold;
+}
+
+#clock.date {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  color: @text;
 }
 
 #idle_inhibitor {
-  border-right: 0px;
-  margin-left: 0px;
-  padding-right: 14px;
+  border-left: none;
+  border-right: none;
+  color: @muted;
+  transition: all 0.2s ease;
+}
+
+#idle_inhibitor.activated {
+  color: @amber;
 }
 
 #language {
-  border-radius: 0px 10px 10px 0px;
-  border-right: 0px;
-  margin-left: 0px;
+  border-radius: 0 13px 13px 0;
+  border-left: none;
+  padding-right: 15px;
+  color: @muted;
 }
 
+/* ── now playing pill ──────────────────────────────────── */
+#mpris {
+  border-radius: 13px;
+  margin-left: 9px;
+  color: @gold;
+}
+
+#mpris.paused {
+  color: @muted;
+}
+
+/* ── center island: workspaces ─────────────────────────── */
+#workspaces {
+  border-radius: 15px;
+  padding: 0 7px;
+}
+
+#workspaces button {
+  color: @muted;
+  background: transparent;
+  padding: 0 11px;
+  margin: 5px 4px;
+  border-radius: 11px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+  color: @amber;
+  background: linear-gradient(135deg, rgba(255, 183, 128, 0.22), rgba(232, 130, 154, 0.18));
+}
+
+#workspaces button.urgent {
+  color: @rose;
+  background: rgba(232, 130, 154, 0.16);
+}
+
+#workspaces button:hover {
+  color: @gold;
+  background: rgba(255, 207, 156, 0.10);
+  box-shadow: none;
+  text-shadow: none;
+}
+
+/* ── left: claude usage pill ───────────────────────────── */
 #custom-claude-usage {
-  border-radius: 10px;
-  margin-right: 10px;
+  border-radius: 13px;
+  margin-left: 9px;
   font-feature-settings: "tnum";
 }
 
@@ -164,9 +142,77 @@ tooltip {
 }
 
 #custom-claude-usage.critical {
-  color: #c9a227;
+  color: @gold;
 }
 
 #custom-claude-usage.exhausted {
-  color: #d24646;
+  color: @red;
+}
+
+/* ── right: cpu | ram | temp island ────────────────────── */
+#cpu {
+  border-radius: 13px 0 0 13px;
+  border-right: none;
+  padding-left: 15px;
+}
+
+#memory {
+  border-radius: 0 13px 13px 0;
+  border-left: none;
+  padding-right: 15px;
+  margin-right: 12px;
+}
+
+/* ── right: tray pill ──────────────────────────────────── */
+#tray {
+  border-radius: 13px;
+  margin-right: 12px;
+}
+
+/* ── right: status island ──────────────────────────────── */
+#network {
+  border-radius: 13px 0 0 13px;
+  border-right: none;
+  padding-left: 15px;
+}
+
+#network.disconnected {
+  color: @rose;
+}
+
+#backlight,
+#pulseaudio {
+  border-left: none;
+  border-right: none;
+}
+
+#pulseaudio.muted {
+  color: @muted;
+}
+
+#battery {
+  border-radius: 0 13px 13px 0;
+  border-left: none;
+  padding-right: 15px;
+  margin-right: 12px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @gold;
+}
+
+#battery.warning:not(.charging) {
+  color: @gold;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0.45;
+  }
 }

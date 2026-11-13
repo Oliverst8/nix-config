@@ -67,11 +67,15 @@ in
             gaps_out = 20;
             border_size = 2;
             col.active_border = {
+              # amber -> rose, matches the waybar palette
               colors = [
-                "rgba(33ccffee)"
-                "rgba(00ff99ee)"
+                "rgba(ffb780ee)"
+                "rgba(e8829aee)"
               ];
               angle = 45;
+            };
+            col.inactive_border = {
+              colors = [ "rgba(3a2233aa)" ];
             };
             resize_on_border = false;
             allow_tearing = false;

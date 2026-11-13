@@ -224,7 +224,10 @@
     ];
 
     #Install fonts
-    fonts.packages = with pkgs; [ nerd-fonts.meslo-lg ];
+    fonts.packages = with pkgs; [
+      nerd-fonts.meslo-lg
+      nerd-fonts.jetbrains-mono
+    ];
 
     programs.localsend = {
       enable = true;
