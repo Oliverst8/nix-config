@@ -53,10 +53,25 @@ in
         monitor = map parseMonitor config.desktop.hyprland.monitors;
 
         env = [
-          { _args = [ "XCURSOR_SIZE" "24" ]; }
-          { _args = [ "HYPRCURSOR_SIZE" "24" ]; }
+          {
+            _args = [
+              "XCURSOR_SIZE"
+              "24"
+            ];
+          }
+          {
+            _args = [
+              "HYPRCURSOR_SIZE"
+              "24"
+            ];
+          }
           # GTK4's wayland IM eats dead keys when no input method is running
-          { _args = [ "GTK_IM_MODULE" "simple" ]; }
+          {
+            _args = [
+              "GTK_IM_MODULE"
+              "simple"
+            ];
+          }
         ];
 
         config = {
@@ -105,6 +120,7 @@ in
 
           input = {
             kb_layout = "dk";
+            kb_options = "caps:swapescape";
             follow_mouse = 1;
             sensitivity = 0;
             touchpad.natural_scroll = true;
