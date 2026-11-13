@@ -12,7 +12,7 @@
       background-blur = config.desktop.hyprland.enable;
       working-directory = "home";
       # no per-surface systemd scope; faster windows, no OOM isolation
-      linux-cgroup = "never";
+      # linux-cgroup = "never";
     };
   };
 }
