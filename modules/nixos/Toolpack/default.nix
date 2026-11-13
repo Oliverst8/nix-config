@@ -29,5 +29,6 @@ in
     pkgs.jetbrains.webstorm
     pkgs.csharpier
     azure-functions-core-tools
+    pkgs.azurite
   ];
 }
