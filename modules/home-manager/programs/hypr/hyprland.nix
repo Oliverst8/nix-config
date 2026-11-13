@@ -55,6 +55,8 @@ in
         env = [
           { _args = [ "XCURSOR_SIZE" "24" ]; }
           { _args = [ "HYPRCURSOR_SIZE" "24" ]; }
+          # GTK4's wayland IM eats dead keys when no input method is running
+          { _args = [ "GTK_IM_MODULE" "simple" ]; }
         ];
 
         config = {
