@@ -119,4 +119,9 @@ with lib;
     description = "Enable the Claude Code usage waybar module (needs statusLine wired up in ~/.claude/settings.json)";
     default = false;
   };
+  options.flake-update-waybar.enable = mkOption {
+    type = types.bool;
+    description = "Enable the waybar module showing the pending flake update PR and its package count";
+    default = false;
+  };
 }

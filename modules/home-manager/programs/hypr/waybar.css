@@ -38,6 +38,7 @@ tooltip label {
 #mpris,
 #workspaces,
 #custom-claude-usage,
+#custom-flake-update,
 #cpu,
 #memory,
 #tray,
@@ -146,6 +147,21 @@ tooltip label {
 }
 
 #custom-claude-usage.exhausted {
+  color: @red;
+}
+
+/* ── left: flake update pill ───────────────────────────── */
+#custom-flake-update {
+  border-radius: 13px;
+  margin-left: 9px;
+  font-feature-settings: "tnum";
+}
+
+#custom-flake-update.stale {
+  opacity: 0.4;
+}
+
+#custom-flake-update.failing {
   color: @red;
 }
 

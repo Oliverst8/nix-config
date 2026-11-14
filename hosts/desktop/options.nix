@@ -11,6 +11,7 @@
     discord.enable = true;
     hypridle.enable = true;
     kitty-cli.enable = true;
+    flake-update-waybar.enable = true;
     env.background = "~/nixos/imgs/.background/pure-black-background.jpg";
 
     desktop.hyprland.monitors = [

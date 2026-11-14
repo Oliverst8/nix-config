@@ -10,6 +10,7 @@ from pathlib import Path
 BANNER_START = "<!-- latest-attempt:start -->"
 BANNER_END = "<!-- latest-attempt:end -->"
 BODY_LIMIT = 60000  # GitHub caps PR bodies at 65536 chars
+META_PREFIX = "<!-- flake-update-meta: "  # read by the waybar module
 
 ANSI = re.compile(r"\x1b\[[0-9;?]*[A-Za-z]")
 WARN_MARKERS = ("evaluation warning:", "trace: warning:", "warning:")
@@ -141,23 +142,27 @@ def pkg_map(entries):
 
 
 def pkg_diff(old, new):
+    """Returns (markdown, changed count, kernel changed)."""
     if not old or not new:
-        return None
+        return None, None, False
     lines = []
     ok, nk = old.get("kernel"), new.get("kernel")
-    if ok != nk:
+    kernel = ok != nk
+    if kernel:
         lines.append(f"**Kernel:** `{ok}` → `{nk}`\n")
-    rows = []
+    rows, changed = [], set()
     for scope in ("system", "home"):
         o, n = pkg_map(old.get(scope)), pkg_map(new.get(scope))
         for name in sorted(set(o) | set(n)):
             ov = ", ".join(sorted(o.get(name, []))) or None
             nv = ", ".join(sorted(n.get(name, []))) or None
             if ov != nv:
+                changed.add(name)
                 rows.append(f"| {scope} | `{name}` | {ov or '–'} | {nv or '–'} |")
     if rows:
         lines += ["| Scope | Package | Old | New |", "|---|---|---|---|", *rows]
-    return "\n".join(lines) + "\n" if lines else "_No top-level package changes._\n"
+    text = "\n".join(lines) + "\n" if lines else "_No top-level package changes._\n"
+    return text, len(changed) + kernel, kernel
 
 
 # ---------- report ----------
@@ -172,6 +177,7 @@ def collect_host(artifacts, host):
     meta = load_json(d / "meta.json") or {}
     log = read_log(d / "build.log")
     passed = meta.get("status") == "success"
+    pkgs, changed, kernel = pkg_diff(load_json(d / "pkgs-old.json"), load_json(d / "pkgs-new.json"))
     return {
         "host": host,
         "found": bool(meta),
@@ -180,7 +186,9 @@ def collect_host(artifacts, host):
         "closure": meta.get("closure_size"),
         "warnings": parse_warnings(log),
         "error": None if passed else (parse_error(log) if log else "No build log. The job was cancelled or timed out."),
-        "pkgs": pkg_diff(load_json(d / "pkgs-old.json"), load_json(d / "pkgs-new.json")),
+        "pkgs": pkgs,
+        "changed": changed,
+        "kernel": kernel,
     }
 
 
@@ -236,7 +244,9 @@ def cmd_report(a):
     old_lock = load_json(artifacts / "lock" / "old.lock")
     new_lock = load_json(artifacts / "lock" / "flake.lock")
     body, failed = render(hosts, old_lock, new_lock, a.run_url, a.date)
-    Path(a.out).write_text(body)
+    meta = {"hosts": {h["host"]: {k: h[k] for k in ("passed", "changed", "kernel")} for h in hosts}}
+    # On top so truncation never cuts it; the banner embeds the body without it
+    Path(a.out).write_text(f"{META_PREFIX}{json.dumps(meta, separators=(',', ':'))} -->\n{body}")
 
     failed_names = ",".join(h["host"] for h in failed)
     if failed:

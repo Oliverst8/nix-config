@@ -14,6 +14,18 @@ let
         inherit sources;
       };
 
+  flakeUpdate = config.flake-update-waybar.enable;
+  flake-update-status = pkgs.writeShellApplication {
+    name = "flake-update-status";
+    runtimeInputs = with pkgs; [
+      curl
+      jq
+      coreutils
+      xdg-utils
+    ];
+    text = builtins.readFile ./flake-update-status.sh;
+  };
+
 in
 {
   config = {
@@ -40,6 +52,7 @@ in
             "hyprland/language"
             "mpris"
           ]
+          ++ lib.optional flakeUpdate "custom/flake-update"
           ++ lib.optional claudeUsage "custom/claude-usage";
           "modules-center" = [ "hyprland/workspaces" ];
           "modules-right" = [
@@ -198,6 +211,18 @@ in
             "format" = "{}";
             "tooltip" = true;
             "on-click" = "setsid -f ${claude-usage-waybar}/bin/claude-usage-popup";
+          };
+        }
+        // lib.optionalAttrs flakeUpdate {
+          "custom/flake-update" = {
+            "exec" = lib.getExe flake-update-status;
+            "interval" = 1800;
+            # pkill -RTMIN+9 waybar refreshes it
+            "signal" = 9;
+            "return-type" = "json";
+            "format" = "{}";
+            "tooltip" = true;
+            "on-click" = "${lib.getExe flake-update-status} open";
           };
         };
       };
