@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   cfg = config.zsh;
 in
@@ -12,6 +17,20 @@ in
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      plugins = [
+        {
+          name = "zsh-vi-mode";
+          src = pkgs.zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+        }
+      ];
+      localVariables = {
+        # bind on source so atuin's later init keeps ctrl-r/up
+        ZVM_INIT_MODE = "sourcing";
+        ZVM_SYSTEM_CLIPBOARD_ENABLED = true;
+        ZVM_CLIPBOARD_COPY_CMD = "${pkgs.wl-clipboard}/bin/wl-copy";
+        ZVM_CLIPBOARD_PASTE_CMD = "${pkgs.wl-clipboard}/bin/wl-paste -n";
+      };
       shellAliases = {
         ll = "ls -l";
         update = "nh os switch ~/nixos -H " + config.systemFolder.name + " --ask";
@@ -34,7 +53,7 @@ in
         extraConfig = "ZSH_DISABLE_COMPFIX=true";
         plugins = [
           "git"
-          "sudo"
+          #"sudo"
           "copypath"
           "copyfile"
           "colorize"
@@ -45,6 +64,19 @@ in
       };
 
       initContent = ''
+        # vim-style :q in normal mode
+        autoload -Uz read-from-minibuffer
+        zvm_ex_command() {
+          local REPLY
+          read-from-minibuffer ':' || return
+          case $REPLY in
+            q|q!|qa|qa!|wq|x) exit ;;
+            *) zle -M "Not an editor command: $REPLY" ;;
+          esac
+        }
+        zvm_define_widget zvm_ex_command
+        zvm_bindkey vicmd ':' zvm_ex_command
+
         # cxx <file.cpp> [args...]
         # Compile with the competitive-programming flag set and run the result,
         # so you can do:  cxx sol.cpp < in.txt
