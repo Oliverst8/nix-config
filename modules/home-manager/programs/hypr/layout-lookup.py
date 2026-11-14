@@ -5,18 +5,24 @@ import termios
 import tty
 
 KNOWN = "dk"  # layout you already know (and what your keycaps say)
-LEARN = "us"  # layout you're learning -- swap these two to go the other way
+LEARN = "us"  # layout you're learning (us = us(altgr-intl) in hyprland)
 
-# physical key position (xkb name) -> (base, shift, altgr)
+# physical key position (xkb name) -> (base, shift, altgr, shift+altgr)
 LAYOUTS = {
     "us": {
         "TLDE": ("`", "~"),
         "AE01": ("1", "!"), "AE02": ("2", "@"), "AE03": ("3", "#"),
-        "AE04": ("4", "$"), "AE05": ("5", "%"), "AE06": ("6", "^"),
-        "AE07": ("7", "&"), "AE08": ("8", "*"), "AE09": ("9", "("),
+        "AE04": ("4", "$", "¤", "£"), "AE05": ("5", "%", "€"),
+        "AE06": ("6", "^"), "AE07": ("7", "&", None, "½"),
+        "AE08": ("8", "*"), "AE09": ("9", "("),
         "AE10": ("0", ")"), "AE11": ("-", "_"), "AE12": ("=", "+"),
+        "AD02": ("w", "W", "å", "Å"),
         "AD11": ("[", "{"), "AD12": ("]", "}"), "BKSL": ("\\", "|"),
-        "AC10": (";", ":"), "AC11": ("'", '"'),
+        "AC02": ("s", "S", None, "§"),
+        "AC09": ("l", "L", "ø", "Ø"),
+        "AC10": (";", ":"), "AC11": ("'", '"', "´", "¨"),
+        "AB01": ("z", "Z", "æ", "Æ"),
+        "AB07": ("m", "M", "µ"),
         "AB08": (",", "<"), "AB09": (".", ">"), "AB10": ("/", "?"),
     },
     "dk": {
@@ -32,7 +38,7 @@ LAYOUTS = {
     },
 }
 
-DEAD = {"dk": {"´", "`", "¨", "^", "~"}}
+DEAD = {"dk": {"´", "`", "¨", "^", "~"}, "us": {"´", "¨"}}
 
 WHERE = {
     "TLDE": "top-left, below Esc",
@@ -44,7 +50,25 @@ WHERE = {
     "AB08": "right of M", "AB09": "two right of M", "AB10": "three right of M",
 }
 
-MODS = ["", "Shift + ", "AltGr + "]
+MODS = ["", "Shift", "AltGr", "Shift + AltGr"]
+
+# ansi styling, matches the waybar/hyprland amber -> rose palette
+def rgb(h, bg=False):
+    r, g, b = (int(h[i:i + 2], 16) for i in (0, 2, 4))
+    return f"\x1b[{48 if bg else 38};2;{r};{g};{b}m"
+
+
+RESET = "\x1b[0m"
+BOLD = "\x1b[1m"
+AMBER, ROSE, DIM, CHIP = "ffb780", "e8829a", "8a8a8a", "3a2233"
+
+
+def chip(text):
+    return f"{rgb(CHIP, True)}{rgb(AMBER)}{BOLD} {text} {RESET}"
+
+
+def dim(text):
+    return f"{rgb(DIM)}{text}{RESET}"
 
 
 def find(layout, ch):
@@ -52,24 +76,33 @@ def find(layout, ch):
         for lvl, c in enumerate(levels):
             if c == ch:
                 return pos, lvl
-    if ch.isascii() and ch.isalpha():
-        return "LETTER", 1 if ch.isupper() else 0
     return None
 
 
 def describe(ch):
+    head = f"  {rgb(ROSE)}{BOLD}{ch}{RESET}  {rgb(AMBER)}→{RESET}  "
+    if ch.isascii() and ch.isalpha():
+        return head + dim("same key")
     hit = find(LEARN, ch)
     if hit is None:
-        return f"{ch}  →  not on {LEARN} (or not in the table)"
+        return head + dim(f"not on {LEARN} (or not in the table)")
     pos, lvl = hit
-    if pos == "LETTER":
-        return f"{ch}  →  same key as on {KNOWN}"
     cap = (LAYOUTS[KNOWN].get(pos) or LAYOUTS[LEARN][pos])[0]
     cap = cap.upper() if cap.isalpha() else cap
-    where = f", {WHERE[pos]}" if pos in WHERE else ""
-    same = "  (same as before)" if find(KNOWN, ch) == hit else ""
-    dead = "  (dead key: press Space after)" if ch in DEAD.get(LEARN, ()) else ""
-    return f"{ch}  →  {MODS[lvl]}[{cap}]{where}{same}{dead}"
+
+    keys = [chip(m) for m in MODS[lvl].split(" + ") if m] + [chip(cap)]
+    width = sum(len(m) + 2 for m in MODS[lvl].split(" + ") if m) + len(cap) + 2
+    width += 3 * (len(keys) - 1)
+    line = head + dim(" + ").join(keys) + " " * max(1, 24 - width)
+
+    notes = []
+    if pos in WHERE:
+        notes.append(WHERE[pos])
+    if find(KNOWN, ch) == hit:
+        notes.append("same as before")
+    if ch in DEAD.get(LEARN, ()):
+        notes.append("dead key: press Space after")
+    return line + dim(" · ".join(notes))
 
 
 def switch(code):
@@ -82,7 +115,7 @@ def switch(code):
         idx = [x.strip() for x in kb["layout"].split(",")].index(code)
         subprocess.run(["hyprctl", "switchxkblayout", "all", str(idx)],
                        capture_output=True)
-    except (ValueError, KeyError, IndexError, json.JSONDecodeError):
+    except (ValueError, KeyError, IndexError, StopIteration, json.JSONDecodeError):
         pass
 
 
@@ -98,8 +131,10 @@ def read_char():
 
 def main():
     switch(KNOWN)
-    print(f"Type a character the {KNOWN} way to see it on {LEARN}.")
-    print("[X] = the key labelled X on your keyboard. Esc to quit.\n")
+    sys.stdout.write("\x1b[?25l\x1b[2J\x1b[H")  # hide cursor, clear
+    print(f"  {rgb(AMBER)}{BOLD}{KNOWN} → {LEARN}{RESET}  "
+          + dim("type the Danish way · Esc quits"))
+    print(dim("  [X] = the key labelled X on your keyboard") + "\n", flush=True)
     try:
         while True:
             ch = read_char()
@@ -108,6 +143,7 @@ def main():
             if ch.isprintable() and not ch.isspace():
                 print(describe(ch), flush=True)
     finally:
+        sys.stdout.write("\x1b[?25h")
         switch(LEARN)
 
 

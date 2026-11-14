@@ -126,6 +126,8 @@ in
 
           input = {
             kb_layout = "us,dk";
+            # altgr-intl: AltGr+z/l/w = æ/ø/å
+            kb_variant = "altgr-intl,";
             kb_options = "caps:escape_shifted_capslock";
             follow_mouse = 1;
             sensitivity = 0;
@@ -158,7 +160,7 @@ in
             match.class = "local.layoutlookup";
             float = true;
             center = true;
-            size = "520 260";
+            size = "640 360";
           }
         ]
         ++ lib.optional config.nixos-package-search.enable {
@@ -195,7 +197,7 @@ in
         hl.bind(mainMod .. " + SHIFT + Q", ${exec browser})
         hl.bind(mainMod .. " + SHIFT + SPACE", ${exec "hyprctl switchxkblayout all next"})
         -- Copilot key
-        hl.bind(mainMod .. " + SHIFT + code:201", ${exec "ghostty --class=local.layoutlookup --gtk-single-instance=false -e ${lib.getExe layout-lookup}"})
+        hl.bind(mainMod .. " + SHIFT + code:201", ${exec "ghostty --class=local.layoutlookup --gtk-single-instance=false --title=layout-lookup --window-padding-x=16 --window-padding-y=14 --background-opacity=0.85 --confirm-close-surface=false -e ${lib.getExe layout-lookup}"})
         hl.bind(mainMod .. " + A", ${exec "~/.config/hypr-backup/rofi_keybinds.sh"})
         ${lib.optionalString config.nixos-package-search.enable ''hl.bind("ALT + SPACE", ${exec "nixos-package-search"})''}
 
