@@ -36,7 +36,6 @@ let
     "nm-applet --indicator"
     "wpaperd"
     "waybar"
-    "dunst"
     "swayosd-server"
     "vicinae server"
     "libinput-gestures"
@@ -147,6 +146,16 @@ in
           name = "epic-mouse-v1";
           sensitivity = -0.5;
         };
+
+        layer_rule = [
+          {
+            name = "notifications";
+            match.namespace = "^notifications$";
+            animation = "slide right";
+            blur = true;
+            ignore_alpha = 0.3;
+          }
+        ];
 
         window_rule = [
           {

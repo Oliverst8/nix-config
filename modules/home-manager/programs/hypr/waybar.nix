@@ -22,6 +22,9 @@ let
       jq
       coreutils
       xdg-utils
+      libnotify
+      procps
+      util-linux
     ];
     text = builtins.readFile ./flake-update-status.sh;
   };
@@ -223,6 +226,7 @@ in
             "format" = "{}";
             "tooltip" = true;
             "on-click" = "${lib.getExe flake-update-status} open";
+            "on-click-right" = "${lib.getExe flake-update-status} run";
           };
         };
       };

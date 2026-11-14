@@ -7,5 +7,6 @@
     ./waybar.nix
     ./wpaperd.nix
     ./hypridle.nix
+    ./dunst.nix
   ];
 }

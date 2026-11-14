@@ -157,8 +157,13 @@ tooltip label {
   font-feature-settings: "tnum";
 }
 
-#custom-flake-update.stale {
+#custom-flake-update.stale,
+#custom-flake-update.empty {
   opacity: 0.4;
+}
+
+#custom-flake-update.running {
+  color: @gold;
 }
 
 #custom-flake-update.failing {
