@@ -12,6 +12,10 @@ let
   browser = "firefox";
   menu = "wofi --show drun";
 
+  layout-lookup = pkgs.writers.writePython3Bin "layout-lookup" { doCheck = false; } (
+    builtins.readFile ./layout-lookup.py
+  );
+
   # "output, mode, position, scale" -> hl.monitor table
   parseMonitor =
     s:
@@ -45,6 +49,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = [ layout-lookup ];
+
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "lua";
@@ -119,7 +125,7 @@ in
           };
 
           input = {
-            kb_layout = "dk";
+            kb_layout = "us,dk";
             kb_options = "caps:escape_shifted_capslock";
             follow_mouse = 1;
             sensitivity = 0;
@@ -146,6 +152,13 @@ in
             match.title = "AirPods Settings";
             float = true;
             pin = true;
+          }
+          {
+            name = "layout-lookup";
+            match.class = "local.layoutlookup";
+            float = true;
+            center = true;
+            size = "520 260";
           }
         ]
         ++ lib.optional config.nixos-package-search.enable {
@@ -180,6 +193,9 @@ in
         hl.bind(mainMod .. " + L", ${exec "hyprlock"})
         hl.bind(mainMod .. " + SPACE", ${exec "vicinae toggle"})
         hl.bind(mainMod .. " + SHIFT + Q", ${exec browser})
+        hl.bind(mainMod .. " + SHIFT + SPACE", ${exec "hyprctl switchxkblayout all next"})
+        -- Copilot key
+        hl.bind(mainMod .. " + SHIFT + code:201", ${exec "ghostty --class=local.layoutlookup --gtk-single-instance=false -e ${lib.getExe layout-lookup}"})
         hl.bind(mainMod .. " + A", ${exec "~/.config/hypr-backup/rofi_keybinds.sh"})
         ${lib.optionalString config.nixos-package-search.enable ''hl.bind("ALT + SPACE", ${exec "nixos-package-search"})''}
 
