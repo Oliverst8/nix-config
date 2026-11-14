@@ -205,8 +205,25 @@ in
         hl.bind(mainMod .. " + SPACE", ${exec "vicinae toggle"})
         hl.bind(mainMod .. " + SHIFT + Q", ${exec browser})
         hl.bind(mainMod .. " + SHIFT + SPACE", ${exec "hyprctl switchxkblayout all next"})
-        -- Copilot key
-        hl.bind(mainMod .. " + SHIFT + code:201", ${exec "ghostty --class=local.layoutlookup --gtk-single-instance=false --title=layout-lookup --window-padding-x=16 --window-padding-y=14 --background-opacity=0.85 --confirm-close-surface=false -e ${lib.getExe layout-lookup}"})
+        -- Copilot key (sends SUPER + SHIFT + F23): next key -> notification, CTRL + Copilot -> window
+        local lookupKeys = { [49] = "TLDE", [51] = "BKSL", [94] = "LSGT" }
+        for i = 1, 12 do lookupKeys[9 + i] = string.format("AE%02d", i); lookupKeys[23 + i] = string.format("AD%02d", i) end
+        for i = 1, 11 do lookupKeys[37 + i] = string.format("AC%02d", i) end
+        for i = 1, 10 do lookupKeys[51 + i] = string.format("AB%02d", i) end
+        hl.define_submap("layout-lookup", function()
+          for code, pos in pairs(lookupKeys) do
+            for lvl, mods in ipairs({ "", "SHIFT + ", "MOD5 + ", "SHIFT + MOD5 + " }) do
+              hl.bind(mods .. "code:" .. code, function()
+                hl.dispatch(hl.dsp.exec_cmd("${lib.getExe layout-lookup} --notify " .. pos .. " " .. (lvl - 1)))
+                hl.dispatch(hl.dsp.submap("reset"))
+              end)
+            end
+          end
+          for _, mod in ipairs({ "Shift_L", "Shift_R", "ISO_Level3_Shift" }) do hl.bind(mod, function() end) end
+          hl.bind("catchall", hl.dsp.submap("reset"))
+        end)
+        hl.bind(mainMod .. " + SHIFT + code:201", hl.dsp.submap("layout-lookup"))
+        hl.bind(mainMod .. " + CTRL + SHIFT + code:201", ${exec "ghostty --class=local.layoutlookup --gtk-single-instance=false --title=layout-lookup --window-padding-x=16 --window-padding-y=14 --background-opacity=0.85 --confirm-close-surface=false -e ${lib.getExe layout-lookup}"})
         hl.bind(mainMod .. " + A", ${exec "~/.config/hypr-backup/rofi_keybinds.sh"})
         ${lib.optionalString config.nixos-package-search.enable ''hl.bind("ALT + SPACE", ${exec "nixos-package-search"})''}
 

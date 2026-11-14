@@ -79,21 +79,17 @@ def find(layout, ch):
     return None
 
 
-def describe(ch):
-    head = f"  {rgb(ROSE)}{BOLD}{ch}{RESET}  {rgb(AMBER)}→{RESET}  "
+def lookup(ch):
+    """-> (keys, notes) on LEARN for ch, keys None if not found."""
     if ch.isascii() and ch.isalpha():
-        return head + dim("same key")
+        return [], ["same key"]
     hit = find(LEARN, ch)
     if hit is None:
-        return head + dim(f"not on {LEARN} (or not in the table)")
+        return None, [f"not on {LEARN} (or not in the table)"]
     pos, lvl = hit
     cap = (LAYOUTS[KNOWN].get(pos) or LAYOUTS[LEARN][pos])[0]
     cap = cap.upper() if cap.isalpha() else cap
-
-    keys = [chip(m) for m in MODS[lvl].split(" + ") if m] + [chip(cap)]
-    width = sum(len(m) + 2 for m in MODS[lvl].split(" + ") if m) + len(cap) + 2
-    width += 3 * (len(keys) - 1)
-    line = head + dim(" + ").join(keys) + " " * max(1, 24 - width)
+    keys = [m for m in MODS[lvl].split(" + ") if m] + [cap]
 
     notes = []
     if pos in WHERE:
@@ -102,7 +98,46 @@ def describe(ch):
         notes.append("same as before")
     if ch in DEAD.get(LEARN, ()):
         notes.append("dead key: press Space after")
-    return line + dim(" · ".join(notes))
+    return keys, notes
+
+
+def describe(ch):
+    head = f"  {rgb(ROSE)}{BOLD}{ch}{RESET}  {rgb(AMBER)}→{RESET}  "
+    keys, notes = lookup(ch)
+    if not keys:
+        return head + dim(" · ".join(notes))
+    width = sum(len(k) + 2 for k in keys) + 3 * (len(keys) - 1)
+    line = head + dim(" + ").join(chip(k) for k in keys)
+    return line + " " * max(1, 24 - width) + dim(" · ".join(notes))
+
+
+# QWERTY letter rows, identical on dk and us
+LETTERS = {**{f"AD{i + 1:02}": c for i, c in enumerate("qwertyuiop")},
+           **{f"AC{i + 1:02}": c for i, c in enumerate("asdfghjkl")},
+           **{f"AB{i + 1:02}": c for i, c in enumerate("zxcvbnm")}}
+
+
+def notify(pos, lvl):
+    """Notify where the char at (pos, lvl) on KNOWN lives on LEARN."""
+    levels = LAYOUTS[KNOWN].get(pos)
+    if levels is None and pos in LETTERS:
+        levels = (LETTERS[pos], LETTERS[pos].upper())
+    ch = levels[lvl] if levels and lvl < len(levels) else None
+    if ch is None:
+        title, body = f"{KNOWN} {MODS[lvl] or 'key'}", "nothing there"
+    else:
+        keys, notes = lookup(ch)
+        title = esc(ch)
+        body = " + ".join(f"<b>{esc(k)}</b>" for k in keys or [])
+        if notes:
+            body += ("\n" if body else "") + esc(" · ".join(notes))
+    subprocess.run(["notify-send", "-a", "layout-lookup",
+                    "-h", "string:x-dunst-stack-tag:layout-lookup",
+                    f"{KNOWN} → {LEARN}: {title}", body])
+
+
+def esc(s):
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def switch(code):
@@ -147,4 +182,7 @@ def main():
         switch(LEARN)
 
 
-main()
+if len(sys.argv) == 4 and sys.argv[1] == "--notify":
+    notify(sys.argv[2], int(sys.argv[3]))
+else:
+    main()
