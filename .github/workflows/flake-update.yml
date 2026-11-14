@@ -2,19 +2,19 @@ name: Flake update
 
 on:
   schedule:
-    - cron: '0 2 * * 0' # Sundays 02:00 UTC
+    - cron: "0 2 * * 5" # Fridays 02:00 UTC
   workflow_dispatch:
     inputs:
       hosts:
-        description: 'Comma-separated hosts to build (empty = default list)'
+        description: "Comma-separated hosts to build (empty = default list)"
         type: string
-        default: ''
+        default: ""
       update_lock:
-        description: 'Run nix flake update (off = just build the current lock)'
+        description: "Run nix flake update (off = just build the current lock)"
         type: boolean
         default: true
       open_pr:
-        description: 'Create/update the PR (off = dry run, report only in the run summary)'
+        description: "Create/update the PR (off = dry run, report only in the run summary)"
         type: boolean
         default: true
 
@@ -28,7 +28,7 @@ concurrency:
 
 env:
   # Hosts to build, as named in nixosConfigurations in flake.nix
-  DEFAULT_HOSTS: 'desktop,laptop'
+  DEFAULT_HOSTS: "desktop,laptop"
   PR_BRANCH: auto/flake-update
   FAIL_BRANCH: auto/flake-update-failing
 
