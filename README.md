@@ -29,6 +29,7 @@ In the following section all of my options can be found
 |nixos-package-search.enable|bool|Enable/Install nixos-package-search (Alt + Space in hyprland)|false|
 |battery.warn.enable|bool|Enable low battery warnings (notification + sound at 10% and 5%)|false|
 |claude-usage-waybar.enable|bool|Enable the Claude Code usage waybar module (needs statusLine wired up in ~/.claude/settings.json)|false|
+|flake-update-waybar.enable|bool|Enable the waybar module showing the pending flake update PR and its package count|false|
 
 ## Garbage collect
 
