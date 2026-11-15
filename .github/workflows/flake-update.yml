@@ -98,6 +98,8 @@ jobs:
         with:
           name: oliverst8
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+          # Skip prebuilt IDEs; too big for the free tier and not compiled anyway
+          pushFilter: "-(datagrip|webstorm|goland|pycharm|rust-rover|intellij-idea|clion|rider|gateway|android-studio-unwrapped)-[0-9]"
 
       - uses: actions/checkout@v7
 
