@@ -93,14 +93,6 @@ jobs:
             extra-substituters = https://hyprland.cachix.org
             extra-trusted-public-keys = hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=
 
-      # Pulls from and pushes build results to the cache
-      - uses: cachix/cachix-action@v16
-        with:
-          name: oliverst8
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-          # Skip prebuilt IDEs; too big for the free tier and not compiled anyway
-          pushFilter: "-(datagrip|webstorm|goland|pycharm|rust-rover|intellij-idea|clion|rider|gateway|android-studio-unwrapped)-[0-9]"
-
       - uses: actions/checkout@v7
 
       - uses: actions/download-artifact@v8
