@@ -86,6 +86,16 @@
 
     nix.settings.auto-optimise-store = true;
 
+    # Binary caches; oliverst8 is filled by the flake-update workflow
+    nix.settings.extra-substituters = [
+      "https://oliverst8.cachix.org"
+      "https://hyprland.cachix.org"
+    ];
+    nix.settings.extra-trusted-public-keys = [
+      "oliverst8.cachix.org-1:Gz5IDq/c/BgilkwI8oB5KrQqI8fH9SbCxthn6DOI0NE="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
+
     # Set your time zone.
     time.timeZone = "Europe/Copenhagen";
 
