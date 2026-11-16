@@ -39,6 +39,7 @@
     ../programs/discord
     ../programs/plymouth
     ../programs/tailscale
+    ../programs/attic
     ../programs/btop
     ../programs/steam
     ../programs/fprint

@@ -31,6 +31,10 @@ env:
   DEFAULT_HOSTS: "desktop,laptop"
   PR_BRANCH: auto/flake-update
   FAIL_BRANCH: auto/flake-update-failing
+  # Attic on the Pi, tailnet-only
+  ATTIC_HOST: starpi.tailc0008.ts.net
+  ATTIC_PORT: "47219"
+  ATTIC_CACHE: main
 
 jobs:
   update:
@@ -77,6 +81,10 @@ jobs:
     if: needs.update.outputs.proceed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 350
+    # id-token lets the runner join the tailnet without a stored secret
+    permissions:
+      contents: read
+      id-token: write
     strategy:
       fail-fast: false
       matrix:
@@ -87,11 +95,35 @@ jobs:
         with:
           witness-carnage: true
 
+      # Ephemeral tag:ci node; the tailnet policy only lets it reach the cache port
+      - uses: tailscale/github-action@v4
+        id: tailscale
+        continue-on-error: true
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          audience: ${{ secrets.TS_AUDIENCE }}
+          tags: tag:ci
+          ping: ${{ env.ATTIC_HOST }}
+
       - uses: cachix/install-nix-action@v31
         with:
           extra_nix_config: |
             extra-substituters = https://hyprland.cachix.org
             extra-trusted-public-keys = hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=
+            connect-timeout = 5
+            fallback = true
+
+      # Pull from the Pi's cache; the build still runs without it
+      - name: Use Attic cache
+        id: attic
+        if: steps.tailscale.outcome == 'success'
+        continue-on-error: true
+        env:
+          ATTIC_TOKEN: ${{ secrets.ATTIC_TOKEN }}
+        run: |
+          nix profile install github:NixOS/nixpkgs/nixos-25.11#attic-client
+          attic login ci "http://$ATTIC_HOST:$ATTIC_PORT" "$ATTIC_TOKEN"
+          attic use "ci:$ATTIC_CACHE"
 
       - uses: actions/checkout@v7
 
@@ -134,6 +166,15 @@ jobs:
           printf '{"status":"%s","duration":%d,"closure_size":%s}\n' \
             "$status" "$(( $(date +%s) - start ))" "$size" > meta.json
           echo "status=$status" >> "$GITHUB_OUTPUT"
+
+      # Runtime closure only; attic skips paths already in the upstream caches
+      - name: Push to Attic cache
+        if: steps.build.outputs.status == 'success' && steps.attic.outcome == 'success'
+        continue-on-error: true
+        # a slow push must not eat the job's time limit; the next run resumes
+        timeout-minutes: 90
+        run: |
+          attic push "ci:$ATTIC_CACHE" "$(cat out-path)"
 
       - uses: actions/upload-artifact@v7
         if: always()

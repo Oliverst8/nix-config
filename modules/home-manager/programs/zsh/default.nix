@@ -34,7 +34,8 @@ in
       shellAliases = {
         ll = "ls -l";
         update = "nh os switch ~/nixos -H " + config.systemFolder.name + " --ask";
-        nxdry = "sudo nixos-rebuild dry-activate --flake ~/nixos/#" + config.systemFolder.name;
+        cache-push = "attic push main /run/current-system";
+        nxdry ="sudo nixos-rebuild dry-activate --flake ~/nixos/#" + config.systemFolder.name;
         g = "lazygit";
         y = "yazi";
         sp = "spotify_player";
